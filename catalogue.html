@@ -158,7 +158,6 @@
       .menu-btn { display:flex; }
       .nav-container { padding:0 20px; }
       .nav-logo img { height:52px; }
-      .nav-right { margin-left:auto; }
     }
 
     /* ══ CATALOGUE BANNER ══ */
@@ -634,14 +633,14 @@
         <a class="nav-link active" href="catalogue.html">Catalogue</a>
         <a class="nav-link" href="about.html">About</a>
       </div>
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
       <a class="nav-logo" href="index.html">
         <img src="logo.webp" alt="Cycle World Pondicherry">
       </a>
       <div class="nav-right">
         <a class="nav-cta" href="contact.html">Contact Us</a>
-        <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
           <span class="icon-sun">&#9728;&#65038;</span>
           <span class="icon-moon">&#9789;</span>
