@@ -1,0 +1,1033 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="logo.webp" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy Bicycles in Pondicherry | Cycle World Catalogue</title>
+  <meta name="description" content="Browse and buy bicycles in Pondicherry. Cycle World stocks road bikes, mountain bikes, city cycles and kids' cycles from top brands. Visit our store at Mudaliarpet, Puducherry.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Buy Bicycles in Pondicherry | Cycle World Catalogue">
+  <meta property="og:description" content="Road bikes, mountain bikes, city cycles and kids' bikes from top brands. Pondicherry's best bicycle shop.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Buy Bicycles in Pondicherry | Cycle World">
+  <meta name="twitter:description" content="Road bikes, mountain bikes and kids cycles from top brands. Visit Cycle World, Mudaliarpet, Puducherry.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.bunny.net/css?family=playfair-display:400,400i,500,600,700|dm-sans:300,400,500" rel="stylesheet">
+  <script>(function(){const t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();</script>
+  <style>
+    /* ══ TOKENS ══ */
+    :root {
+      --bg:             #FDFAF5;
+      --bg-alt:         #F3EDE0;
+      --bg-dark:        #100F0D;
+      --bg-dark-2:      #1A1814;
+      --text:           #18140E;
+      --text-muted:     #7A6E5E;
+      --text-inv:       #F5F0E6;
+      --text-inv-muted: #A8A090;
+      --accent:         #C4902A;
+      --accent-hover:   #A87820;
+      --accent-light:   #F0DDB0;
+      --accent-glow:    rgba(196,144,42,0.22);
+      --border:         #E5DCC8;
+      --border-dark:    #2C2418;
+      --surface:        #FFFFFF;
+      --ease-out:       cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out:    cubic-bezier(0.77, 0, 0.175, 1);
+      --green:          var(--accent);
+      --green-light:    #D4A840;
+      --green-pale:     var(--accent-light);
+      --green-mid:      #C4902A;
+      --green-faint:    #F5E8CC;
+      --bg2:            var(--bg-alt);
+      --surface2:       var(--bg-alt);
+      --border2:        rgba(0,0,0,0.14);
+      --text-soft:      var(--text-muted);
+      --text-mid:       #5A4E3E;
+      --color-accent:   var(--accent);
+      --color-bg-dark:  var(--bg-dark);
+      --color-bg-alt:   var(--bg-alt);
+      --color-border:   var(--border);
+    }
+    [data-theme="dark"] {
+      --bg:             #100F0D;
+      --bg-alt:         #1A1814;
+      --bg-dark:        #080706;
+      --bg-dark-2:      #1A1814;
+      --text:           #F0EBE0;
+      --text-muted:     #9A8E78;
+      --text-inv:       #F0EBE0;
+      --text-inv-muted: #7A6E5E;
+      --accent:         #D4A840;
+      --accent-hover:   #E0B850;
+      --accent-light:   #2C2010;
+      --accent-glow:    rgba(212,168,64,0.22);
+      --border:         #2C2418;
+      --border-dark:    #2C2418;
+      --surface:        #1A1814;
+      --green-light:    #D4A840;
+      --green-mid:      #C4902A;
+      --green-faint:    #2C2010;
+      --text-mid:       #9A8E78;
+      --border2:        rgba(255,255,255,0.1);
+    }
+    html { transition:background-color 250ms var(--ease-out),color 200ms var(--ease-out); }
+    *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+    body { background:var(--bg); color:var(--text); overflow-x:hidden; font-family:'DM Sans',sans-serif; font-weight:400; }
+    h1,h2,h3,h4 { font-family:'Playfair Display',serif; font-weight:600; letter-spacing:0.01em; }
+    a { text-decoration:none; color:inherit; }
+    img { width:100%; display:block; }
+    ::-webkit-scrollbar { width:5px; }
+    ::-webkit-scrollbar-track { background:var(--bg-alt); }
+    ::-webkit-scrollbar-thumb { background:var(--accent); border-radius:99px; }
+
+    /* ══ NAVBAR ══ */
+    .navbar {
+      position:fixed; top:0; left:0; right:0; height:72px;
+      background:rgba(8,7,6,0.88);
+      backdrop-filter:blur(24px) saturate(200%);
+      -webkit-backdrop-filter:blur(24px) saturate(200%);
+      border-bottom:1px solid rgba(196,144,42,0.12);
+      z-index:1000;
+      transition:background 300ms var(--ease-out),box-shadow 300ms var(--ease-out),transform 400ms var(--ease-out);
+    }
+    .navbar.scrolled { background:rgba(8,7,6,0.97); box-shadow:0 2px 40px rgba(0,0,0,0.6); }
+    .nav-container {
+      position:relative; display:flex; align-items:center;
+      justify-content:space-between; height:100%;
+      max-width:1280px; margin:0 auto; padding:0 40px;
+    }
+    .nav-left,.nav-right { display:flex; align-items:center; gap:32px; }
+    .nav-link {
+      color:rgba(245,240,230,0.58); font-size:11.5px; font-weight:500;
+      letter-spacing:0.1em; text-transform:uppercase; position:relative;
+      transition:color 180ms var(--ease-out);
+    }
+    .nav-link::after {
+      content:""; position:absolute; left:0; bottom:-4px;
+      width:0; height:1px; background:var(--accent);
+      transition:width 220ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) {
+      .nav-link:hover { color:#F5F0E6; }
+      .nav-link:hover::after { width:100%; }
+    }
+    .nav-link.active { color:#F5F0E6; }
+    .nav-link.active::after { width:100%; }
+    .nav-logo { position:absolute; left:50%; transform:translateX(-50%); display:block; line-height:0; }
+    .nav-logo img { height:66px; width:auto; filter:drop-shadow(0 0 12px rgba(196,144,42,0.45)); transition:filter 200ms var(--ease-out); }
+    @media (hover:hover) and (pointer:fine) { .nav-logo:hover img { filter:drop-shadow(0 0 22px rgba(196,144,42,0.7)); } }
+    .nav-cta {
+      display:inline-flex; align-items:center; padding:8px 20px;
+      background:var(--accent); color:#0A0906; border-radius:6px;
+      font-size:11.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+      transition:background 180ms var(--ease-out),transform 160ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) { .nav-cta:hover { background:var(--accent-hover); } }
+    .nav-cta:active { transform:scale(0.97); }
+    .theme-toggle {
+      display:flex; align-items:center; justify-content:center;
+      width:34px; height:34px; border-radius:8px;
+      border:1px solid rgba(196,144,42,0.18); background:rgba(196,144,42,0.05);
+      color:rgba(245,240,230,0.6); cursor:pointer; font-size:14px; padding:0;
+      transition:border-color 160ms var(--ease-out),background 160ms var(--ease-out),color 160ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) {
+      .theme-toggle:hover { border-color:rgba(196,144,42,0.4); background:rgba(196,144,42,0.1); color:#F5F0E6; }
+    }
+    [data-theme="light"] .icon-moon { display:none; }
+    [data-theme="dark"]  .icon-sun  { display:none; }
+    .menu-btn {
+      display:none; width:38px; height:38px; border-radius:10px;
+      background:rgba(255,255,255,0.05); border:1px solid rgba(196,144,42,0.18);
+      color:rgba(245,240,230,0.8); cursor:pointer;
+      align-items:center; justify-content:center; font-size:0.9rem;
+    }
+    .mobile-nav {
+      display:none; flex-direction:column;
+      background:rgba(8,7,6,0.97); border-top:1px solid rgba(196,144,42,0.1);
+      padding:12px 24px 20px;
+    }
+    .mobile-nav.active { display:flex; }
+    .mobile-nav .nav-link { padding:13px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:14px; }
+    .mobile-nav .nav-link:last-child { border-bottom:none; }
+    @media (max-width:768px) {
+      .nav-left,.nav-cta { display:none; }
+      .menu-btn { display:flex; }
+      .nav-container { padding:0 20px; }
+      .nav-logo img { height:52px; }
+    }
+
+    /* ══ CATALOGUE BANNER ══ */
+    .catalogue-banner {
+      margin-top:72px; padding:70px 5% 48px; position:relative; overflow:hidden;
+      background:var(--bg-dark);
+      border-bottom:1px solid var(--border-dark);
+    }
+    .catalogue-banner::before {
+      content:''; position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(196,144,42,0.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(196,144,42,0.04) 1px,transparent 1px);
+      background-size:60px 60px; pointer-events:none;
+    }
+    .catalogue-banner::after {
+      content:''; position:absolute; top:0; left:0; width:3px; height:100%;
+      background:linear-gradient(180deg,var(--accent) 0%,rgba(196,144,42,0.2) 70%,transparent 100%);
+    }
+    .banner-inner {
+      position:relative; z-index:1; display:flex;
+      align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap;
+    }
+    .banner-eyebrow {
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:0.7rem; font-weight:600; letter-spacing:0.28em; text-transform:uppercase;
+      color:var(--accent); margin-bottom:12px;
+    }
+    .banner-eyebrow::before {
+      content:''; display:block; width:24px; height:1px; background:var(--accent); opacity:0.6;
+    }
+    .catalogue-banner h1 {
+      font-size:clamp(2.4rem,5vw,4rem); letter-spacing:0.04em;
+      color:var(--text-inv); line-height:0.95; text-transform:uppercase; font-style:italic;
+    }
+    .catalogue-banner h1 span { color:var(--accent); font-style:normal; }
+    .banner-right { display:flex; align-items:center; gap:16px; padding-bottom:4px; }
+    .banner-stat {
+      text-align:center; background:rgba(255,255,255,0.04);
+      border:1px solid rgba(196,144,42,0.18); border-radius:12px; padding:14px 22px;
+      transition:border-color 200ms var(--ease-out),background 200ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) {
+      .banner-stat:hover { border-color:rgba(196,144,42,0.45); background:rgba(196,144,42,0.06); }
+    }
+    .banner-stat-num {
+      font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--accent);
+      letter-spacing:0.04em; line-height:1; font-style:italic;
+    }
+    .banner-stat-label {
+      font-size:0.62rem; font-weight:700; letter-spacing:0.18em;
+      text-transform:uppercase; color:var(--text-inv-muted); margin-top:3px;
+    }
+    @media(max-width:768px) {
+      .catalogue-banner { padding:100px 5% 30px; }
+      .banner-right { display:none; }
+      .catalogue-banner h1 { font-size:2.2rem; }
+    }
+
+    /* ══ SKELETON ══ */
+    .skeleton-card { background:var(--surface); border-radius:14px; overflow:hidden; border:1px solid var(--border); }
+    .skeleton-image { width:100%; height:220px; background:var(--bg-alt); }
+    .skeleton-content { padding:20px; }
+    .skeleton-line { height:13px; border-radius:99px; background:var(--bg-alt); margin-bottom:12px; }
+    .skeleton-line.large { width:75%; height:18px; }
+    .skeleton-line.medium { width:50%; }
+    .skeleton-line.small { width:30%; }
+    .skeleton-button { width:100%; height:42px; border-radius:8px; background:var(--bg-alt); margin-top:14px; }
+    .skeleton-shimmer { position:relative; overflow:hidden; }
+    .skeleton-shimmer::after {
+      content:''; position:absolute; top:0; left:-150%; width:120%; height:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);
+      animation:skeletonLoading 1.4s infinite;
+    }
+    @keyframes skeletonLoading { 100%{left:150%;} }
+
+    /* ══ PAGE LAYOUT ══ */
+    .catalogue-page {
+      display:grid; grid-template-columns:260px 1fr;
+      gap:0; max-width:1600px; margin:0 auto;
+      padding:0 24px 60px; background:transparent; overflow:visible;
+    }
+
+    /* ══ SIDEBAR ══ */
+    .sidebar {
+      width:100%; height:fit-content; position:sticky; top:100px;
+      background:var(--bg-alt); padding:26px; border-radius:14px;
+      border:1px solid var(--border); margin-top:28px;
+    }
+    [data-theme="dark"] .sidebar { background:var(--bg-dark-2); border-color:var(--border-dark); }
+    .sidebar-header {
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom:24px; padding-bottom:18px; border-bottom:1px solid var(--border);
+    }
+    [data-theme="dark"] .sidebar-header { border-color:var(--border-dark); }
+    .sidebar-header h2 {
+      font-size:1.2rem; font-weight:400; letter-spacing:0.1em;
+      text-transform:uppercase; color:var(--text); font-family:'Playfair Display',serif;
+    }
+    .close-filters {
+      position:absolute; display:none; top:18px; right:18px;
+      width:40px; height:40px; border:none; border-radius:10px;
+      background:var(--bg-alt); color:var(--text-muted);
+      cursor:pointer; font-size:1rem; border:1px solid var(--border);
+      align-items:center; justify-content:center; transition:background 160ms,color 160ms;
+    }
+    .close-filters:hover { background:#fde8e8; color:#c03030; }
+    .filter-group { margin-bottom:24px; }
+    .filter-group + .filter-group { padding-top:18px; border-top:1px solid var(--border); }
+    [data-theme="dark"] .filter-group + .filter-group { border-color:var(--border-dark); }
+    .filter-group h3 {
+      font-family:'DM Sans',sans-serif; font-size:0.7rem; font-weight:700;
+      margin-bottom:14px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.22em;
+    }
+    .filter-group label {
+      display:flex; align-items:center; gap:10px; margin-bottom:10px;
+      color:var(--text-muted); cursor:pointer; font-size:0.9rem; font-family:'DM Sans',sans-serif;
+      font-weight:400; transition:color 150ms;
+    }
+    @media (hover:hover) and (pointer:fine) { .filter-group label:hover { color:var(--accent); } }
+    .filter-group input[type="checkbox"] { accent-color:var(--accent); width:15px; height:15px; cursor:pointer; flex-shrink:0; }
+
+    /* ══ PRICE RANGE SLIDER ══ */
+    .price-slider-wrap { width:100%; }
+    .price-labels {
+      display:flex; justify-content:space-between;
+      font-size:0.82rem; font-weight:600; color:var(--text); margin-bottom:16px;
+    }
+    .range-track-wrap { position:relative; height:22px; margin:0 2px; }
+    .range-track-bg {
+      position:absolute; top:50%; left:0; right:0; height:4px;
+      transform:translateY(-50%); background:var(--border); border-radius:99px;
+    }
+    [data-theme="dark"] .range-track-bg { background:var(--border-dark); }
+    .range-track-fill {
+      position:absolute; top:50%; height:4px;
+      transform:translateY(-50%); background:var(--accent);
+      border-radius:99px; pointer-events:none;
+    }
+    .range-thumb {
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:100%; height:4px; background:none;
+      pointer-events:none; appearance:none; -webkit-appearance:none;
+      outline:none; margin:0;
+    }
+    .range-thumb::-webkit-slider-thumb {
+      appearance:none; -webkit-appearance:none;
+      width:18px; height:18px; border-radius:50%;
+      background:#fff; border:2px solid var(--accent);
+      cursor:pointer; pointer-events:all;
+      box-shadow:0 1px 6px rgba(0,0,0,0.18);
+    }
+    .range-thumb::-moz-range-thumb {
+      width:18px; height:18px; border-radius:50%;
+      background:#fff; border:2px solid var(--accent);
+      cursor:pointer; pointer-events:all;
+      box-shadow:0 1px 6px rgba(0,0,0,0.18);
+    }
+
+    /* ══ CATALOGUE CONTENT ══ */
+    .catalogue-content { width:100%; min-width:0; padding:24px 0 20px 24px; }
+
+    /* ══ TOP BAR ══ */
+    .top-bar { display:flex; flex-direction:column; gap:16px; margin-bottom:28px; }
+    .search-box { padding-top:8px; width:100%; position:relative; display:flex; align-items:center; }
+    .search-box input {
+      width:100%; height:58px; border-radius:12px; padding:0 120px 0 24px;
+      border:1.5px solid var(--border); outline:none;
+      background:var(--surface); color:var(--text);
+      font-size:0.95rem; font-family:'DM Sans',sans-serif; font-weight:400;
+      transition:border-color 200ms var(--ease-out),box-shadow 200ms var(--ease-out);
+    }
+    [data-theme="dark"] .search-box input { background:var(--bg-dark-2); border-color:var(--border-dark); }
+    .search-box input:focus {
+      border-color:var(--accent);
+      box-shadow:0 0 0 3px var(--accent-glow);
+    }
+    .search-box input::placeholder { color:var(--text-muted); }
+    .search-btn {
+      position:absolute; right:10px; width:42px; height:42px;
+      border:none; border-radius:10px; background:var(--accent); color:#0A0906;
+      cursor:pointer; font-size:0.92rem;
+      transition:background 180ms var(--ease-out),transform 160ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) { .search-btn:hover { background:var(--accent-hover); } }
+    .search-btn:active { transform:scale(0.96); }
+    .filter-icon-btn {
+      position:absolute; right:60px; width:42px; height:42px;
+      border:1px solid var(--border); border-radius:10px;
+      background:var(--surface); color:var(--text-muted); cursor:pointer;
+      transition:background 200ms,color 200ms,border-color 200ms; font-size:0.9rem; display:none;
+      align-items:center; justify-content:center;
+    }
+    @media (hover:hover) and (pointer:fine) { .filter-icon-btn:hover { background:var(--accent); color:#0A0906; border-color:var(--accent); } }
+    .results-top-bar {
+      display:flex; align-items:center; justify-content:space-between; gap:16px; width:100%;
+    }
+    .results-text {
+      color:var(--text-muted); font-family:'DM Sans',sans-serif; font-weight:600; font-size:0.82rem;
+      letter-spacing:0.06em; display:inline-flex; align-items:center; justify-content:center;
+      padding:8px 18px; background:var(--bg-alt); border-radius:8px; border:1px solid var(--border);
+    }
+    [data-theme="dark"] .results-text { background:var(--bg-dark-2); border-color:var(--border-dark); }
+    .compare-top-btn {
+      position:relative; height:42px; padding:0 22px; border:none; border-radius:10px;
+      background:var(--bg-dark); color:var(--text-inv);
+      font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.88rem;
+      letter-spacing:0.08em; text-transform:uppercase; cursor:pointer;
+      transition:background 180ms var(--ease-out),transform 160ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) { .compare-top-btn:hover { background:var(--accent); color:#0A0906; } }
+    .compare-top-btn:active { transform:scale(0.97); }
+    .compare-count {
+      position:absolute; top:-8px; right:-8px; width:22px; height:22px;
+      border-radius:50%; background:var(--accent); color:#0A0906;
+      font-size:0.72rem; font-weight:700; display:flex; align-items:center; justify-content:center;
+      border:2px solid var(--bg);
+    }
+
+    /* ══ PRODUCT GRID ══ */
+    .product-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+      gap:20px; width:100%;
+    }
+    .product-card {
+      background:var(--surface); border-radius:14px; border:1px solid var(--border);
+      display:flex; flex-direction:column; overflow:hidden;
+      transition:transform 350ms var(--ease-out),box-shadow 350ms var(--ease-out),border-color 250ms var(--ease-out);
+    }
+    [data-theme="dark"] .product-card { background:var(--bg-dark-2); border-color:var(--border-dark); }
+    @media (hover:hover) and (pointer:fine) {
+      .product-card:hover {
+        transform:translateY(-6px);
+        box-shadow:0 20px 48px rgba(0,0,0,0.12),0 0 0 1px rgba(196,144,42,0.18);
+        border-color:rgba(196,144,42,0.3);
+      }
+    }
+    .product-image {
+      position:relative; height:200px; overflow:hidden;
+      background:var(--bg-alt); transition:background 300ms;
+    }
+    [data-theme="dark"] .product-image { background:var(--bg-dark); }
+    @media (hover:hover) and (pointer:fine) {
+      .product-card:hover .product-image { background:var(--accent-light); }
+    }
+    [data-theme="dark"] .product-card:hover .product-image { background:var(--accent-light); }
+    .product-image img {
+      width:100%; height:100%; object-fit:contain; padding:12px;
+      transition:transform 450ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) { .product-card:hover .product-image img { transform:scale(1.06); } }
+    .offer-tag {
+      position:absolute; top:12px; left:12px;
+      background:var(--accent); color:#0A0906;
+      padding:4px 11px; border-radius:6px;
+      font-family:'DM Sans',sans-serif; font-size:0.7rem; font-weight:700;
+      letter-spacing:0.08em; z-index:2;
+    }
+    .product-content { padding:18px; margin-top:0; background:transparent; }
+    .product-top-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+    .brand {
+      color:var(--accent); font-family:'DM Sans',sans-serif;
+      font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.16em;
+    }
+    .stock-badge {
+      display:inline-block; padding:3px 9px; border-radius:99px;
+      font-family:'DM Sans',sans-serif; font-size:0.68rem; font-weight:600;
+    }
+    .in-stock  { background:var(--accent-light); color:var(--accent); }
+    .out-stock { background:rgba(220,50,50,0.08); color:#c03030; }
+    [data-theme="dark"] .in-stock  { background:var(--accent-light); color:var(--accent); }
+    .product-link { text-decoration:none; color:var(--text); display:block; }
+    .product-content h3 {
+      font-family:'Playfair Display',serif; font-size:1.1rem; letter-spacing:0.03em;
+      color:var(--text); line-height:1.2; margin-bottom:3px;
+    }
+    .product-price-wrap { display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; margin:8px 0 10px; }
+    .product-price { font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--accent); font-style:italic; }
+    .old-price { font-size:0.85rem; color:var(--text-muted); text-decoration:line-through; }
+    .product-colors { display:flex; align-items:center; gap:6px; margin-bottom:12px; }
+    .color-dot { width:15px; height:15px; border-radius:50%; border:2px solid rgba(255,255,255,0.25); box-shadow:0 1px 5px rgba(0,0,0,0.15); }
+    .product-actions { display:flex; gap:8px; margin-top:auto; }
+    .enquiry-btn {
+      flex:1; height:40px; border:none; border-radius:8px;
+      background:var(--accent); color:#0A0906; font-family:'DM Sans',sans-serif;
+      font-weight:700; font-size:0.82rem; letter-spacing:0.08em; text-transform:uppercase;
+      cursor:pointer; transition:background 180ms var(--ease-out),transform 160ms var(--ease-out);
+      display:flex; align-items:center; justify-content:center;
+    }
+    @media (hover:hover) and (pointer:fine) { .enquiry-btn:hover { background:var(--accent-hover); } }
+    .enquiry-btn:active { transform:scale(0.97); }
+    .enquiry-btn.disabled { background:var(--bg-alt); color:var(--text-muted); pointer-events:none; }
+    [data-theme="dark"] .enquiry-btn.disabled { background:var(--border-dark); }
+    .compare-btn {
+      width:40px; height:40px; border:1px solid var(--border); border-radius:8px;
+      background:var(--surface); color:var(--text-muted); font-weight:600; cursor:pointer;
+      transition:background 180ms,color 180ms,border-color 180ms; font-size:0.82rem;
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    [data-theme="dark"] .compare-btn { background:var(--bg-dark); border-color:var(--border-dark); }
+    @media (hover:hover) and (pointer:fine) { .compare-btn:hover { background:var(--accent); color:#0A0906; border-color:var(--accent); } }
+    .compare-btn:active { transform:scale(0.96); }
+
+    /* ══ FILTER OVERLAY ══ */
+    .filter-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.35); backdrop-filter:blur(4px); z-index:998; display:none; }
+    .filter-overlay.active { display:block; }
+
+    /* ══ EMPTY STATE ══ */
+    .empty-state { grid-column:1/-1; text-align:center; padding:80px 20px; color:var(--text-muted); }
+    .empty-state i { font-size:2.2rem; color:var(--accent); margin-bottom:14px; opacity:0.5; }
+    .empty-state p { font-size:1rem; }
+
+    /* ══ RESPONSIVE ══ */
+    @media(min-width:1400px) { .catalogue-page { padding:0 40px 60px; } }
+    @media(max-width:1199px) { .catalogue-page { grid-template-columns:230px 1fr; padding:0 20px 40px; } }
+    @media(max-width:1023px) {
+      .filter-icon-btn { display:flex; }
+      .search-box input { padding-right:112px; }
+      .catalogue-page { grid-template-columns:1fr; padding:0 20px 40px; }
+      .sidebar {
+        position:fixed; top:88px; left:0; width:280px; height:calc(100vh - 88px);
+        max-height:none; overflow-y:auto; border-radius:0 14px 14px 0;
+        z-index:999; transform:translateX(-110%); transition:transform 0.35s var(--ease-out);
+        display:block; box-shadow:4px 0 24px rgba(0,0,0,0.15); margin-top:0;
+      }
+      .sidebar.active { transform:translateX(0); }
+      .close-filters { display:flex; }
+      .catalogue-content { padding:20px 0; }
+    }
+    @media(max-width:768px) {
+      .catalogue-page { padding:16px 14px 50px; }
+      .sidebar { top:88px; width:100%; height:calc(100vh - 88px); border-radius:0 0 14px 14px; transform:translateY(-110%); left:0; }
+      .sidebar.active { transform:translateY(0); }
+      .product-grid { grid-template-columns:repeat(2,1fr) !important; gap:10px !important; }
+      .product-card { border-radius:12px; }
+      .product-image { aspect-ratio:1/0.9 !important; height:auto !important; }
+      .product-content { padding:10px 12px 12px !important; }
+      .product-content h3 { font-size:0.88rem !important; line-height:1.15 !important; margin-bottom:1px !important; }
+      .product-price { font-size:1rem !important; }
+      .product-price-wrap { margin:4px 0 !important; }
+      .brand { font-size:0.6rem !important; }
+      .stock-badge { font-size:0.5rem !important; padding:2px 6px !important; }
+      .product-colors { margin-bottom:6px !important; }
+      .enquiry-btn { height:34px !important; font-size:0.68rem !important; }
+      .compare-btn { width:34px !important; height:34px !important; font-size:0.7rem !important; }
+      .results-top-bar { flex-direction:row !important; flex-wrap:nowrap !important; }
+      .compare-top-btn { height:38px; font-size:0.82rem; }
+      .search-box input { height:52px; font-size:0.9rem; }
+    }
+    @media(max-width:500px) {
+      .catalogue-page { padding:10px 10px 50px; }
+      .whatsapp-text { display: none; }
+      .whatsapp-float { padding: 12px; border-radius: 50%; right: 16px; bottom: 16px; }
+      .product-grid { gap:8px !important; }
+    }
+
+    /* ══ WHATSAPP FLOAT ══ */
+    .whatsapp-float {
+      position:fixed; right:24px; bottom:24px; z-index:9999;
+      display:flex; align-items:center; gap:10px;
+      background:var(--bg-dark); color:#fff;
+      padding:10px 18px 10px 10px; border-radius:60px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.32);
+      border:1px solid rgba(196,144,42,0.18);
+      font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:700;
+      letter-spacing:0.06em; text-transform:uppercase;
+      transition:transform 200ms var(--ease-out),box-shadow 200ms var(--ease-out),background 200ms;
+    }
+    @media (hover:hover) and (pointer:fine) {
+      .whatsapp-float:hover { background:#25D366; transform:translateY(-4px); box-shadow:0 14px 40px rgba(37,211,102,0.35); border-color:transparent; }
+    }
+    .whatsapp-float img { width:22px; height:22px; }
+
+    /* ══ FOOTER ══ */
+    .footer { background:var(--bg-dark); border-top:1px solid var(--border-dark); }
+    .footer-container {
+      max-width:1240px; margin:0 auto;
+      display:grid; grid-template-columns:1.5fr 1fr 1fr;
+      gap:60px; padding:64px 40px 48px;
+      border-bottom:1px solid var(--border-dark);
+    }
+    .footer-logo img { height:52px; width:auto; margin-bottom:18px; }
+    .footer-description { font-size:0.9rem; color:var(--text-inv-muted); line-height:1.7; max-width:280px; margin-bottom:26px; }
+    .social-icons { display:flex; gap:12px; flex-wrap:wrap; }
+    .social-icons a {
+      width:40px; height:40px; border-radius:10px;
+      background:rgba(255,255,255,0.04); border:1px solid var(--border-dark);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--text-inv-muted); font-size:0.9rem;
+      transition:border-color 160ms var(--ease-out),color 160ms var(--ease-out),background 160ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) {
+      .social-icons a:hover { border-color:var(--accent); color:var(--accent); background:rgba(196,144,42,0.08); }
+    }
+    .footer-column h3 {
+      font-family:'DM Sans',sans-serif; font-size:0.7rem; font-weight:700;
+      letter-spacing:0.24em; text-transform:uppercase; color:var(--accent); margin-bottom:20px;
+    }
+    .footer-column a,.footer-column p {
+      display:block; font-size:0.9rem; color:var(--text-inv-muted);
+      margin-bottom:11px; line-height:1.7; transition:color 160ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) { .footer-column a:hover { color:var(--text-inv); } }
+    .footer-bottom {
+      max-width:1240px; margin:0 auto; padding:24px 40px;
+      display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;
+    }
+    .footer-bottom p { font-size:0.82rem; color:var(--text-inv-muted); line-height:1.6; }
+    .developer-link { color:var(--accent); font-weight:600; }
+    @media (hover:hover) and (pointer:fine) { .developer-link:hover { color:var(--text-inv); } }
+    @media (max-width:900px) { .footer-container { grid-template-columns:1fr 1fr; gap:40px; } }
+    @media (max-width:768px) {
+      .footer-container { grid-template-columns:1fr; gap:40px; padding:48px 24px 32px; }
+      .footer-bottom { padding:20px 24px; justify-content:center; text-align:center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BicycleStore",
+    "name": "Cycle World Pondicherry",
+    "description": "Pondicherry's premier bicycle showroom. Premium road bikes, mountain bikes, city cycles and kids cycles from top brands. Expert guidance at the best prices.",
+    "telephone": "+919043743880",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "109, Cuddalore Road",
+      "addressLocality": "Mudaliarpet",
+      "addressRegion": "Puducherry",
+      "postalCode": "605004",
+      "addressCountry": "IN"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      }
+    ],
+    "priceRange": "₹₹",
+    "sameAs": [
+      "https://www.instagram.com/cycle_world_pondicherry/",
+      "https://www.facebook.com/cycleworld.in/"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="filter-overlay" onclick="toggleFilters()"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="catalogue.html">Catalogue</a>
+        <a class="nav-link" href="about.html">About</a>
+      </div>
+      <a class="nav-logo" href="index.html">
+        <img src="logo.webp" alt="Cycle World Pondicherry">
+      </a>
+      <div class="nav-right">
+        <a class="nav-cta" href="contact.html">Contact Us</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <span class="icon-sun">&#9728;&#65038;</span>
+          <span class="icon-moon">&#9789;</span>
+        </button>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileMenu">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link active" href="catalogue.html">Catalogue</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- CATALOGUE BANNER -->
+  <div class="catalogue-banner">
+    <div class="banner-inner">
+      <div class="banner-left">
+        <div class="banner-eyebrow">Cycle World Pondicherry</div>
+        <h1>Our <span>Catalogue</span></h1>
+      </div>
+      <div class="banner-right">
+        <div class="banner-stat">
+          <div class="banner-stat-num">100+</div>
+          <div class="banner-stat-label">Cycles</div>
+        </div>
+        <div class="banner-stat">
+          <div class="banner-stat-num">10+</div>
+          <div class="banner-stat-label">Brands</div>
+        </div>
+        <div class="banner-stat">
+          <div class="banner-stat-num">4</div>
+          <div class="banner-stat-label">Categories</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE -->
+  <section class="catalogue-page">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="filterSidebar">
+      <div class="sidebar-header">
+        <h2>Filters</h2>
+        <button class="close-filters" onclick="toggleFilters()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="filter-group">
+        <h3>Categories</h3>
+        <label><input type="checkbox" class="category-filter" value="Mountain Bike"> Mountain Bikes</label>
+        <label><input type="checkbox" class="category-filter" value="Road Bike"> Road Bikes</label>
+        <label><input type="checkbox" class="category-filter" value="Hybrid Cycle"> Hybrid Cycles</label>
+        <label><input type="checkbox" class="category-filter" value="Kids Cycle"> Kids Cycles</label>
+      </div>
+      <div class="filter-group" id="brandFilterGroup">
+        <h3>Brands</h3>
+        <div id="brandFilterList">
+          <span style="color:var(--text-muted);font-size:0.85rem;">Loading brands&hellip;</span>
+        </div>
+      </div>
+      <div class="filter-group">
+        <h3>Price</h3>
+        <div class="price-slider-wrap">
+          <div class="price-labels">
+            <span id="priceMinLabel">&#8377;0</span>
+            <span id="priceMaxLabel">&#8377;1,00,000</span>
+          </div>
+          <div class="range-track-wrap">
+            <div class="range-track-bg"></div>
+            <div class="range-track-fill" id="rangeFill"></div>
+            <input type="range" class="range-thumb" id="priceMin" min="0" max="100000" step="1000" value="0">
+            <input type="range" class="range-thumb" id="priceMax" min="0" max="100000" step="1000" value="100000">
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT CONTENT -->
+    <div class="catalogue-content">
+      <div class="top-bar">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search cycles, brands, categories&hellip;" />
+          <button class="filter-icon-btn" onclick="toggleFilters()">
+            <i class="fa-solid fa-sliders"></i>
+          </button>
+          <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        <div class="results-top-bar">
+          <div class="results-text" id="resultsText"></div>
+          <button class="compare-top-btn" onclick="window.location.href='compare.html'">
+            Compare Products
+            <span class="compare-count" id="compareCount">0</span>
+          </button>
+        </div>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = "https://mepeiiqmqwzitmidyjzw.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lcGVpaXFtcXd6aXRtaWR5anp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MDY4MzEsImV4cCI6MjA5NjA4MjgzMX0.Npzu95OEIP1-iDkm7U3-kxB1UwyXJNJb6tbqIDnbKyo";
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    let allProducts = [];
+    let allOffers = [];
+    let compareProducts = JSON.parse(localStorage.getItem("compareProducts")) || [];
+
+    function buildBrandFilters(products) {
+      const brands = [...new Set(products.map(p => p.brand).filter(Boolean))].sort();
+      const container = document.getElementById('brandFilterList');
+      container.innerHTML = '';
+      brands.forEach(brand => {
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="checkbox" class="brand-filter" value="${brand}"> ${brand}`;
+        container.appendChild(label);
+      });
+      document.querySelectorAll('.brand-filter').forEach(f => f.addEventListener('change', applyFilters));
+    }
+
+    function getProductOffer(product) {
+      const today = new Date();
+      return allOffers.find(offer => {
+        const start = new Date(offer.start_date);
+        const end = new Date(offer.end_date);
+        const validDate = today >= start && today <= end;
+        const brandMatch = offer.brand && offer.brand.toLowerCase() === product.brand.toLowerCase();
+        const categoryMatch = offer.category && offer.category.toLowerCase() === product.category.toLowerCase();
+        return validDate && (brandMatch || categoryMatch);
+      });
+    }
+
+    function renderProducts(products) {
+      const productGrid = document.getElementById('productGrid');
+      productGrid.innerHTML = '';
+      document.getElementById('resultsText').innerText = `Showing ${products.length} cycles`;
+
+      if (products.length === 0) {
+        productGrid.innerHTML = `
+          <div class="empty-state">
+            <i class="fa-solid fa-bicycle"></i>
+            <p>No cycles match your filters.</p>
+          </div>`;
+        return;
+      }
+
+      products.forEach(product => {
+        const offer = getProductOffer(product);
+        let finalPrice = product.price;
+        let originalPrice = null;
+        let discount = null;
+
+        if (offer) {
+          originalPrice = product.price;
+          discount = offer.discount;
+          finalPrice = Math.round(Number(product.price) - (Number(product.price) * discount / 100));
+        }
+
+        const colorsArray = product.colors ? product.colors.split(",") : [];
+
+        productGrid.innerHTML += `
+          <div class="product-card">
+            <a href="product.html?id=${product.id}" class="product-link">
+              <div class="product-image">
+                ${offer ? `<div class="offer-tag">${discount}% OFF</div>` : ''}
+                <img src="${product.image}" />
+              </div>
+            </a>
+            <div class="product-content">
+              <div class="product-top-row">
+                <div class="brand">${product.brand}</div>
+                <div class="stock-badge ${product.stock ? 'in-stock' : 'out-stock'}">
+                  ${product.stock ? 'In Stock' : 'Out of Stock'}
+                </div>
+              </div>
+              <a href="product.html?id=${product.id}" class="product-link">
+                <h3>${product.name}</h3>
+              </a>
+              <div class="product-price-wrap">
+                <div class="product-price">&#8377;${finalPrice}</div>
+                ${originalPrice ? `<div class="old-price">&#8377;${originalPrice}</div>` : ''}
+              </div>
+              <div class="product-colors">
+                ${colorsArray.map(color => `<span class="color-dot" style="background:${color.trim()}"></span>`).join("")}
+              </div>
+              <div class="product-actions">
+                <a onclick="event.stopPropagation()"
+                  class="enquiry-btn ${!product.stock ? 'disabled' : ''}"
+                  href="https://wa.me/919043743880?text=${encodeURIComponent(`Hello, I'm interested in ${product.brand} ${product.name}.\n\nCan I get more details about it...`)}"
+                  target="_blank">
+                  ${product.stock ? 'Enquire' : 'Unavailable'}
+                </a>
+                <button class="compare-btn" title="Compare" onclick="addToCompare(event, ${product.id})">
+                  <i class="fa-solid fa-scale-balanced"></i>
+                </button>
+              </div>
+            </div>
+          </div>`;
+      });
+    }
+
+    function showSkeletonLoading() {
+      const grid = document.getElementById("productGrid");
+      grid.innerHTML = "";
+      for (let i = 0; i < 8; i++) {
+        grid.innerHTML += `
+          <div class="skeleton-card">
+            <div class="skeleton-image skeleton-shimmer"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-line small skeleton-shimmer"></div>
+              <div class="skeleton-line large skeleton-shimmer"></div>
+              <div class="skeleton-line medium skeleton-shimmer"></div>
+              <div class="skeleton-button skeleton-shimmer"></div>
+            </div>
+          </div>`;
+      }
+    }
+
+    async function loadProducts() {
+      showSkeletonLoading();
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      const { data, error } = await supabaseClient.from('products').select('*');
+      console.log(data); console.log(error);
+      allProducts = data;
+      if (error) { console.error(error); return; }
+      buildBrandFilters(allProducts);
+      initPriceSlider(allProducts);
+      applyFilters();
+    }
+
+    async function loadOffers() {
+      const { data, error } = await supabaseClient.from("offers").select("*");
+      if (error) { console.log(error); return; }
+      allOffers = data || [];
+    }
+
+    async function initializeCatalogue() {
+      await loadOffers();
+      await loadProducts();
+    }
+
+    initializeCatalogue();
+    setInterval(() => { loadProducts(); }, 60000);
+
+    function applyFilters() {
+      const params = new URLSearchParams(window.location.search);
+      const urlSearch = params.get('search');
+      const urlCategory = params.get('category');
+      const urlBrand = params.get('brand');
+
+      if (urlSearch) document.getElementById('searchInput').value = urlSearch;
+      if (urlCategory) {
+        document.querySelectorAll('.category-filter').forEach(f => { f.checked = f.value === urlCategory; });
+      }
+      if (urlBrand) {
+        document.querySelectorAll('.brand-filter').forEach(f => { f.checked = f.value.toLowerCase() === urlBrand.toLowerCase(); });
+      }
+
+      const searchValue = document.getElementById('searchInput').value.toLowerCase();
+      const selectedCategories = [...document.querySelectorAll('.category-filter:checked')].map(i => i.value);
+      const selectedBrands = [...document.querySelectorAll('.brand-filter:checked')].map(i => i.value);
+      const minPrice = parseInt(document.getElementById('priceMin').value) || 0;
+      const maxPrice = parseInt(document.getElementById('priceMax').value) || Infinity;
+
+      const filtered = allProducts.filter(product => {
+        const matchesSearch =
+          product.name.toLowerCase().includes(searchValue) ||
+          product.brand.toLowerCase().includes(searchValue) ||
+          product.category.toLowerCase().includes(searchValue);
+        const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(product.category);
+        const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
+        const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
+        return matchesSearch && matchesCategory && matchesBrand && matchesPrice;
+      });
+
+      renderProducts(filtered);
+    }
+
+    document.getElementById('searchInput').addEventListener('input', applyFilters);
+    document.querySelectorAll('.category-filter').forEach(f => f.addEventListener('change', applyFilters));
+    document.getElementById('priceMin').addEventListener('input', () => { updatePriceSlider(); applyFilters(); });
+    document.getElementById('priceMax').addEventListener('input', () => { updatePriceSlider(); applyFilters(); });
+
+    function updatePriceSlider() {
+      const sliderMin = document.getElementById('priceMin');
+      const sliderMax = document.getElementById('priceMax');
+      const fill      = document.getElementById('rangeFill');
+      let minVal = parseInt(sliderMin.value);
+      let maxVal = parseInt(sliderMax.value);
+      if (minVal > maxVal) { sliderMin.value = maxVal; minVal = maxVal; }
+      const minAttr = parseInt(sliderMin.min);
+      const total   = parseInt(sliderMax.max) - minAttr;
+      const minPct  = ((minVal - minAttr) / total) * 100;
+      const maxPct  = ((maxVal - minAttr) / total) * 100;
+      fill.style.left  = minPct + '%';
+      fill.style.width = (maxPct - minPct) + '%';
+      document.getElementById('priceMinLabel').textContent = '₹' + minVal.toLocaleString('en-IN');
+      document.getElementById('priceMaxLabel').textContent = '₹' + maxVal.toLocaleString('en-IN');
+    }
+
+    function initPriceSlider(products) {
+      const prices = products.map(p => Number(p.price)).filter(p => p > 0);
+      if (!prices.length) return;
+      const minP = Math.floor(Math.min(...prices) / 1000) * 1000;
+      const maxP = Math.ceil(Math.max(...prices)  / 1000) * 1000;
+      const sliderMin = document.getElementById('priceMin');
+      const sliderMax = document.getElementById('priceMax');
+      sliderMin.min = minP; sliderMin.max = maxP; sliderMin.value = minP;
+      sliderMax.min = minP; sliderMax.max = maxP; sliderMax.value = maxP;
+      updatePriceSlider();
+    }
+
+    function toggleFilters() {
+      const sidebar = document.getElementById('filterSidebar');
+      const overlay = document.querySelector('.filter-overlay');
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+    function toggleTheme() {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+
+    let prevScroll = window.pageYOffset;
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      const cur = window.pageYOffset;
+      navbar.classList.toggle('scrolled', cur > 40);
+      navbar.style.transform = (cur > prevScroll && cur > 72) ? 'translateY(-100%)' : 'translateY(0)';
+      prevScroll = cur;
+    });
+
+    function addToCompare(event, productId) {
+      event.preventDefault();
+      if (compareProducts.includes(productId)) { alert("Already added to compare"); return; }
+      if (compareProducts.length >= 3) { alert("You can compare maximum 3 products"); return; }
+      compareProducts.push(productId);
+      localStorage.setItem("compareProducts", JSON.stringify(compareProducts));
+      updateCompareCount();
+      alert("Product added to compare");
+    }
+
+    function updateCompareCount() {
+      const cp = JSON.parse(localStorage.getItem("compareProducts")) || [];
+      document.getElementById("compareCount").innerText = cp.length;
+    }
+
+    updateCompareCount();
+  </script>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/9043743880" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    Chat With Us
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <div class="footer-logo"><img src="logo.webp" alt="Cycle World Pondicherry"></div>
+        <p class="footer-description">Explore premium bicycles, cycling accessories and expert guidance for every rider at Cycle World Pondicherry.</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/cycle_world_pondicherry/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/cycleworld.in/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/9043743880" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <p>+91 90437 43880</p>
+        <p>Cycle World Pondicherry</p>
+        <p>Pondicherry, India</p>
+        <p>Mon &ndash; Sat : 9 AM &ndash; 9 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Designed &amp; Developed by <a href="https://hank0811.github.io/Portfolio/" target="_blank" class="developer-link">Shashank Sekhar VS</a></p>
+      <p>&copy; 2026 Cycle World Pondicherry. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

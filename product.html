@@ -1,0 +1,861 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="logo.webp" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details | Cycle World Pondicherry</title>
+  <meta name="description" content="View detailed specifications, pricing and images for premium cycles at Cycle World Pondicherry.">
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="Cycle World Pondicherry — Product Details">
+  <meta property="og:description" content="View detailed specifications, pricing and images for premium cycles at Cycle World Pondicherry.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cycle World Pondicherry — Product Details">
+  <meta name="twitter:description" content="View detailed specifications, pricing and images for premium cycles.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.bunny.net/css?family=playfair-display:400,400i,500,600,700|dm-sans:300,400,500" rel="stylesheet">
+  <script>(function(){const t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();</script>
+  <style>
+    /* ══ TOKENS ══ */
+    :root {
+      --bg:             #FDFAF5;
+      --bg-alt:         #F3EDE0;
+      --bg-dark:        #100F0D;
+      --bg-dark-2:      #1A1814;
+      --text:           #18140E;
+      --text-muted:     #7A6E5E;
+      --text-inv:       #F5F0E6;
+      --text-inv-muted: #A8A090;
+      --accent:         #C4902A;
+      --accent-hover:   #A87820;
+      --accent-light:   #F0DDB0;
+      --accent-glow:    rgba(196,144,42,0.22);
+      --border:         #E5DCC8;
+      --border-dark:    #2C2418;
+      --surface:        #FFFFFF;
+      --ease-out:       cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out:    cubic-bezier(0.77, 0, 0.175, 1);
+      --green:          var(--accent);
+      --green-light:    #D4A840;
+      --green-pale:     var(--accent-light);
+      --green-mid:      #C4902A;
+      --bg2:            var(--bg-alt);
+      --surface2:       var(--bg-alt);
+      --border2:        rgba(0,0,0,0.14);
+      --text-soft:      var(--text-muted);
+      --text-mid:       #5A4E3E;
+      --color-bg-alt:   var(--bg-alt);
+    }
+    [data-theme="dark"] {
+      --bg:             #100F0D;
+      --bg-alt:         #1A1814;
+      --bg-dark:        #080706;
+      --bg-dark-2:      #1A1814;
+      --text:           #F0EBE0;
+      --text-muted:     #9A8E78;
+      --text-inv:       #F0EBE0;
+      --text-inv-muted: #7A6E5E;
+      --accent:         #D4A840;
+      --accent-hover:   #E0B850;
+      --accent-light:   #2C2010;
+      --accent-glow:    rgba(212,168,64,0.22);
+      --border:         #2C2418;
+      --border-dark:    #2C2418;
+      --surface:        #1A1814;
+      --green-light:    #D4A840;
+      --green-mid:      #C4902A;
+      --text-mid:       #9A8E78;
+      --border2:        rgba(255,255,255,0.1);
+    }
+    html { transition:background-color 250ms var(--ease-out),color 200ms var(--ease-out); }
+    *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--text); overflow-x:hidden; font-family:'DM Sans',sans-serif; font-weight:400; }
+    h1,h2,h3,h4 { font-family:'Playfair Display',serif; font-weight:600; letter-spacing:0.01em; }
+    a { text-decoration:none; color:inherit; }
+    img { width:100%; display:block; }
+    ::-webkit-scrollbar { width:5px; }
+    ::-webkit-scrollbar-track { background:var(--bg-alt); }
+    ::-webkit-scrollbar-thumb { background:var(--accent); border-radius:99px; }
+
+    /* ══ NAVBAR ══ */
+    .navbar {
+      position:fixed; top:0; left:0; right:0; height:72px;
+      background:rgba(8,7,6,0.88);
+      backdrop-filter:blur(24px) saturate(200%);
+      -webkit-backdrop-filter:blur(24px) saturate(200%);
+      border-bottom:1px solid rgba(196,144,42,0.12);
+      z-index:1000;
+      transition:background 300ms var(--ease-out),box-shadow 300ms var(--ease-out),transform 400ms var(--ease-out);
+    }
+    .navbar.scrolled { background:rgba(8,7,6,0.97); box-shadow:0 2px 40px rgba(0,0,0,0.6); }
+    .nav-container {
+      position:relative; display:flex; align-items:center;
+      justify-content:space-between; height:100%;
+      max-width:1280px; margin:0 auto; padding:0 40px;
+    }
+    .nav-left,.nav-right { display:flex; align-items:center; gap:32px; }
+    .nav-link {
+      color:rgba(245,240,230,0.58); font-size:11.5px; font-weight:500;
+      letter-spacing:0.1em; text-transform:uppercase; position:relative;
+      transition:color 180ms var(--ease-out);
+    }
+    .nav-link::after {
+      content:""; position:absolute; left:0; bottom:-4px;
+      width:0; height:1px; background:var(--accent);
+      transition:width 220ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) {
+      .nav-link:hover { color:#F5F0E6; }
+      .nav-link:hover::after { width:100%; }
+    }
+    .nav-link.active { color:#F5F0E6; }
+    .nav-link.active::after { width:100%; }
+    .nav-logo { position:absolute; left:50%; transform:translateX(-50%); display:block; line-height:0; }
+    .nav-logo img { height:66px; width:auto; filter:drop-shadow(0 0 12px rgba(196,144,42,0.45)); transition:filter 200ms var(--ease-out); }
+    @media (hover:hover) and (pointer:fine) { .nav-logo:hover img { filter:drop-shadow(0 0 22px rgba(196,144,42,0.7)); } }
+    .nav-cta {
+      display:inline-flex; align-items:center; padding:8px 20px;
+      background:var(--accent); color:#0A0906; border-radius:6px;
+      font-size:11.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+      transition:background 180ms var(--ease-out),transform 160ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) { .nav-cta:hover { background:var(--accent-hover); } }
+    .nav-cta:active { transform:scale(0.97); }
+    .theme-toggle {
+      display:flex; align-items:center; justify-content:center;
+      width:34px; height:34px; border-radius:8px;
+      border:1px solid rgba(196,144,42,0.18); background:rgba(196,144,42,0.05);
+      color:rgba(245,240,230,0.6); cursor:pointer; font-size:14px; padding:0;
+      transition:border-color 160ms var(--ease-out),background 160ms var(--ease-out),color 160ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) {
+      .theme-toggle:hover { border-color:rgba(196,144,42,0.4); background:rgba(196,144,42,0.1); color:#F5F0E6; }
+    }
+    [data-theme="light"] .icon-moon { display:none; }
+    [data-theme="dark"]  .icon-sun  { display:none; }
+    .menu-btn {
+      display:none; width:38px; height:38px; border-radius:10px;
+      background:rgba(255,255,255,0.05); border:1px solid rgba(196,144,42,0.18);
+      color:rgba(245,240,230,0.8); cursor:pointer;
+      align-items:center; justify-content:center; font-size:0.9rem;
+    }
+    .mobile-nav {
+      display:none; flex-direction:column;
+      background:rgba(8,7,6,0.97); border-top:1px solid rgba(196,144,42,0.1);
+      padding:12px 24px 20px;
+    }
+    .mobile-nav.active { display:flex; }
+    .mobile-nav .nav-link { padding:13px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:14px; }
+    .mobile-nav .nav-link:last-child { border-bottom:none; }
+    @media (max-width:768px) {
+      .nav-left,.nav-cta { display:none; }
+      .menu-btn { display:flex; }
+      .nav-container { padding:0 20px; }
+      .nav-logo img { height:52px; }
+    }
+
+    /* ══ PAGE CONTAINER ══ */
+    .page-container { width:100%; padding:100px 8% 80px; }
+
+    /* ══ BREADCRUMB ══ */
+    .breadcrumb {
+      display:flex; align-items:center; gap:8px; color:var(--text-muted);
+      font-size:0.82rem; font-weight:500; letter-spacing:0.04em;
+      margin-bottom:28px; opacity:0.8; flex-wrap:wrap;
+    }
+    .breadcrumb a { color:var(--text-muted); transition:color 160ms; }
+    @media (hover:hover) and (pointer:fine) { .breadcrumb a:hover { color:var(--accent); } }
+    .breadcrumb i { font-size:0.6rem; color:var(--accent); opacity:0.7; }
+    .breadcrumb span { color:var(--accent); font-weight:600; }
+
+    /* ══ PRODUCT WRAPPER ══ */
+    .product-wrapper {
+      display:grid; grid-template-columns:580px 1fr;
+      background:var(--surface); border-radius:20px; overflow:hidden;
+      border:1px solid var(--border);
+      box-shadow:0 20px 60px rgba(0,0,0,0.07);
+    }
+    [data-theme="dark"] .product-wrapper { background:var(--bg-dark-2); border-color:var(--border-dark); box-shadow:0 20px 60px rgba(0,0,0,0.4); }
+
+    /* ══ GALLERY BOX ══ */
+    .gallery-box {
+      background:var(--bg-dark); padding:24px;
+      border-radius:20px 0 0 20px;
+      display:flex; flex-direction:column; justify-content:space-between; position:relative;
+    }
+    .main-image {
+      width:100%; height:520px;
+      display:flex; justify-content:center; align-items:center;
+      background:var(--bg-dark-2); border-radius:14px; overflow:hidden; position:relative;
+    }
+    .main-image img {
+      width:100%; height:100%; object-fit:contain; padding:20px;
+      transition:transform 400ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) {
+      .main-image:hover img { transform:scale(1.04); }
+    }
+    .zoom-lens {
+      position:absolute; width:180px; height:180px; border-radius:50%;
+      border:3px solid rgba(196,144,42,0.6);
+      box-shadow:0 8px 28px rgba(0,0,0,0.4);
+      pointer-events:none; display:none; z-index:20;
+      background-repeat:no-repeat; backdrop-filter:blur(2px);
+    }
+    .offer-tag {
+      position:absolute; top:16px; left:16px;
+      background:var(--accent); color:#0A0906;
+      padding:7px 16px; border-radius:6px;
+      font-family:'DM Sans',sans-serif; font-size:0.8rem; font-weight:700;
+      letter-spacing:0.08em; z-index:10;
+    }
+    .thumbnail-row { display:flex; gap:10px; align-items:center; margin-top:16px; flex-wrap:wrap; }
+    .thumbnail {
+      width:78px; height:78px; background:var(--bg-dark-2);
+      border-radius:12px; padding:8px;
+      border:1px solid rgba(196,144,42,0.12);
+      display:flex; justify-content:center; align-items:center; cursor:pointer;
+      transition:border-color 200ms var(--ease-out),transform 200ms var(--ease-out),box-shadow 200ms var(--ease-out);
+    }
+    .thumbnail img { width:100%; height:100%; object-fit:contain; }
+    @media (hover:hover) and (pointer:fine) {
+      .thumbnail:hover {
+        border-color:var(--accent); transform:translateY(-3px);
+        box-shadow:0 6px 18px rgba(196,144,42,0.2);
+      }
+    }
+
+    /* ══ PRODUCT DETAILS ══ */
+    .product-details {
+      padding:44px; display:flex; flex-direction:column; justify-content:flex-start; position:relative;
+    }
+    .product-top-actions { position:absolute; top:16px; right:16px; }
+    .product-top-actions button {
+      width:52px; height:52px; border-radius:50%; border:1px solid var(--border);
+      background:var(--bg-alt); color:var(--text-muted); font-size:18px; cursor:pointer;
+      display:flex; justify-content:center; align-items:center;
+      transition:background 180ms var(--ease-out),border-color 180ms,color 180ms,transform 160ms;
+    }
+    [data-theme="dark"] .product-top-actions button { background:var(--bg-dark); border-color:var(--border-dark); }
+    @media (hover:hover) and (pointer:fine) {
+      .product-top-actions button:hover { background:var(--accent); color:#0A0906; border-color:var(--accent); transform:scale(1.06); }
+    }
+    .brand {
+      color:var(--accent); font-family:'DM Sans',sans-serif;
+      font-size:0.78rem; font-weight:700; text-transform:uppercase;
+      letter-spacing:0.2em; margin-bottom:14px; display:block;
+    }
+    .title-row {
+      display:flex; justify-content:space-between; align-items:flex-start;
+      margin-bottom:20px; gap:16px;
+    }
+    .product-title {
+      font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3.2vw,2.8rem);
+      letter-spacing:0.02em; line-height:1.05; color:var(--text); margin-bottom:0;
+    }
+    .stock-badge {
+      display:inline-flex; align-items:center; gap:6px; padding:7px 14px;
+      border-radius:8px; font-family:'DM Sans',sans-serif; font-size:0.82rem; font-weight:600;
+      white-space:nowrap; flex-shrink:0; height:38px; margin-top:6px;
+    }
+    .in-stock  { background:var(--accent-light); color:var(--accent); }
+    .out-stock { background:rgba(220,50,50,0.08); color:#c03030; }
+
+    /* ══ PRICE ══ */
+    .price-wrap { margin-bottom:4px; }
+    .price {
+      font-family:'Playfair Display',serif; font-size:2.6rem; letter-spacing:0.02em;
+      color:var(--accent); line-height:1; font-style:italic;
+    }
+    .old-price {
+      text-decoration:line-through; opacity:0.45; margin-top:5px; font-size:1rem;
+      display:block; font-family:'DM Sans',sans-serif; font-weight:500;
+    }
+    .discount-badge {
+      display:inline-block; background:var(--bg-dark); color:var(--text-inv);
+      padding:4px 12px; border-radius:6px;
+      font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:700;
+      letter-spacing:0.08em; margin-top:8px;
+    }
+    .price-divider {
+      width:44px; height:2px;
+      background:linear-gradient(90deg,var(--accent),rgba(196,144,42,0.2));
+      border-radius:99px; margin:20px 0;
+    }
+    .product-colors { display:flex; align-items:center; gap:10px; margin-bottom:22px; }
+    .color-dot { width:22px; height:22px; border-radius:50%; border:2px solid rgba(255,255,255,0.2); box-shadow:0 2px 8px rgba(0,0,0,0.15); }
+
+    /* ══ SPECIFICATIONS ══ */
+    .specifications-section { margin:20px 0; }
+    .specifications-section h3 {
+      font-family:'Playfair Display',serif; font-size:1.3rem; letter-spacing:0.04em;
+      margin-bottom:16px; color:var(--text); font-style:italic;
+    }
+    .specifications-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:12px; margin-top:16px;
+    }
+    .spec-item {
+      padding:16px 10px; height:90px; display:flex; flex-direction:column;
+      justify-content:center; align-items:center; text-align:center; border-radius:12px;
+      background:var(--bg-alt); border:1px solid var(--border);
+      transition:transform 200ms var(--ease-out),border-color 200ms,box-shadow 200ms;
+    }
+    [data-theme="dark"] .spec-item { background:var(--bg-dark); border-color:var(--border-dark); }
+    @media (hover:hover) and (pointer:fine) {
+      .spec-item:hover { transform:translateY(-3px); border-color:rgba(196,144,42,0.35); box-shadow:0 8px 24px rgba(196,144,42,0.1); }
+    }
+    .spec-name {
+      font-family:'DM Sans',sans-serif; font-size:0.7rem; font-weight:700;
+      color:var(--text-muted); margin-bottom:6px; text-transform:uppercase; letter-spacing:0.16em;
+    }
+    .spec-data { font-family:'DM Sans',sans-serif; font-size:0.97rem; font-weight:600; color:var(--text); }
+    .spec-color-row { display:flex; align-items:center; gap:6px; margin-top:6px; }
+    .spec-color-dot { width:20px; height:20px; border-radius:50%; border:2px solid rgba(0,0,0,0.08); box-shadow:0 2px 8px rgba(0,0,0,0.12); }
+
+    /* ══ ACTION BUTTONS ══ */
+    .product-action-buttons { display:flex; gap:12px; margin-top:24px; }
+    .enquiry-btn {
+      flex:1; height:68px; border:none; border-radius:12px;
+      background:var(--accent); color:#0A0906;
+      font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:700;
+      letter-spacing:0.08em; text-transform:uppercase;
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      cursor:pointer;
+      box-shadow:0 8px 28px var(--accent-glow);
+      transition:background 180ms var(--ease-out),transform 160ms var(--ease-out),box-shadow 200ms;
+    }
+    @media (hover:hover) and (pointer:fine) {
+      .enquiry-btn:hover { background:var(--accent-hover); transform:translateY(-3px); box-shadow:0 14px 40px var(--accent-glow); }
+    }
+    .enquiry-btn:active { transform:scale(0.97); }
+    .enquiry-btn.disabled { background:var(--bg-alt); color:var(--text-muted); pointer-events:none; box-shadow:none; }
+    [data-theme="dark"] .enquiry-btn.disabled { background:var(--border-dark); }
+    .compare-product-btn {
+      flex:1; height:68px; border:1.5px solid var(--border); border-radius:12px;
+      background:transparent; color:var(--text-muted);
+      font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.9rem;
+      letter-spacing:0.08em; text-transform:uppercase; cursor:pointer;
+      transition:background 180ms var(--ease-out),border-color 180ms,color 180ms,transform 160ms;
+    }
+    @media (hover:hover) and (pointer:fine) {
+      .compare-product-btn:hover { background:var(--accent); color:#0A0906; border-color:var(--accent); }
+    }
+    .compare-product-btn:active { transform:scale(0.97); }
+
+    /* ══ RELATED ══ */
+    .related-section { margin-top:90px; padding-top:60px; position:relative; }
+    .related-section::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:1px;
+      background:linear-gradient(90deg,transparent,var(--accent),transparent);
+    }
+    .section-label {
+      display:inline-block; font-family:'DM Sans',sans-serif;
+      font-size:0.7rem; font-weight:700; letter-spacing:0.28em; text-transform:uppercase;
+      color:var(--accent); margin-bottom:10px;
+    }
+    .related-section h2 { font-size:2rem; letter-spacing:0.04em; margin-bottom:6px; color:var(--text); font-style:italic; }
+    .related-subtitle { color:var(--text-muted); margin-bottom:36px; font-size:0.9rem; }
+    .related-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,240px));
+      justify-content:start; gap:22px;
+    }
+    .related-card {
+      background:var(--surface); border-radius:14px; overflow:hidden;
+      border:1px solid var(--border);
+      transition:transform 350ms var(--ease-out),border-color 250ms,box-shadow 350ms;
+    }
+    [data-theme="dark"] .related-card { background:var(--bg-dark-2); border-color:var(--border-dark); }
+    @media (hover:hover) and (pointer:fine) {
+      .related-card:hover { transform:translateY(-6px); border-color:rgba(196,144,42,0.3); box-shadow:0 20px 50px rgba(0,0,0,0.10); }
+    }
+    .related-image { height:186px; overflow:hidden; background:var(--bg-alt); }
+    [data-theme="dark"] .related-image { background:var(--bg-dark); }
+    .related-image img { height:100%; object-fit:cover; transition:transform 400ms var(--ease-out); }
+    @media (hover:hover) and (pointer:fine) { .related-card:hover .related-image img { transform:scale(1.06); } }
+    .related-content { padding:18px 20px 20px; }
+    .related-brand {
+      color:var(--accent); margin-bottom:6px; font-family:'DM Sans',sans-serif;
+      font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.16em;
+    }
+    .related-content h3 {
+      font-family:'Playfair Display',serif; font-size:1.05rem; letter-spacing:0.03em;
+      margin-bottom:10px; line-height:1.2; color:var(--text);
+    }
+    .related-price { color:var(--accent); font-family:'Playfair Display',serif; font-size:1.25rem; margin-bottom:16px; font-style:italic; }
+    .view-btn {
+      width:100%; height:40px; border:1.5px solid var(--accent); border-radius:8px;
+      background:transparent; color:var(--accent);
+      font-family:'DM Sans',sans-serif; font-weight:700; font-size:0.82rem;
+      letter-spacing:0.1em; text-transform:uppercase; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      transition:background 180ms var(--ease-out),color 180ms,transform 160ms;
+    }
+    @media (hover:hover) and (pointer:fine) { .view-btn:hover { background:var(--accent); color:#0A0906; } }
+    .view-btn:active { transform:scale(0.97); }
+
+    /* ══ LOADING ══ */
+    .loading {
+      width:100%; text-align:center; padding:120px 0;
+      color:var(--text-muted); font-family:'DM Sans',sans-serif; font-size:0.95rem;
+    }
+    .loading::after {
+      content:''; display:block; width:34px; height:34px;
+      border:2px solid var(--border); border-top-color:var(--accent);
+      border-radius:50%; margin:18px auto 0; animation:spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform:rotate(360deg); } }
+
+    /* ══ RESPONSIVE ══ */
+    @media(max-width:1100px) {
+      .product-wrapper { grid-template-columns:1fr; }
+      .gallery-box { border-radius:20px 20px 0 0; }
+      .main-image { height:420px; }
+      .product-details { padding:28px; }
+      .related-grid { justify-content:center; }
+    }
+    @media(max-width:768px) {
+      .page-container { padding:90px 5% 60px; }
+      .main-image { height:300px; }
+      .thumbnail { width:72px; height:60px; }
+      .product-title { font-size:1.8rem; }
+      .price { font-size:2rem; }
+      .product-action-buttons { flex-direction:column; }
+      .enquiry-btn,.compare-product-btn { height:58px; }
+    }
+    @media(max-width:500px) {
+      .main-image { height:240px; }
+      .specifications-grid { grid-template-columns:repeat(2,1fr); }
+      .product-details { padding:20px; }
+    }
+
+    /* ══ WHATSAPP FLOAT ══ */
+    .whatsapp-float {
+      position:fixed; right:24px; bottom:24px; z-index:9999;
+      display:flex; align-items:center; gap:10px;
+      background:var(--bg-dark); color:#fff;
+      padding:10px 18px 10px 10px; border-radius:60px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.32);
+      border:1px solid rgba(196,144,42,0.18);
+      font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:700;
+      letter-spacing:0.06em; text-transform:uppercase;
+      transition:transform 200ms var(--ease-out),box-shadow 200ms var(--ease-out),background 200ms;
+    }
+    @media (hover:hover) and (pointer:fine) {
+      .whatsapp-float:hover { background:#25D366; transform:translateY(-4px); box-shadow:0 14px 40px rgba(37,211,102,0.35); border-color:transparent; }
+    }
+    .whatsapp-float img { width:22px; height:22px; }
+
+    /* ══ FOOTER ══ */
+    .footer { background:var(--bg-dark); border-top:1px solid var(--border-dark); }
+    .footer-container {
+      max-width:1240px; margin:0 auto;
+      display:grid; grid-template-columns:1.5fr 1fr 1fr;
+      gap:60px; padding:64px 40px 48px;
+      border-bottom:1px solid var(--border-dark);
+    }
+    .footer-logo img { height:52px; width:auto; margin-bottom:18px; }
+    .footer-description { font-size:0.9rem; color:var(--text-inv-muted); line-height:1.7; max-width:280px; margin-bottom:26px; }
+    .social-icons { display:flex; gap:12px; flex-wrap:wrap; }
+    .social-icons a {
+      width:40px; height:40px; border-radius:10px;
+      background:rgba(255,255,255,0.04); border:1px solid var(--border-dark);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--text-inv-muted); font-size:0.9rem;
+      transition:border-color 160ms var(--ease-out),color 160ms var(--ease-out),background 160ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) {
+      .social-icons a:hover { border-color:var(--accent); color:var(--accent); background:rgba(196,144,42,0.08); }
+    }
+    .footer-column h3 {
+      font-family:'DM Sans',sans-serif; font-size:0.7rem; font-weight:700;
+      letter-spacing:0.24em; text-transform:uppercase; color:var(--accent); margin-bottom:20px;
+    }
+    .footer-column a,.footer-column p {
+      display:block; font-size:0.9rem; color:var(--text-inv-muted);
+      margin-bottom:11px; line-height:1.7; transition:color 160ms var(--ease-out);
+    }
+    @media (hover:hover) and (pointer:fine) { .footer-column a:hover { color:var(--text-inv); } }
+    .footer-bottom {
+      max-width:1240px; margin:0 auto; padding:24px 40px;
+      display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;
+    }
+    .footer-bottom p { font-size:0.82rem; color:var(--text-inv-muted); line-height:1.6; }
+    .developer-link { color:var(--accent); font-weight:600; }
+    @media (hover:hover) and (pointer:fine) { .developer-link:hover { color:var(--text-inv); } }
+    @media (max-width:900px) { .footer-container { grid-template-columns:1fr 1fr; gap:40px; } }
+    @media (max-width:768px) {
+      .footer-container { grid-template-columns:1fr; gap:40px; padding:48px 24px 32px; }
+      .footer-bottom { padding:20px 24px; justify-content:center; text-align:center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BicycleStore",
+    "name": "Cycle World Pondicherry",
+    "description": "Pondicherry's premier bicycle showroom. Premium road bikes, mountain bikes, city cycles and kids cycles from top brands. Expert guidance at the best prices.",
+    "telephone": "+919043743880",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "109, Cuddalore Road",
+      "addressLocality": "Mudaliarpet",
+      "addressRegion": "Puducherry",
+      "postalCode": "605004",
+      "addressCountry": "IN"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      }
+    ],
+    "priceRange": "₹₹",
+    "sameAs": [
+      "https://www.instagram.com/cycle_world_pondicherry/",
+      "https://www.facebook.com/cycleworld.in/"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="catalogue.html">Catalogue</a>
+        <a class="nav-link" href="about.html">About</a>
+      </div>
+      <a class="nav-logo" href="index.html">
+        <img src="logo.webp" alt="Cycle World Pondicherry">
+      </a>
+      <div class="nav-right">
+        <a class="nav-cta" href="contact.html">Contact Us</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <span class="icon-sun">&#9728;&#65038;</span>
+          <span class="icon-moon">&#9789;</span>
+        </button>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileMenu">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link active" href="catalogue.html">Catalogue</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- PAGE -->
+  <section class="page-container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <a href="catalogue.html">Catalogue</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span id="breadcrumbProductName">Product</span>
+    </div>
+
+    <div id="productContainer">
+      <div class="loading">Loading Product&hellip;</div>
+    </div>
+
+    <section class="related-section">
+      <div class="section-label">More Like This</div>
+      <h2>Similar Cycles</h2>
+      <p class="related-subtitle">You might also like these from the same category.</p>
+      <div class="related-grid" id="relatedGrid"></div>
+    </section>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = 'https://mepeiiqmqwzitmidyjzw.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lcGVpaXFtcXd6aXRtaWR5anp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MDY4MzEsImV4cCI6MjA5NjA4MjgzMX0.Npzu95OEIP1-iDkm7U3-kxB1UwyXJNJb6tbqIDnbKyo';
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    const productContainer = document.getElementById('productContainer');
+    const relatedGrid = document.getElementById('relatedGrid');
+    let allOffers = [];
+
+    function shareProduct() {
+      if (navigator.share) {
+        navigator.share({ title: document.querySelector(".product-title").innerText, url: window.location.href });
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert("Link copied");
+      }
+    }
+
+    function getProductOffer(product) {
+      const today = new Date();
+      return allOffers.find(offer => {
+        const start = new Date(offer.start_date);
+        const end = new Date(offer.end_date);
+        const validDate = today >= start && today <= end;
+        const brandMatch = offer.brand && offer.brand.toLowerCase() === product.brand.toLowerCase();
+        const categoryMatch = offer.category && offer.category.toLowerCase() === product.category.toLowerCase();
+        return validDate && (brandMatch || categoryMatch);
+      });
+    }
+
+    async function loadOffers() {
+      const { data, error } = await supabaseClient.from("offers").select("*");
+      if (error) { console.log(error); return; }
+      allOffers = data || [];
+    }
+
+    async function loadProduct() {
+      const { data, error } = await supabaseClient
+        .from('products').select('*').eq('id', productId).single();
+      if (error) {
+        console.error(error);
+        productContainer.innerHTML = '<div class="loading">Product not found</div>';
+        return;
+      }
+      renderProduct(data);
+      loadRelatedProducts(data.category, data.id);
+    }
+
+    function renderProduct(product) {
+      const offer = getProductOffer(product);
+      let finalPrice = Number(product.price);
+      let originalPrice = null;
+      let discount = null;
+      if (offer) {
+        originalPrice = Number(product.price);
+        discount = offer.discount;
+        finalPrice = Math.round(Number(product.price) - (Number(product.price) * discount / 100));
+      }
+
+      document.getElementById('breadcrumbProductName').innerText = product.name;
+      document.title = `${product.name} | Cycle World Pondicherry`;
+
+      const images = [product.image, product.image2, product.image3, product.image4].filter(Boolean);
+      currentImages = images;
+      const colorsArray = product.colors ? product.colors.split(",") : [];
+
+      const thumbnails = images.map(image => `
+        <div class="thumbnail" onclick="changeMainImage('${image}')">
+          <img src="${image}" />
+        </div>`).join('');
+
+      productContainer.innerHTML = `
+        <div class="product-wrapper">
+          <div class="gallery-box">
+            <div class="main-image">
+              ${offer ? `<div class="offer-tag">${discount}% OFF</div>` : ''}
+              <img id="mainProductImage" src="${product.image}" alt="${product.name}" />
+              <div class="zoom-lens" id="zoomLens"></div>
+            </div>
+            <div class="thumbnail-row">${thumbnails}</div>
+          </div>
+
+          <div class="product-details">
+            <div class="product-top-actions">
+              <button onclick="shareProduct()">
+                <i class="fa-solid fa-share-nodes"></i>
+              </button>
+            </div>
+
+            <span class="brand">${product.brand}</span>
+
+            <div class="title-row">
+              <h1 class="product-title">${product.name}</h1>
+              <div class="stock-badge ${product.stock ? 'in-stock' : 'out-stock'}">
+                ${product.stock ? '&#9679; In Stock' : '&#9679; Out of Stock'}
+              </div>
+            </div>
+
+            <div class="price-wrap">
+              <div class="price">&#8377;${finalPrice}</div>
+              ${originalPrice ? `
+                <div class="old-price">&#8377;${originalPrice}</div>
+                <div class="discount-badge">${discount}% OFF</div>` : ''}
+            </div>
+
+            <div class="price-divider"></div>
+
+            <div class="product-colors">
+              ${colorsArray.map(color => `<span class="color-dot" style="background:${color.trim()}"></span>`).join("")}
+            </div>
+
+            <div class="specifications-section">
+              <h3>Specifications</h3>
+              <div class="specifications-grid">
+                ${product.specifications
+                  ? product.specifications.split('\n').filter(spec => spec.trim() !== '').map(spec => {
+                      const parts = spec.split(':');
+                      const label = parts[0]?.trim();
+                      const value = parts[1]?.trim();
+                      if (label.toLowerCase() === "color") {
+                        const colors = value.split(",");
+                        return `<div class="spec-item">
+                          <div class="spec-name">Color</div>
+                          <div class="spec-color-row">
+                            ${colors.map(color => `<span class="spec-color-dot" style="background:${color.trim()}"></span>`).join("")}
+                          </div>
+                        </div>`;
+                      }
+                      return `<div class="spec-item">
+                        <div class="spec-name">${label}</div>
+                        <div class="spec-data">${value}</div>
+                      </div>`;
+                    }).join('')
+                  : ''}
+              </div>
+            </div>
+
+            <div class="product-action-buttons">
+              <a class="enquiry-btn"
+                href="https://wa.me/9043743880?text=Hi,%20I'm%20interested%20in%20${product.name}"
+                target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+                Enquire Now
+              </a>
+              <button class="compare-product-btn" onclick="addToCompare(${product.id})">
+                <i class="fa-solid fa-scale-balanced"></i>
+                Add To Compare
+              </button>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    async function loadRelatedProducts(category, currentId) {
+      const { data, error } = await supabaseClient
+        .from('products').select('*').eq('category', category).neq('id', currentId).limit(4);
+      if (error) { console.error(error); return; }
+      renderRelatedProducts(data);
+    }
+
+    function renderRelatedProducts(products) {
+      relatedGrid.innerHTML = '';
+      products.forEach(product => {
+        relatedGrid.innerHTML += `
+          <div class="related-card">
+            <div class="related-image">
+              <img src="${product.image}" alt="${product.name}" />
+            </div>
+            <div class="related-content">
+              <div class="related-brand">${product.brand}</div>
+              <h3>${product.name}</h3>
+              <div class="related-price">&#8377;${product.price}</div>
+              <a class="view-btn" href="product.html?id=${product.id}">View Product</a>
+            </div>
+          </div>`;
+      });
+    }
+
+    let currentImages = [];
+
+    function changeMainImage(image) {
+      document.getElementById('mainProductImage').src = image;
+    }
+
+    document.addEventListener("mousemove", (e) => {
+      const image = document.getElementById("mainProductImage");
+      const lens = document.getElementById("zoomLens");
+      if (!image || !lens) return;
+      const rect = image.getBoundingClientRect();
+      const inside = e.clientX >= rect.left && e.clientX <= rect.right &&
+                     e.clientY >= rect.top && e.clientY <= rect.bottom;
+      if (!inside) { lens.style.display = "none"; return; }
+      lens.style.display = "block";
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      lens.style.left = `${x - 90}px`;
+      lens.style.top = `${y - 90}px`;
+      const zoomLevel = 2;
+      lens.style.backgroundImage = `url(${image.src})`;
+      lens.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
+      lens.style.backgroundPosition = `-${x * zoomLevel - 90}px -${y * zoomLevel - 90}px`;
+    });
+
+    function addToCompare(productId) {
+      let compareProducts = JSON.parse(localStorage.getItem("compareProducts")) || [];
+      if (compareProducts.includes(productId)) { alert("Already added"); return; }
+      if (compareProducts.length >= 3) { alert("Maximum 3 products only"); return; }
+      compareProducts.push(productId);
+      localStorage.setItem("compareProducts", JSON.stringify(compareProducts));
+      alert("Added to compare");
+    }
+
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+    function toggleTheme() {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+
+    let prevScroll = window.pageYOffset;
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      const cur = window.pageYOffset;
+      navbar.classList.toggle('scrolled', cur > 40);
+      navbar.style.transform = (cur > prevScroll && cur > 72) ? 'translateY(-100%)' : 'translateY(0)';
+      prevScroll = cur;
+    });
+
+    async function initializeProductPage() {
+      await loadOffers();
+      await loadProduct();
+    }
+    initializeProductPage();
+  </script>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/9043743880" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    Chat With Us
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <div class="footer-logo"><img src="logo.webp" alt="Cycle World Pondicherry"></div>
+        <p class="footer-description">Explore premium bicycles, cycling accessories and expert guidance for every rider at Cycle World Pondicherry.</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/cycle_world_pondicherry/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/cycleworld.in/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/9043743880" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <p>+91 90437 43880</p>
+        <p>Cycle World Pondicherry</p>
+        <p>Pondicherry, India</p>
+        <p>Mon &ndash; Sat : 9 AM &ndash; 9 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Designed &amp; Developed by <a href="https://hank0811.github.io/Portfolio/" target="_blank" class="developer-link">Shashank Sekhar VS</a></p>
+      <p>&copy; 2026 Cycle World Pondicherry. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

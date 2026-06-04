@@ -1,0 +1,816 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compare Cycles | Cycle World Pondicherry</title>
+  <meta name="description" content="Compare cycles side by side — specs, prices and features. Find the perfect bicycle at Cycle World Pondicherry.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Compare Cycles | Cycle World Pondicherry">
+  <meta property="og:description" content="Compare premium cycles side by side — specs, prices and features to find your perfect ride.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Compare Cycles | Cycle World Pondicherry">
+  <meta name="twitter:description" content="Compare premium cycles side by side — specs, prices and features.">
+  <link rel="icon" type="image/png" href="logo.webp" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link href="https://fonts.bunny.net/css?family=playfair-display:400,400i,500,600,700|dm-sans:300,400,500" rel="stylesheet">
+  <script>(function(){const t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();</script>
+  <style>
+    /* ══ TOKENS ══ */
+    :root {
+      --bg:             #FDFAF5;
+      --bg-alt:         #F3EDE0;
+      --bg-dark:        #100F0D;
+      --bg-dark-2:      #1A1814;
+      --text:           #18140E;
+      --text-muted:     #7A6E5E;
+      --text-inv:       #F5F0E6;
+      --text-inv-muted: #A8A090;
+      --accent:         #C4902A;
+      --accent-hover:   #A87820;
+      --accent-light:   #F0DDB0;
+      --accent-glow:    rgba(196,144,42,0.22);
+      --border:         #E5DCC8;
+      --border-dark:    #2C2418;
+      --surface:        #FFFFFF;
+      --ease-out:       cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out:    cubic-bezier(0.77, 0, 0.175, 1);
+      --green:          var(--accent);
+      --green-light:    #D4A840;
+      --green-pale:     var(--accent-light);
+      --green-mid:      #C4902A;
+      --green-faint:    #F5E8CC;
+      --bg2:            var(--bg-alt);
+      --border2:        rgba(0,0,0,0.14);
+      --text-soft:      var(--text-muted);
+      --text-mid:       #5A4E3E;
+    }
+    [data-theme="dark"] {
+      --bg:             #100F0D;
+      --bg-alt:         #1A1814;
+      --bg-dark:        #080706;
+      --bg-dark-2:      #1A1814;
+      --text:           #F0EBE0;
+      --text-muted:     #9A8E78;
+      --text-inv:       #F0EBE0;
+      --text-inv-muted: #7A6E5E;
+      --accent:         #D4A840;
+      --accent-hover:   #E0B850;
+      --accent-light:   #2C2010;
+      --accent-glow:    rgba(212,168,64,0.22);
+      --border:         #2C2418;
+      --border-dark:    #2C2418;
+      --surface:        #1A1814;
+      --green-light:    #D4A840;
+      --green-mid:      #C4902A;
+      --green-faint:    #2C2010;
+      --text-mid:       #9A8E78;
+      --border2:        rgba(255,255,255,0.1);
+    }
+    html { transition: background-color 250ms var(--ease-out), color 200ms var(--ease-out); }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--text); overflow-x: hidden; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacing: 0.01em; }
+    img { width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg-alt); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 99px; }
+
+    /* ══ SCROLL REVEAL ══ */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 80ms; }
+    .reveal-d2 { transition-delay: 160ms; }
+    .reveal-d3 { transition-delay: 240ms; }
+
+    /* ══ NAVBAR ══ */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      background: rgba(8,7,6,0.88);
+      backdrop-filter: blur(24px) saturate(200%);
+      -webkit-backdrop-filter: blur(24px) saturate(200%);
+      border-bottom: 1px solid rgba(196,144,42,0.12);
+      z-index: 1000;
+      transition: background 300ms var(--ease-out), box-shadow 300ms var(--ease-out), transform 400ms var(--ease-out);
+    }
+    .navbar.scrolled { background: rgba(8,7,6,0.97); box-shadow: 0 2px 40px rgba(0,0,0,0.6); }
+    .nav-container {
+      position: relative; display: flex; align-items: center;
+      justify-content: space-between; height: 100%;
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+    }
+    .nav-left, .nav-right { display: flex; align-items: center; gap: 32px; }
+    .nav-link {
+      color: rgba(245,240,230,0.58); font-size: 11.5px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; position: relative;
+      transition: color 180ms var(--ease-out);
+    }
+    .nav-link::after {
+      content: ""; position: absolute; left: 0; bottom: -4px;
+      width: 0; height: 1px; background: var(--accent);
+      transition: width 220ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .nav-link:hover { color: #F5F0E6; }
+      .nav-link:hover::after { width: 100%; }
+    }
+    .nav-link.active { color: #F5F0E6; }
+    .nav-link.active::after { width: 100%; }
+    .nav-logo { position: absolute; left: 50%; transform: translateX(-50%); display: block; line-height: 0; }
+    .nav-logo img { height: 66px; width: auto; filter: drop-shadow(0 0 12px rgba(196,144,42,0.45)); transition: filter 200ms var(--ease-out); }
+    @media (hover: hover) and (pointer: fine) { .nav-logo:hover img { filter: drop-shadow(0 0 22px rgba(196,144,42,0.7)); } }
+    .nav-cta {
+      display: inline-flex; align-items: center; padding: 8px 20px;
+      background: var(--accent); color: #0A0906; border-radius: 6px;
+      font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) { .nav-cta:hover { background: var(--accent-hover); } }
+    .nav-cta:active { transform: scale(0.97); }
+    .theme-toggle {
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 8px;
+      border: 1px solid rgba(196,144,42,0.18); background: rgba(196,144,42,0.05);
+      color: rgba(245,240,230,0.6); cursor: pointer; font-size: 14px; padding: 0;
+      transition: border-color 160ms var(--ease-out), background 160ms var(--ease-out), color 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .theme-toggle:hover { border-color: rgba(196,144,42,0.4); background: rgba(196,144,42,0.1); color: #F5F0E6; }
+    }
+    [data-theme="light"] .icon-moon { display: none; }
+    [data-theme="dark"]  .icon-sun  { display: none; }
+    .menu-btn {
+      display: none; width: 38px; height: 38px; border-radius: 10px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(196,144,42,0.18);
+      color: rgba(245,240,230,0.8); cursor: pointer;
+      align-items: center; justify-content: center; font-size: 0.9rem;
+    }
+    .mobile-nav {
+      display: none; flex-direction: column;
+      background: rgba(8,7,6,0.97); border-top: 1px solid rgba(196,144,42,0.1);
+      padding: 12px 24px 20px;
+    }
+    .mobile-nav.active { display: flex; }
+    .mobile-nav .nav-link { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+    .mobile-nav .nav-link:last-child { border-bottom: none; }
+    @media (max-width: 768px) {
+      .nav-left, .nav-cta { display: none; }
+      .menu-btn { display: flex; }
+      .nav-container { padding: 0 20px; }
+      .nav-logo img { height: 52px; }
+    }
+
+    /* ══ PAGE BANNER ══ */
+    .page-banner {
+      background: var(--bg-dark); padding: 130px 5% 72px;
+      position: relative; overflow: hidden;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .page-banner::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(196,144,42,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196,144,42,0.04) 1px, transparent 1px);
+      background-size: 60px 60px; pointer-events: none;
+    }
+    .page-banner::after {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(180deg, var(--accent) 0%, rgba(196,144,42,0.2) 70%, transparent 100%);
+    }
+    .banner-content { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; }
+    .banner-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
+      opacity: 0; animation: fadeSlideUp 700ms var(--ease-out) 100ms forwards;
+    }
+    .banner-eyebrow::before {
+      content: ''; display: block; width: 24px; height: 1px; background: var(--accent); opacity: 0.6;
+    }
+    .page-banner h1 {
+      font-size: clamp(2.6rem, 5.5vw, 4.5rem); color: var(--text-inv);
+      line-height: 0.95; letter-spacing: 0.03em; font-style: italic;
+      opacity: 0; animation: fadeSlideUp 800ms var(--ease-out) 220ms forwards;
+    }
+    .page-banner h1 span { font-style: normal; color: var(--accent); }
+    .page-banner p {
+      font-size: 1rem; color: var(--text-inv-muted); margin-top: 16px;
+      max-width: 480px; line-height: 1.75;
+      opacity: 0; animation: fadeSlideUp 800ms var(--ease-out) 340ms forwards;
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══ PAGE CONTAINER ══ */
+    .page-container { padding: 60px 5% 100px; max-width: 1500px; margin: auto; }
+
+    /* ══ TOP ACTION BAR ══ */
+    .action-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 48px; flex-wrap: wrap; gap: 16px;
+    }
+    .action-bar-left {}
+    .compare-count-text {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 6px;
+    }
+    .action-bar h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem); color: var(--text); font-style: italic;
+    }
+    .clear-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      height: 44px; padding: 0 22px; border: 1.5px solid var(--border);
+      border-radius: 10px; background: transparent; color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.85rem;
+      letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
+      transition: background 180ms var(--ease-out), border-color 180ms, color 180ms, transform 160ms;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .clear-btn:hover { background: rgba(220,50,50,0.06); border-color: rgba(220,50,50,0.3); color: #c03030; }
+    }
+    .clear-btn:active { transform: scale(0.97); }
+
+    /* ══ COMPARE GRID ══ */
+    .compare-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    /* ══ COMPARE CARD ══ */
+    .compare-card {
+      background: var(--surface); border-radius: 18px; overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+      transition: transform 380ms var(--ease-out), box-shadow 380ms var(--ease-out), border-color 250ms var(--ease-out);
+      opacity: 0; transform: translateY(28px);
+      animation: cardEnter 700ms var(--ease-out) forwards;
+    }
+    .compare-card:nth-child(1) { animation-delay: 60ms; }
+    .compare-card:nth-child(2) { animation-delay: 140ms; }
+    .compare-card:nth-child(3) { animation-delay: 220ms; }
+    @keyframes cardEnter {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    [data-theme="dark"] .compare-card { background: var(--bg-dark-2); border-color: var(--border-dark); }
+    @media (hover: hover) and (pointer: fine) {
+      .compare-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 24px 56px rgba(0,0,0,0.12), 0 0 0 1px rgba(196,144,42,0.18);
+        border-color: rgba(196,144,42,0.3);
+      }
+    }
+
+    /* ══ COMPARE IMAGE ══ */
+    .compare-image {
+      height: 220px; overflow: hidden;
+      background: var(--bg-alt); position: relative;
+    }
+    [data-theme="dark"] .compare-image { background: var(--bg-dark); }
+    .compare-image img {
+      height: 100%; object-fit: cover;
+      transition: transform 500ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .compare-card:hover .compare-image img { transform: scale(1.05); }
+    }
+    .compare-image::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
+      background: linear-gradient(to top, var(--surface), transparent);
+      pointer-events: none;
+    }
+    [data-theme="dark"] .compare-image::after {
+      background: linear-gradient(to top, var(--bg-dark-2), transparent);
+    }
+
+    /* ══ COMPARE CONTENT ══ */
+    .compare-content { padding: 22px 24px 24px; }
+    .brand {
+      color: var(--accent); font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 8px;
+    }
+    .product-name {
+      font-family: 'Playfair Display', serif; font-size: 1.35rem;
+      letter-spacing: 0.02em; margin-bottom: 10px; line-height: 1.2; color: var(--text);
+    }
+    .price {
+      color: var(--accent); font-family: 'Playfair Display', serif;
+      font-size: 1.9rem; letter-spacing: 0.02em; margin-bottom: 20px;
+      line-height: 1; font-style: italic;
+    }
+
+    /* ══ COMPARE ROWS ══ */
+    .compare-rows { border-top: 1px solid var(--border); margin-top: 4px; }
+    [data-theme="dark"] .compare-rows { border-color: var(--border-dark); }
+    .compare-row {
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+      transition: background 160ms;
+    }
+    [data-theme="dark"] .compare-row { border-color: var(--border-dark); }
+    .compare-row:last-of-type { border-bottom: none; }
+    @media (hover: hover) and (pointer: fine) {
+      .compare-row:hover { background: var(--bg-alt); margin: 0 -24px; padding: 14px 24px; border-radius: 4px; }
+    }
+    [data-theme="dark"] .compare-row:hover { background: var(--bg-dark); }
+    .compare-label {
+      font-family: 'DM Sans', sans-serif; font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-muted); margin-bottom: 5px;
+    }
+    .compare-value {
+      font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 500;
+      line-height: 1.6; color: var(--text);
+    }
+
+    /* ══ STOCK BADGE ══ */
+    .stock-badge {
+      display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px;
+      border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600;
+    }
+    .in-stock  { background: var(--accent-light); color: var(--accent); }
+    .out-stock { background: rgba(220,50,50,0.08); color: #c03030; }
+
+    /* ══ COLORS ══ */
+    .product-colors { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+    .color-dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+
+    /* ══ CARD BUTTONS ══ */
+    .card-buttons { display: flex; gap: 10px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+    [data-theme="dark"] .card-buttons { border-color: var(--border-dark); }
+    .enquiry-btn {
+      flex: 1; height: 46px; border: none; border-radius: 10px;
+      background: var(--accent); color: #0A0906;
+      font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.88rem;
+      letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out);
+      display: flex; align-items: center; justify-content: center; gap: 7px;
+    }
+    @media (hover: hover) and (pointer: fine) { .enquiry-btn:hover { background: var(--accent-hover); } }
+    .enquiry-btn:active { transform: scale(0.97); }
+    .remove-btn {
+      width: 46px; height: 46px; border: 1px solid var(--border);
+      border-radius: 10px; background: transparent; color: var(--text-muted);
+      cursor: pointer; transition: background 180ms, color 180ms, border-color 180ms, transform 160ms;
+      display: flex; align-items: center; justify-content: center; font-size: 0.88rem; flex-shrink: 0;
+    }
+    [data-theme="dark"] .remove-btn { border-color: var(--border-dark); }
+    @media (hover: hover) and (pointer: fine) {
+      .remove-btn:hover { background: rgba(220,50,50,0.08); color: #c03030; border-color: rgba(220,50,50,0.25); }
+    }
+    .remove-btn:active { transform: scale(0.96); }
+
+    /* ══ ADD CARD ══ */
+    .add-compare-card {
+      min-height: 560px; border: 1.5px dashed var(--border);
+      border-radius: 18px; display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 18px; cursor: pointer;
+      background: var(--surface);
+      transition: border-color 250ms var(--ease-out), background 250ms var(--ease-out), transform 300ms var(--ease-out);
+      opacity: 0; animation: cardEnter 700ms var(--ease-out) 300ms forwards;
+    }
+    [data-theme="dark"] .add-compare-card { background: var(--bg-dark-2); border-color: var(--border-dark); }
+    @media (hover: hover) and (pointer: fine) {
+      .add-compare-card:hover {
+        border-color: var(--accent); background: rgba(196,144,42,0.04); transform: translateY(-4px);
+      }
+    }
+    [data-theme="dark"] .add-compare-card:hover { background: rgba(196,144,42,0.06); }
+    .add-icon {
+      width: 76px; height: 76px; border-radius: 50%;
+      background: var(--accent-light); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400;
+      transition: background 250ms var(--ease-out), color 250ms var(--ease-out), transform 250ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .add-compare-card:hover .add-icon { background: var(--accent); color: #0A0906; transform: scale(1.08); }
+    }
+    .add-text {
+      font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.88rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);
+      transition: color 250ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) { .add-compare-card:hover .add-text { color: var(--accent); } }
+    .add-sub {
+      font-size: 0.82rem; color: var(--text-muted); opacity: 0.7;
+      text-align: center; max-width: 160px; line-height: 1.6;
+    }
+
+    /* ══ EMPTY STATE ══ */
+    .empty-state {
+      grid-column: 1 / -1; text-align: center; padding: 120px 20px;
+      opacity: 0; animation: fadeSlideUp 700ms var(--ease-out) 100ms forwards;
+    }
+    .empty-icon {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: var(--accent-light); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; margin: 0 auto 28px;
+    }
+    [data-theme="dark"] .empty-icon { background: var(--accent-light); }
+    .empty-state h2 { font-size: 2rem; margin-bottom: 12px; font-style: italic; color: var(--text); }
+    .empty-state p { color: var(--text-muted); margin-bottom: 36px; font-size: 0.97rem; line-height: 1.75; max-width: 440px; margin-left: auto; margin-right: auto; }
+    .browse-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      height: 50px; padding: 0 32px; border-radius: 10px;
+      background: var(--accent); color: #0A0906;
+      font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.9rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out), box-shadow 200ms;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .browse-btn:hover { background: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 10px 30px var(--accent-glow); }
+    }
+    .browse-btn:active { transform: scale(0.97); }
+
+    /* ══ DIVIDER ══ */
+    .gold-divider {
+      height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin: 0 0 52px; opacity: 0.5;
+    }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 1100px) { .compare-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      .page-banner { padding: 110px 5% 52px; }
+      .page-container { padding: 40px 5% 70px; }
+      .compare-image { height: 190px; }
+      .price { font-size: 1.6rem; }
+    }
+    @media (max-width: 640px) {
+      .compare-grid { grid-template-columns: 1fr; }
+      .add-compare-card { min-height: 180px; }
+    }
+
+    /* ══ WHATSAPP FLOAT ══ */
+    .whatsapp-float {
+      position: fixed; right: 24px; bottom: 24px; z-index: 9999;
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg-dark); color: #fff;
+      padding: 10px 18px 10px 10px; border-radius: 60px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.32);
+      border: 1px solid rgba(196,144,42,0.18);
+      font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out), background 200ms;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .whatsapp-float:hover { background: #25D366; transform: translateY(-4px); box-shadow: 0 14px 40px rgba(37,211,102,0.35); border-color: transparent; }
+    }
+    .whatsapp-float img { width: 22px; height: 22px; }
+
+    /* ══ FOOTER ══ */
+    .footer { background: var(--bg-dark); border-top: 1px solid var(--border-dark); }
+    .footer-container {
+      max-width: 1240px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px; padding: 64px 40px 48px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .footer-logo img { height: 52px; width: auto; margin-bottom: 18px; }
+    .footer-description { font-size: 0.9rem; color: var(--text-inv-muted); line-height: 1.7; max-width: 280px; margin-bottom: 26px; }
+    .social-icons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .social-icons a {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border-dark);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-inv-muted); font-size: 0.9rem;
+      transition: border-color 160ms var(--ease-out), color 160ms var(--ease-out), background 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .social-icons a:hover { border-color: var(--accent); color: var(--accent); background: rgba(196,144,42,0.08); }
+    }
+    .footer-column h3 {
+      font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+    }
+    .footer-column a, .footer-column p {
+      display: block; font-size: 0.9rem; color: var(--text-inv-muted);
+      margin-bottom: 11px; line-height: 1.7; transition: color 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) { .footer-column a:hover { color: var(--text-inv); } }
+    .footer-bottom {
+      max-width: 1240px; margin: 0 auto; padding: 24px 40px;
+      display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .footer-bottom p { font-size: 0.82rem; color: var(--text-inv-muted); line-height: 1.6; }
+    .developer-link { color: var(--accent); font-weight: 600; }
+    @media (hover: hover) and (pointer: fine) { .developer-link:hover { color: var(--text-inv); } }
+    @media (max-width: 900px) { .footer-container { grid-template-columns: 1fr 1fr; gap: 40px; } }
+    @media (max-width: 768px) {
+      .footer-container { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px 32px; }
+      .footer-bottom { padding: 20px 24px; justify-content: center; text-align: center; }
+    }
+        @media (max-width: 480px) {
+      .page-banner { padding: 100px 5% 48px; }
+      .page-container { padding: 28px 5% 60px; }
+      .compare-section { padding: 24px 5%; }
+      .compare-grid { gap: 16px; }
+      .whatsapp-text { display: none; }
+      .whatsapp-float { padding: 12px; border-radius: 50%; right: 16px; bottom: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BicycleStore",
+    "name": "Cycle World Pondicherry",
+    "description": "Pondicherry's premier bicycle showroom. Premium road bikes, mountain bikes, city cycles and kids cycles from top brands. Expert guidance at the best prices.",
+    "telephone": "+919043743880",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "109, Cuddalore Road",
+      "addressLocality": "Mudaliarpet",
+      "addressRegion": "Puducherry",
+      "postalCode": "605004",
+      "addressCountry": "IN"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      }
+    ],
+    "priceRange": "₹₹",
+    "sameAs": [
+      "https://www.instagram.com/cycle_world_pondicherry/",
+      "https://www.facebook.com/cycleworld.in/"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="catalogue.html">Catalogue</a>
+        <a class="nav-link" href="about.html">About</a>
+      </div>
+      <a class="nav-logo" href="index.html">
+        <img src="logo.webp" alt="Cycle World Pondicherry">
+      </a>
+      <div class="nav-right">
+        <a class="nav-cta" href="contact.html">Contact Us</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <span class="icon-sun">&#9728;&#65038;</span>
+          <span class="icon-moon">&#9789;</span>
+        </button>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileMenu">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link active" href="catalogue.html">Catalogue</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- PAGE BANNER -->
+  <div class="page-banner">
+    <div class="banner-content">
+      <div class="banner-eyebrow">Side by Side</div>
+      <h1>Compare <span>Cycles</span></h1>
+      <p>Place up to three cycles side by side to find the perfect match for your ride.</p>
+    </div>
+  </div>
+
+  <!-- PAGE -->
+  <section class="page-container">
+
+    <div class="action-bar reveal">
+      <div class="action-bar-left">
+        <div class="compare-count-text">Comparison Table</div>
+        <h2>Your Selected Cycles</h2>
+      </div>
+      <button class="clear-btn" onclick="clearCompare()">
+        <i class="fa-solid fa-trash" style="font-size:0.78rem; opacity:0.7;"></i>
+        Clear All
+      </button>
+    </div>
+
+    <div class="gold-divider"></div>
+    <div class="compare-grid" id="compareGrid"></div>
+
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = "https://mepeiiqmqwzitmidyjzw.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lcGVpaXFtcXd6aXRtaWR5anp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MDY4MzEsImV4cCI6MjA5NjA4MjgzMX0.Npzu95OEIP1-iDkm7U3-kxB1UwyXJNJb6tbqIDnbKyo";
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const compareGrid = document.getElementById("compareGrid");
+    let compareProducts = JSON.parse(localStorage.getItem("compareProducts")) || [];
+
+    async function loadCompareProducts() {
+      if (compareProducts.length === 0) {
+        compareGrid.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <h2>Nothing to Compare Yet</h2>
+            <p>Browse our catalogue and add up to three cycles to compare them side by side.</p>
+            <a href="catalogue.html" class="browse-btn">
+              <i class="fa-solid fa-bicycle"></i>
+              Browse Cycles
+            </a>
+          </div>`;
+        return;
+      }
+
+      const { data, error } = await supabaseClient
+        .from("products").select("*").in("id", compareProducts);
+      if (error) { console.error(error); return; }
+      renderProducts(data);
+    }
+
+    function renderProducts(products) {
+      compareGrid.innerHTML = "";
+
+      products.forEach(product => {
+        const specs = {};
+        if (product.specifications) {
+          product.specifications.split('\n').forEach(line => {
+            const parts = line.split(':');
+            if (parts.length >= 2) {
+              const key = parts[0].trim();
+              const value = parts.slice(1).join(':').trim();
+              specs[key] = value;
+            }
+          });
+        }
+
+        compareGrid.innerHTML += `
+          <div class="compare-card">
+            <div class="compare-image">
+              <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="compare-content">
+              <div class="brand">${product.brand}</div>
+              <h2 class="product-name">${product.name}</h2>
+              <div class="price">&#8377;${product.price}</div>
+
+              <div class="compare-rows">
+                <div class="compare-row">
+                  <div class="compare-label">Stock Status</div>
+                  <div class="stock-badge ${product.stock ? 'in-stock' : 'out-stock'}">
+                    ${product.stock ? '&#9679; In Stock' : '&#9679; Out of Stock'}
+                  </div>
+                </div>
+                <div class="compare-row">
+                  <div class="compare-label">Category</div>
+                  <div class="compare-value">${product.category}</div>
+                </div>
+                <div class="compare-row">
+                  <div class="compare-label">Available Colors</div>
+                  <div class="product-colors">
+                    ${(specs["Color"] || "").split(',').filter(c => c.trim()).map(color => `
+                      <span class="color-dot" style="background:${color.trim()}"></span>
+                    `).join('')}
+                  </div>
+                </div>
+                <div class="compare-row">
+                  <div class="compare-label">Wheel Size</div>
+                  <div class="compare-value">${specs["Wheel Size"] || "&mdash;"}</div>
+                </div>
+                <div class="compare-row">
+                  <div class="compare-label">Frame</div>
+                  <div class="compare-value">${specs["Frame"] || "&mdash;"}</div>
+                </div>
+                <div class="compare-row">
+                  <div class="compare-label">Brakes</div>
+                  <div class="compare-value">${specs["Brakes"] || "&mdash;"}</div>
+                </div>
+                <div class="compare-row">
+                  <div class="compare-label">Gears</div>
+                  <div class="compare-value">${specs["Gears"] || "&mdash;"}</div>
+                </div>
+                <div class="compare-row">
+                  <div class="compare-label">Suspension</div>
+                  <div class="compare-value">${specs["Suspension"] || "&mdash;"}</div>
+                </div>
+              </div>
+
+              <div class="card-buttons">
+                <a class="enquiry-btn"
+                  href="https://wa.me/9043743880?text=Hi,%20I'm%20interested%20in%20${product.name}"
+                  target="_blank">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  Enquire
+                </a>
+                <button class="remove-btn" onclick="removeProduct(${product.id})" title="Remove from compare">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>`;
+      });
+
+      const remainingSlots = 3 - products.length;
+      for (let i = 0; i < remainingSlots; i++) {
+        compareGrid.innerHTML += `
+          <div class="add-compare-card" onclick="window.location.href='catalogue.html'">
+            <div class="add-icon">+</div>
+            <div class="add-text">Add a Cycle</div>
+            <div class="add-sub">Browse catalogue to add more cycles for comparison</div>
+          </div>`;
+      }
+    }
+
+    function removeProduct(productId) {
+      compareProducts = compareProducts.filter(id => id !== productId);
+      localStorage.setItem("compareProducts", JSON.stringify(compareProducts));
+      loadCompareProducts();
+    }
+
+    function clearCompare() {
+      localStorage.removeItem("compareProducts");
+      compareProducts = [];
+      loadCompareProducts();
+    }
+
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+    function toggleTheme() {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+
+    let prevScroll = window.pageYOffset;
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      const cur = window.pageYOffset;
+      navbar.classList.toggle('scrolled', cur > 40);
+      navbar.style.transform = (cur > prevScroll && cur > 72) ? 'translateY(-100%)' : 'translateY(0)';
+      prevScroll = cur;
+    });
+
+    /* Scroll reveal */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    loadCompareProducts();
+  </script>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/9043743880" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    Chat With Us
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <div class="footer-logo"><img src="logo.webp" alt="Cycle World Pondicherry"></div>
+        <p class="footer-description">Explore premium bicycles, cycling accessories and expert guidance for every rider at Cycle World Pondicherry.</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/cycle_world_pondicherry/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/cycleworld.in/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/9043743880" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <p>+91 90437 43880</p>
+        <p>Cycle World Pondicherry</p>
+        <p>Pondicherry, India</p>
+        <p>Mon &ndash; Sat : 9 AM &ndash; 9 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Designed &amp; Developed by <a href="https://hank0811.github.io/Portfolio/" target="_blank" class="developer-link">Shashank Sekhar VS</a></p>
+      <p>&copy; 2026 Cycle World Pondicherry. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

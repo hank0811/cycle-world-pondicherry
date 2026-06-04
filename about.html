@@ -1,0 +1,742 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="logo.webp" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Cycle World — Premier Cycle Shop, Pondicherry</title>
+  <meta name="description" content="Learn about Cycle World — Pondicherry's trusted cycle shop for 15+ years. Located at Mudaliarpet, Puducherry. Premium bicycles, expert guidance, top brands.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About Us | Cycle World Pondicherry">
+  <meta property="og:description" content="15+ years of serving the cycling community with premium bicycles, expert guidance and the best brands in Pondicherry.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="About Us | Cycle World Pondicherry">
+  <meta name="twitter:description" content="15+ years of premium bicycles, expert guidance and the best brands in Pondicherry.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link href="https://fonts.bunny.net/css?family=playfair-display:400,400i,500,600,700|dm-sans:300,400,500" rel="stylesheet">
+  <script>(function(){const t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();</script>
+  <style>
+    /* ══ TOKENS ══ */
+    :root {
+      --bg:             #FDFAF5;
+      --bg-alt:         #F3EDE0;
+      --bg-dark:        #100F0D;
+      --bg-dark-2:      #1A1814;
+      --text:           #18140E;
+      --text-muted:     #7A6E5E;
+      --text-inv:       #F5F0E6;
+      --text-inv-muted: #A8A090;
+      --accent:         #C4902A;
+      --accent-hover:   #A87820;
+      --accent-light:   #F0DDB0;
+      --accent-glow:    rgba(196,144,42,0.22);
+      --border:         #E5DCC8;
+      --border-dark:    #2C2418;
+      --surface:        #FFFFFF;
+      --ease-out:       cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out:    cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    [data-theme="dark"] {
+      --bg:             #100F0D;
+      --bg-alt:         #1A1814;
+      --bg-dark:        #080706;
+      --bg-dark-2:      #1A1814;
+      --text:           #F0EBE0;
+      --text-muted:     #9A8E78;
+      --text-inv:       #F0EBE0;
+      --text-inv-muted: #7A6E5E;
+      --accent:         #D4A840;
+      --accent-hover:   #E0B850;
+      --accent-light:   #2C2010;
+      --accent-glow:    rgba(212,168,64,0.22);
+      --border:         #2C2418;
+      --border-dark:    #2C2418;
+      --surface:        #1A1814;
+    }
+    html { transition: background-color 250ms var(--ease-out), color 200ms var(--ease-out); }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 400; overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg-alt); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 99px; }
+
+    /* ══ SCROLL REVEAL ══ */
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity 750ms var(--ease-out), transform 750ms var(--ease-out); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 80ms; }
+    .reveal-d2 { transition-delay: 160ms; }
+    .reveal-d3 { transition-delay: 240ms; }
+    .reveal-d4 { transition-delay: 320ms; }
+    .reveal-d5 { transition-delay: 400ms; }
+    .reveal-d6 { transition-delay: 480ms; }
+
+    /* ══ NAVBAR ══ */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      background: rgba(8,7,6,0.88);
+      backdrop-filter: blur(24px) saturate(200%);
+      -webkit-backdrop-filter: blur(24px) saturate(200%);
+      border-bottom: 1px solid rgba(196,144,42,0.12);
+      z-index: 1000;
+      transition: background 300ms var(--ease-out), box-shadow 300ms var(--ease-out), transform 400ms var(--ease-out);
+    }
+    .navbar.scrolled { background: rgba(8,7,6,0.97); box-shadow: 0 2px 40px rgba(0,0,0,0.6); }
+    .nav-container {
+      position: relative; display: flex; align-items: center;
+      justify-content: space-between; height: 100%;
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+    }
+    .nav-left, .nav-right { display: flex; align-items: center; gap: 32px; }
+    .nav-link {
+      color: rgba(245,240,230,0.58); font-size: 11.5px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; position: relative;
+      transition: color 180ms var(--ease-out);
+    }
+    .nav-link::after {
+      content: ""; position: absolute; left: 0; bottom: -4px;
+      width: 0; height: 1px; background: var(--accent);
+      transition: width 220ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .nav-link:hover { color: #F5F0E6; }
+      .nav-link:hover::after { width: 100%; }
+    }
+    .nav-link.active { color: #F5F0E6; }
+    .nav-link.active::after { width: 100%; }
+    .nav-logo { position: absolute; left: 50%; transform: translateX(-50%); display: block; line-height: 0; }
+    .nav-logo img {
+      height: 66px; width: auto;
+      filter: drop-shadow(0 0 12px rgba(196,144,42,0.45));
+      transition: filter 200ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) { .nav-logo:hover img { filter: drop-shadow(0 0 22px rgba(196,144,42,0.7)); } }
+    .nav-cta {
+      display: inline-flex; align-items: center; padding: 8px 20px;
+      background: var(--accent); color: #0A0906; border-radius: 6px;
+      font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) { .nav-cta:hover { background: var(--accent-hover); } }
+    .nav-cta:active { transform: scale(0.97); }
+    .theme-toggle {
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 8px;
+      border: 1px solid rgba(196,144,42,0.18); background: rgba(196,144,42,0.05);
+      color: rgba(245,240,230,0.6); cursor: pointer; font-size: 14px; padding: 0;
+      transition: border-color 160ms var(--ease-out), background 160ms var(--ease-out), color 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .theme-toggle:hover { border-color: rgba(196,144,42,0.4); background: rgba(196,144,42,0.1); color: #F5F0E6; }
+    }
+    [data-theme="light"] .icon-moon { display: none; }
+    [data-theme="dark"]  .icon-sun  { display: none; }
+    .menu-btn {
+      display: none; width: 38px; height: 38px; border-radius: 10px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(196,144,42,0.18);
+      color: rgba(245,240,230,0.8); cursor: pointer;
+      align-items: center; justify-content: center; font-size: 0.9rem;
+    }
+    .mobile-nav {
+      display: none; flex-direction: column;
+      background: rgba(8,7,6,0.97); border-top: 1px solid rgba(196,144,42,0.1);
+      padding: 12px 24px 20px;
+    }
+    .mobile-nav.active { display: flex; }
+    .mobile-nav .nav-link { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+    .mobile-nav .nav-link:last-child { border-bottom: none; }
+    @media (max-width: 768px) {
+      .nav-left, .nav-cta { display: none; }
+      .menu-btn { display: flex; }
+      .nav-container { padding: 0 20px; }
+      .nav-logo img { height: 52px; }
+    }
+
+    /* ══ PAGE BANNER ══ */
+    .page-banner {
+      background: var(--bg-dark); padding: 150px 40px 90px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .page-banner::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(196,144,42,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196,144,42,0.04) 1px, transparent 1px);
+      background-size: 60px 60px; pointer-events: none;
+    }
+    .page-banner::after {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(180deg, var(--accent) 0%, rgba(196,144,42,0.2) 70%, transparent 100%);
+    }
+    .banner-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 20px; position: relative; z-index: 1;
+      opacity: 0; animation: fadeSlideUp 700ms var(--ease-out) 150ms forwards;
+    }
+    .banner-eyebrow::before, .banner-eyebrow::after {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--accent); opacity: 0.55;
+    }
+    .page-banner h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem); color: var(--text-inv);
+      line-height: 0.95; position: relative; z-index: 1; margin-bottom: 22px;
+      font-style: italic;
+      opacity: 0; animation: fadeSlideUp 800ms var(--ease-out) 280ms forwards;
+    }
+    .page-banner p {
+      font-size: 1.05rem; color: var(--text-inv-muted);
+      max-width: 520px; margin: 0 auto; line-height: 1.8;
+      position: relative; z-index: 1;
+      opacity: 0; animation: fadeSlideUp 800ms var(--ease-out) 400ms forwards;
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══ SECTION HELPERS ══ */
+    .section-light { background: var(--bg); }
+    .section-dark  { background: var(--bg-dark); }
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 90px 40px; }
+    @media (max-width: 768px) { .section-inner { padding: 64px 24px; } }
+
+    .section-label {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 14px; display: block;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.15;
+      margin-bottom: 16px; font-style: italic;
+    }
+    .section-subtitle { font-size: 1rem; line-height: 1.8; color: var(--text-muted); max-width: 560px; }
+    .section-dark .section-title  { color: var(--text-inv); }
+    .section-dark .section-subtitle { color: var(--text-inv-muted); }
+    .section-dark .section-label { color: var(--accent); }
+
+    /* ══ GOLD DIVIDER ══ */
+    .gold-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0.4;
+    }
+
+    /* ══ OUR STORY ══ */
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .story-text p {
+      font-size: 1rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 20px;
+    }
+    .story-text p:last-child { margin-bottom: 0; }
+    .story-image {
+      position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 4/3;
+    }
+    .story-image img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 600ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) { .story-image:hover img { transform: scale(1.04); } }
+    .story-image::after {
+      content: ''; position: absolute; inset: 0; border-radius: 16px;
+      border: 1px solid var(--border); pointer-events: none;
+    }
+    /* Gold accent corner */
+    .story-image::before {
+      content: ''; position: absolute; top: -1px; left: -1px;
+      width: 60px; height: 60px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent);
+      border-radius: 16px 0 0 0; z-index: 2; pointer-events: none;
+    }
+    @media (max-width: 900px) { .story-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* ══ STATS ══ */
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    }
+    .stat-card {
+      padding: 56px 32px; text-align: center;
+      background: var(--bg-dark-2); border: 1px solid var(--border-dark);
+      transition: background 200ms var(--ease-out), border-color 200ms;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0; transition: opacity 300ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .stat-card:hover { background: rgba(196,144,42,0.05); border-color: rgba(196,144,42,0.25); }
+      .stat-card:hover::before { opacity: 1; }
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 400; color: var(--accent); line-height: 1; margin-bottom: 12px; font-style: italic;
+    }
+    .stat-label {
+      font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-inv-muted);
+      font-weight: 600;
+    }
+    @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ══ WHY CHOOSE US ══ */
+    .values-header { margin-bottom: 56px; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .value-card {
+      background: var(--bg-alt); border: 1px solid var(--border);
+      border-radius: 14px; padding: 36px 28px;
+      transition: transform 300ms var(--ease-out), box-shadow 300ms var(--ease-out), border-color 300ms var(--ease-out);
+      position: relative; overflow: hidden;
+    }
+    .value-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0; transition: opacity 300ms var(--ease-out);
+    }
+    [data-theme="dark"] .value-card { background: var(--bg-dark-2); border-color: var(--border-dark); }
+    @media (hover: hover) and (pointer: fine) {
+      .value-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 44px rgba(0,0,0,0.09);
+        border-color: rgba(196,144,42,0.3);
+      }
+      .value-card:hover::after { opacity: 1; }
+    }
+    .value-icon {
+      width: 50px; height: 50px; border-radius: 12px;
+      background: var(--accent-light); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-size: 1.25rem;
+      transition: background 200ms, color 200ms, transform 200ms;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .value-card:hover .value-icon { background: var(--accent); color: #0A0906; transform: scale(1.08); }
+    }
+    [data-theme="dark"] .value-icon { background: var(--accent-light); }
+    .value-card h3 { font-size: 1.15rem; margin-bottom: 10px; font-style: italic; }
+    .value-card p { font-size: 0.9rem; line-height: 1.75; color: var(--text-muted); }
+    @media (max-width: 768px) { .values-grid { grid-template-columns: 1fr; } }
+    @media (min-width: 769px) and (max-width: 1024px) { .values-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ══ GALLERY ══ */
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto; gap: 14px;
+    }
+    .gallery-item {
+      border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; position: relative;
+      border: 1px solid var(--border-dark);
+    }
+    .gallery-item.large { grid-column: span 2; aspect-ratio: 16/9; }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 550ms var(--ease-out), filter 300ms;
+      filter: brightness(0.88);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .gallery-item:hover img { transform: scale(1.06); filter: brightness(1.0); }
+      .gallery-item:hover { border-color: rgba(196,144,42,0.35); }
+    }
+    .gallery-item::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(196,144,42,0.1) 0%, transparent 50%);
+      opacity: 0; transition: opacity 300ms;
+    }
+    @media (hover: hover) and (pointer: fine) { .gallery-item:hover::after { opacity: 1; } }
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.large { grid-column: span 2; }
+    }
+
+    /* ══ CTA ══ */
+    .cta-section {
+      background: var(--bg-dark); text-align: center; padding: 100px 40px;
+      position: relative; overflow: hidden;
+      border-top: 1px solid var(--border-dark);
+    }
+    .cta-section::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+    .cta-section::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 70% 70% at 50% 100%, rgba(196,144,42,0.07) 0%, transparent 70%);
+    }
+    .cta-section h2 {
+      font-size: clamp(2rem, 5vw, 3.2rem); color: var(--text-inv);
+      margin-bottom: 16px; position: relative; z-index: 1; font-style: italic;
+    }
+    .cta-section p {
+      font-size: 1rem; color: var(--text-inv-muted);
+      max-width: 480px; margin: 0 auto 40px; line-height: 1.75;
+      position: relative; z-index: 1;
+    }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 38px; background: var(--accent); color: #0A0906;
+      border-radius: 10px; font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out), box-shadow 200ms;
+      position: relative; z-index: 1;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .cta-btn:hover { background: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 10px 30px var(--accent-glow); }
+    }
+    .cta-btn:active { transform: scale(0.97); }
+
+    /* ══ WHATSAPP FLOAT ══ */
+    .whatsapp-float {
+      position: fixed; right: 24px; bottom: 24px; z-index: 9999;
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg-dark); color: #fff;
+      padding: 10px 18px 10px 10px; border-radius: 60px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.32);
+      border: 1px solid rgba(196,144,42,0.18);
+      font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out), background 200ms;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .whatsapp-float:hover { background: #25D366; transform: translateY(-4px); box-shadow: 0 14px 40px rgba(37,211,102,0.35); border-color: transparent; }
+    }
+    .whatsapp-float img { width: 22px; height: 22px; }
+
+    /* ══ FOOTER ══ */
+    .footer { background: var(--bg-dark); border-top: 1px solid var(--border-dark); }
+    .footer-container {
+      max-width: 1240px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px; padding: 64px 40px 48px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .footer-logo img { height: 52px; width: auto; margin-bottom: 18px; }
+    .footer-description { font-size: 0.9rem; color: var(--text-inv-muted); line-height: 1.7; max-width: 280px; margin-bottom: 26px; }
+    .social-icons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .social-icons a {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border-dark);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-inv-muted); font-size: 0.9rem;
+      transition: border-color 160ms var(--ease-out), color 160ms var(--ease-out), background 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .social-icons a:hover { border-color: var(--accent); color: var(--accent); background: rgba(196,144,42,0.08); }
+    }
+    .footer-column h3 {
+      font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+    }
+    .footer-column a, .footer-column p {
+      display: block; font-size: 0.9rem; color: var(--text-inv-muted);
+      margin-bottom: 11px; line-height: 1.7; transition: color 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) { .footer-column a:hover { color: var(--text-inv); } }
+    .footer-bottom {
+      max-width: 1240px; margin: 0 auto;
+      padding: 24px 40px;
+      display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .footer-bottom p { font-size: 0.82rem; color: var(--text-inv-muted); line-height: 1.6; }
+    .developer-link { color: var(--accent); font-weight: 600; }
+    @media (hover: hover) and (pointer: fine) { .developer-link:hover { color: var(--text-inv); } }
+    @media (max-width: 900px) { .footer-container { grid-template-columns: 1fr 1fr; gap: 40px; } }
+    @media (max-width: 768px) {
+      .footer-container { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px 32px; }
+      .footer-bottom { padding: 20px 24px; justify-content: center; text-align: center; }
+    }
+        @media (max-width: 480px) {
+      .section-inner { padding: 56px 20px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item.large { grid-column: span 1; aspect-ratio: 4/3; }
+      .cta-section { padding: 64px 20px; }
+      .page-banner { padding: 120px 24px 72px; }
+      .whatsapp-text { display: none; }
+      .whatsapp-float { padding: 12px; border-radius: 50%; right: 16px; bottom: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BicycleStore",
+    "name": "Cycle World Pondicherry",
+    "description": "Pondicherry's premier bicycle showroom. Premium road bikes, mountain bikes, city cycles and kids cycles from top brands. Expert guidance at the best prices.",
+    "telephone": "+919043743880",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "109, Cuddalore Road",
+      "addressLocality": "Mudaliarpet",
+      "addressRegion": "Puducherry",
+      "postalCode": "605004",
+      "addressCountry": "IN"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      }
+    ],
+    "priceRange": "₹₹",
+    "sameAs": [
+      "https://www.instagram.com/cycle_world_pondicherry/",
+      "https://www.facebook.com/cycleworld.in/"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="catalogue.html">Catalogue</a>
+        <a class="nav-link active" href="about.html">About</a>
+      </div>
+      <a class="nav-logo" href="index.html">
+        <img src="logo.webp" alt="Cycle World Pondicherry">
+      </a>
+      <div class="nav-right">
+        <a class="nav-cta" href="contact.html">Contact Us</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <span class="icon-sun">&#9728;&#65038;</span>
+          <span class="icon-moon">&#9789;</span>
+        </button>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileMenu">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="catalogue.html">Catalogue</a>
+      <a class="nav-link active" href="about.html">About</a>
+      <a class="nav-link" href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- BANNER -->
+  <section class="page-banner">
+    <span class="banner-eyebrow">Cycle World Pondicherry</span>
+    <h1>Our Story</h1>
+    <p>Fifteen years of passion, pedals and the pursuit of the perfect ride &mdash; right here in Pondicherry.</p>
+  </section>
+
+  <!-- OUR STORY -->
+  <section class="section-light">
+    <div class="section-inner">
+      <div class="story-grid">
+        <div class="story-text reveal">
+          <span class="section-label">Who We Are</span>
+          <h2 class="section-title">Pondicherry's Premier Bicycle Destination</h2>
+          <p>Founded over 15 years ago in the heart of Pondicherry, Cycle World began with a simple belief &mdash; that the right bicycle can transform how you experience the world around you.</p>
+          <p>What started as a small neighbourhood showroom has grown into the city's most trusted cycling destination, offering an unmatched selection of premium bicycles from the finest brands across India and beyond.</p>
+          <p>From mountain trails to city commutes, children's first rides to serious road cycling &mdash; we've guided over 3,000 customers in finding their perfect ride. Our team brings genuine passion and deep expertise to every conversation.</p>
+        </div>
+        <div class="story-image reveal reveal-d2">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1170&auto=format&fit=crop" alt="Cycle World showroom">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-line"></div>
+
+  <!-- STATS -->
+  <section class="section-dark">
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-number" data-target="15">0</div>
+        <div class="stat-label">Years of Service</div>
+      </div>
+      <div class="stat-card reveal reveal-d1">
+        <div class="stat-number" data-target="500">0</div>
+        <div class="stat-label">Cycles In Stock</div>
+      </div>
+      <div class="stat-card reveal reveal-d2">
+        <div class="stat-number" data-target="20">0</div>
+        <div class="stat-label">Premium Brands</div>
+      </div>
+      <div class="stat-card reveal reveal-d3">
+        <div class="stat-number" data-target="3000">0</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-line"></div>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section-light">
+    <div class="section-inner">
+      <div class="values-header reveal">
+        <span class="section-label">Why Choose Us</span>
+        <h2 class="section-title">The Cycle World Difference</h2>
+        <p class="section-subtitle">Everything we do is in service of one goal &mdash; helping you find a bicycle you'll love riding for years to come.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal reveal-d1">
+          <div class="value-icon"><i class="fa-solid fa-trophy"></i></div>
+          <h3>Premium Selection</h3>
+          <p>500+ cycles from 20+ top brands &mdash; Gsports, Caya, Hero, BSA, Avitree and many more. Every category, every budget, all in one showroom.</p>
+        </div>
+        <div class="value-card reveal reveal-d2">
+          <div class="value-icon"><i class="fa-solid fa-user-tie"></i></div>
+          <h3>Expert Guidance</h3>
+          <p>Our staff doesn't just sell cycles &mdash; they ride them. Get honest recommendations tailored to your terrain, fitness goals and lifestyle.</p>
+        </div>
+        <div class="value-card reveal reveal-d3">
+          <div class="value-icon"><i class="fa-solid fa-tags"></i></div>
+          <h3>Best Prices &amp; Offers</h3>
+          <p>Competitive pricing with regular seasonal discounts. We also offer free accessories &mdash; lock, bell and water bottle stand &mdash; with select purchases.</p>
+        </div>
+        <div class="value-card reveal reveal-d1">
+          <div class="value-icon"><i class="fa-solid fa-heart"></i></div>
+          <h3>Customer First</h3>
+          <p>15 years of relationships built on trust. Our 3,000+ happy customers are our greatest achievement and our greatest motivation.</p>
+        </div>
+        <div class="value-card reveal reveal-d2">
+          <div class="value-icon"><i class="fa-solid fa-child-reaching"></i></div>
+          <h3>For Every Rider</h3>
+          <p>Mountain, road, hybrid and kids &mdash; we cater to cyclists of all ages and skill levels. Your perfect first ride or your next adventure starts here.</p>
+        </div>
+        <div class="value-card reveal reveal-d3">
+          <div class="value-icon"><i class="fa-solid fa-wrench"></i></div>
+          <h3>After-Sales Support</h3>
+          <p>We're here long after the sale. Quick service, genuine parts and a team that remembers your name &mdash; because great cycling experiences don't end at the counter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section-dark">
+    <div class="section-inner">
+      <div class="reveal" style="margin-bottom:48px;">
+        <span class="section-label">Our Showroom</span>
+        <h2 class="section-title">Moments From Cycle World</h2>
+        <p class="section-subtitle">A glimpse into our premium showroom, happy customers and the cycles that started a thousand journeys.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item large reveal"><img src="assets/image1.png" alt="Cycle World showroom"></div>
+        <div class="gallery-item reveal reveal-d1"><img src="assets/image2.png" alt="Premium cycles"></div>
+        <div class="gallery-item reveal reveal-d2"><img src="assets/image3.png" alt="Cycle collection"></div>
+        <div class="gallery-item reveal reveal-d1"><img src="assets/image4.png" alt="Showroom display"></div>
+        <div class="gallery-item reveal reveal-d2"><img src="assets/image5.png" alt="Customer experience"></div>
+        <div class="gallery-item reveal reveal-d3"><img src="assets/image6.png" alt="Cycle World store"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="reveal">
+      <h2>Come Visit Us</h2>
+      <p>Experience the full collection in person. Our doors are open Monday through Saturday, 9 AM to 9 PM.</p>
+      <a class="cta-btn" href="https://maps.app.goo.gl/gWrGrysEMp8YYRu97" target="_blank">
+        <i class="fa-solid fa-location-dot"></i>
+        Get Directions
+      </a>
+    </div>
+  </section>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/9043743880" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    Chat With Us
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <div class="footer-logo"><img src="logo.webp" alt="Cycle World Pondicherry"></div>
+        <p class="footer-description">Explore premium bicycles, cycling accessories and expert guidance for every rider at Cycle World Pondicherry.</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/cycle_world_pondicherry/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/cycleworld.in/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/9043743880" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <p>+91 90437 43880</p>
+        <p>Cycle World Pondicherry</p>
+        <p>Pondicherry, India</p>
+        <p>Mon &ndash; Sat : 9 AM &ndash; 9 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Designed &amp; Developed by <a href="https://hank0811.github.io/Portfolio/" target="_blank" class="developer-link">Shashank Sekhar VS</a></p>
+      <p>&copy; 2026 Cycle World Pondicherry. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+    function toggleTheme() {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+
+    let prevScroll = window.pageYOffset;
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      const cur = window.pageYOffset;
+      navbar.classList.toggle('scrolled', cur > 40);
+      navbar.style.transform = (cur > prevScroll && cur > 72) ? 'translateY(-100%)' : 'translateY(0)';
+      prevScroll = cur;
+    });
+
+    /* Scroll reveal */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* Animated counters */
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.target);
+        const duration = 1600;
+        const step = target / (duration / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = Math.floor(current).toLocaleString() + '+';
+          if (current >= target) clearInterval(timer);
+        }, 16);
+        counterObserver.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(c => counterObserver.observe(c));
+  </script>
+</body>
+</html>

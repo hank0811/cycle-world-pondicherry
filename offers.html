@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offers — Cycle World Admin</title>
+  <link rel="icon" type="image/png" href="logo.webp" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.bunny.net/css?family=dm-sans:300,400,500,600" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: 'DM Sans', sans-serif; }
+
+    :root {
+      --sidebar-w:   220px;
+      --topbar-h:    60px;
+      --sidebar-bg:  #0F172A;
+      --main-bg:     #F8FAFC;
+      --card-bg:     #FFFFFF;
+      --border:      #E2E8F0;
+      --border-med:  #CBD5E1;
+      --text:        #0F172A;
+      --text-mid:    #334155;
+      --text-muted:  #64748B;
+      --primary:     #0F172A;
+      --primary-hover: #1E293B;
+      --danger:      #DC2626;
+      --danger-pale: #FEF2F2;
+      --danger-border:#FECACA;
+      --success:     #16A34A;
+      --success-pale:#F0FDF4;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background: var(--main-bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: var(--sidebar-w);
+      min-height: 100vh;
+      background: var(--sidebar-bg);
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+      flex-shrink: 0;
+      z-index: 200;
+    }
+
+    .sidebar-brand {
+      height: var(--topbar-h);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sidebar-brand-icon {
+      width: 30px; height: 30px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 0.75rem; flex-shrink: 0;
+    }
+
+    .sidebar-brand-text {
+      font-size: 0.82rem; font-weight: 600;
+      color: rgba(255,255,255,0.75); letter-spacing: 0.04em;
+    }
+
+    .sidebar-nav {
+      display: flex; flex-direction: column;
+      padding: 12px 10px; gap: 2px; flex: 1;
+    }
+
+    .sidebar-link {
+      display: flex; align-items: center; gap: 10px;
+      height: 38px; padding: 0 12px; border-radius: 8px;
+      color: rgba(255,255,255,0.5); font-size: 0.85rem; font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .sidebar-link i { width: 16px; text-align: center; font-size: 0.8rem; }
+    .sidebar-link:hover { background: #1E293B; color: rgba(255,255,255,0.85); }
+    .sidebar-link.active { background: #1E293B; color: #FFFFFF; }
+
+    .sidebar-footer {
+      padding: 16px 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.72rem; color: rgba(255,255,255,0.25); letter-spacing: 0.03em;
+    }
+
+    /* ── MAIN ── */
+    .main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      height: var(--topbar-h);
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px;
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .topbar-breadcrumb { font-size: 0.78rem; color: var(--text-muted); }
+    .topbar-breadcrumb span { color: var(--text); font-weight: 500; }
+
+    .topbar-right { display: flex; align-items: center; gap: 10px; }
+
+    .admin-badge {
+      font-size: 0.72rem; font-weight: 600;
+      padding: 4px 10px; border-radius: 999px;
+      background: #F1F5F9; color: var(--text-muted);
+      border: 1px solid var(--border); letter-spacing: 0.04em;
+    }
+
+    .btn-logout {
+      height: 34px; padding: 0 14px;
+      border: 1px solid var(--border-med); border-radius: 8px;
+      background: var(--card-bg); color: var(--text-mid);
+      font-size: 0.8rem; font-weight: 500;
+      display: flex; align-items: center; gap: 6px;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .btn-logout:hover { background: var(--danger-pale); color: var(--danger); border-color: var(--danger-border); }
+
+    /* ── CONTENT ── */
+    .content { padding: 28px; display: flex; flex-direction: column; gap: 24px; }
+
+    .page-header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .page-title { font-size: 1.1rem; font-weight: 600; color: var(--text); }
+    .page-sub   { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+
+    /* ── CREATE OFFER CARD ── */
+    .form-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .form-card-title {
+      font-size: 0.85rem; font-weight: 600; color: var(--text);
+      margin-bottom: 18px; padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .form-card-title i { color: var(--text-muted); font-size: 0.8rem; }
+
+    .offer-form {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+
+    .form-group label {
+      font-size: 0.72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+
+    .form-group input,
+    .form-group select {
+      height: 40px;
+      border: 1px solid var(--border-med);
+      border-radius: 8px;
+      padding: 0 12px;
+      font-size: 0.875rem;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: #F9FAFB;
+      outline: none;
+      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--primary);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(15,23,42,0.07);
+    }
+
+    .form-group input::placeholder { color: #94A3B8; }
+
+    .btn-submit {
+      height: 40px; padding: 0 20px;
+      background: var(--primary); color: #fff;
+      border: none; border-radius: 8px;
+      font-size: 0.875rem; font-weight: 600;
+      display: flex; align-items: center; gap: 7px;
+      align-self: flex-end;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .btn-submit:hover { background: var(--primary-hover); }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .section-title {
+      font-size: 0.85rem; font-weight: 600; color: var(--text);
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .count-badge {
+      font-size: 0.72rem; font-weight: 600;
+      background: #F1F5F9; color: var(--text-muted);
+      padding: 2px 8px; border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+
+    /* ── OFFERS GRID ── */
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .offer-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .offer-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .offer-discount-badge {
+      font-size: 1.6rem; font-weight: 700; color: var(--text); line-height: 1;
+    }
+
+    .offer-discount-badge span {
+      font-size: 0.85rem; font-weight: 500; color: var(--text-muted);
+    }
+
+    .offer-status {
+      font-size: 0.7rem; font-weight: 600; padding: 3px 9px;
+      border-radius: 999px; flex-shrink: 0;
+    }
+
+    .offer-status.active  { background: var(--success-pale); color: var(--success); }
+    .offer-status.expired { background: #FEF3C7; color: #B45309; }
+    .offer-status.upcoming { background: #EFF6FF; color: #2563EB; }
+
+    .offer-divider { height: 1px; background: var(--border); }
+
+    .offer-rows { display: flex; flex-direction: column; gap: 8px; }
+
+    .offer-row {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 0.82rem;
+    }
+
+    .offer-row-label { color: var(--text-muted); font-weight: 500; }
+    .offer-row-value { color: var(--text); font-weight: 500; }
+
+    .offer-row-value.pill {
+      background: #F1F5F9; padding: 1px 8px;
+      border-radius: 999px; font-size: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    .btn-delete {
+      width: 100%; height: 36px;
+      background: var(--card-bg); color: var(--danger);
+      border: 1px solid var(--danger-border); border-radius: 8px;
+      font-size: 0.82rem; font-weight: 600;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      transition: background 0.15s;
+      margin-top: 4px;
+    }
+    .btn-delete:hover { background: var(--danger-pale); }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center; padding: 48px 20px;
+      color: var(--text-muted); font-size: 0.875rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .offer-form { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar { width: 52px; }
+      .sidebar-brand-text, .sidebar-link span { display: none; }
+      .sidebar-brand { padding: 0; justify-content: center; }
+      .sidebar-nav { padding: 10px 6px; }
+      .sidebar-link { justify-content: center; padding: 0; width: 40px; height: 40px; margin: 0 auto; }
+      .sidebar-footer { display: none; }
+      .topbar { padding: 0 16px; }
+      .admin-badge { display: none; }
+      .content { padding: 16px; gap: 16px; }
+    }
+
+    @media (max-width: 600px) {
+      .offer-form { grid-template-columns: 1fr; }
+      .btn-submit { width: 100%; justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .offers-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon"><i class="fa-solid fa-bicycle"></i></div>
+      <span class="sidebar-brand-text">Cycle World</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="admin.html" class="sidebar-link">
+        <i class="fa-solid fa-box"></i>
+        <span>Products</span>
+      </a>
+      <a href="offers.html" class="sidebar-link active">
+        <i class="fa-solid fa-tags"></i>
+        <span>Offers</span>
+      </a>
+    </nav>
+    <div class="sidebar-footer">Cycle World Admin</div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <header class="topbar">
+      <span class="topbar-breadcrumb">Admin &rsaquo; <span>Offers</span></span>
+      <div class="topbar-right">
+        <span class="admin-badge">Administrator</span>
+        <button class="btn-logout" onclick="logout()">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <!-- PAGE HEADER -->
+      <div class="page-header">
+        <div>
+          <div class="page-title">Offers Management</div>
+          <div class="page-sub">Create and manage discount offers by brand or category</div>
+        </div>
+      </div>
+
+      <!-- CREATE OFFER -->
+      <div class="form-card">
+        <div class="form-card-title">
+          <i class="fa-solid fa-plus"></i> Create New Offer
+        </div>
+        <form class="offer-form" id="offerForm">
+          <div class="form-group">
+            <label>Brand</label>
+            <input type="text" id="offerBrand" placeholder="e.g. Trek (optional)" />
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <input type="text" id="offerCategory" placeholder="e.g. Mountain Bike (optional)" />
+          </div>
+          <div class="form-group">
+            <label>Discount %</label>
+            <input type="number" id="offerDiscount" placeholder="e.g. 20" min="1" max="100" required />
+          </div>
+          <div class="form-group">
+            <label>Start Date</label>
+            <input type="date" id="offerStart" required />
+          </div>
+          <div class="form-group">
+            <label>End Date</label>
+            <input type="date" id="offerEnd" required />
+          </div>
+          <button class="btn-submit" type="submit">
+            <i class="fa-solid fa-plus"></i> Create Offer
+          </button>
+        </form>
+      </div>
+
+      <!-- ACTIVE OFFERS -->
+      <div class="section-header">
+        <div class="section-title">
+          <i class="fa-solid fa-tags" style="color:var(--text-muted);font-size:0.8rem;"></i>
+          Active Offers
+          <span class="count-badge" id="offerCount">0</span>
+        </div>
+      </div>
+
+      <div class="offers-grid" id="offersGrid">
+        <div class="empty-state">Loading offers…</div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    const SUPABASE_URL = "https://mepeiiqmqwzitmidyjzw.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lcGVpaXFtcXd6aXRtaWR5anp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MDY4MzEsImV4cCI6MjA5NjA4MjgzMX0.Npzu95OEIP1-iDkm7U3-kxB1UwyXJNJb6tbqIDnbKyo";
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    async function protectAdminPage() {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if (!session) { window.location.href = 'admin_login.html'; return; }
+    }
+    protectAdminPage();
+
+    function getOfferStatus(startDate, endDate) {
+      const now   = new Date();
+      const start = new Date(startDate);
+      const end   = new Date(endDate);
+      if (now < start) return { label: 'Upcoming', cls: 'upcoming' };
+      if (now > end)   return { label: 'Expired',  cls: 'expired' };
+      return { label: 'Active', cls: 'active' };
+    }
+
+    function formatDate(dateStr) {
+      return new Date(dateStr).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
+    async function loadOffers() {
+      const { data, error } = await supabaseClient
+        .from("offers").select("*").order("id", { ascending: false });
+      if (error) { console.log(error); return; }
+
+      const grid = document.getElementById("offersGrid");
+      document.getElementById("offerCount").textContent = data.length;
+
+      if (data.length === 0) {
+        grid.innerHTML = '<div class="empty-state">No offers yet. Create one above.</div>';
+        return;
+      }
+
+      grid.innerHTML = "";
+      data.forEach(offer => {
+        const status = getOfferStatus(offer.start_date, offer.end_date);
+        grid.innerHTML += `
+          <div class="offer-card">
+            <div class="offer-card-top">
+              <div class="offer-discount-badge">${offer.discount}%<br><span>discount</span></div>
+              <span class="offer-status ${status.cls}">${status.label}</span>
+            </div>
+            <div class="offer-divider"></div>
+            <div class="offer-rows">
+              <div class="offer-row">
+                <span class="offer-row-label">Brand</span>
+                <span class="offer-row-value pill">${offer.brand || 'All Brands'}</span>
+              </div>
+              <div class="offer-row">
+                <span class="offer-row-label">Category</span>
+                <span class="offer-row-value pill">${offer.category || 'All Categories'}</span>
+              </div>
+              <div class="offer-row">
+                <span class="offer-row-label">From</span>
+                <span class="offer-row-value">${formatDate(offer.start_date)}</span>
+              </div>
+              <div class="offer-row">
+                <span class="offer-row-label">Until</span>
+                <span class="offer-row-value">${formatDate(offer.end_date)}</span>
+              </div>
+            </div>
+            <button class="btn-delete" onclick="deleteOffer(${offer.id})">
+              <i class="fa-solid fa-trash"></i> Delete Offer
+            </button>
+          </div>`;
+      });
+    }
+
+    document.getElementById("offerForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const brand      = document.getElementById("offerBrand").value;
+      const category   = document.getElementById("offerCategory").value;
+      const discount   = document.getElementById("offerDiscount").value;
+      const start_date = document.getElementById("offerStart").value;
+      const end_date   = document.getElementById("offerEnd").value;
+
+      const { error } = await supabaseClient
+        .from("offers").insert([{ brand, category, discount, start_date, end_date }]);
+      if (error) { console.log(error); return; }
+
+      document.getElementById("offerForm").reset();
+      loadOffers();
+    });
+
+    async function deleteOffer(id) {
+      if (!confirm('Delete this offer?')) return;
+      await supabaseClient.from("offers").delete().eq("id", id);
+      loadOffers();
+    }
+
+    async function logout() {
+      await supabaseClient.auth.signOut();
+      window.location.href = 'admin_login.html';
+    }
+
+    loadOffers();
+  </script>
+
+</body>
+</html>

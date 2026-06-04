@@ -1,0 +1,714 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="logo.webp" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visit Our Cycle Shop | Cycle World, Mudaliarpet, Pondicherry</title>
+  <meta name="description" content="Visit Cycle World cycle shop at 109, Cuddalore Road, Mudaliarpet, Puducherry 605004. Open Mon–Sat 9AM–9PM. Call +91 90437 43880 or WhatsApp us for quick replies.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Visit Our Cycle Shop | Cycle World, Mudaliarpet, Pondicherry">
+  <meta property="og:description" content="109, Cuddalore Road, Mudaliarpet, Puducherry 605004. Open Mon–Sat 9AM–9PM. Call or WhatsApp +91 90437 43880.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Visit Cycle World | Mudaliarpet, Puducherry">
+  <meta name="twitter:description" content="109 Cuddalore Road, Mudaliarpet, Puducherry 605004. Mon–Sat 9AM–9PM. Call +91 90437 43880.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link href="https://fonts.bunny.net/css?family=playfair-display:400,400i,500,600,700|dm-sans:300,400,500" rel="stylesheet">
+  <script>(function(){const t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();</script>
+  <style>
+    /* ══ TOKENS ══ */
+    :root {
+      --bg:             #FDFAF5;
+      --bg-alt:         #F3EDE0;
+      --bg-dark:        #100F0D;
+      --bg-dark-2:      #1A1814;
+      --text:           #18140E;
+      --text-muted:     #7A6E5E;
+      --text-inv:       #F5F0E6;
+      --text-inv-muted: #A8A090;
+      --accent:         #C4902A;
+      --accent-hover:   #A87820;
+      --accent-light:   #F0DDB0;
+      --accent-glow:    rgba(196,144,42,0.22);
+      --border:         #E5DCC8;
+      --border-dark:    #2C2418;
+      --surface:        #FFFFFF;
+      --ease-out:       cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out:    cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    [data-theme="dark"] {
+      --bg:             #100F0D;
+      --bg-alt:         #1A1814;
+      --bg-dark:        #080706;
+      --bg-dark-2:      #1A1814;
+      --text:           #F0EBE0;
+      --text-muted:     #9A8E78;
+      --text-inv:       #F0EBE0;
+      --text-inv-muted: #7A6E5E;
+      --accent:         #D4A840;
+      --accent-hover:   #E0B850;
+      --accent-light:   #2C2010;
+      --accent-glow:    rgba(212,168,64,0.22);
+      --border:         #2C2418;
+      --border-dark:    #2C2418;
+      --surface:        #1A1814;
+    }
+    html { transition: background-color 250ms var(--ease-out), color 200ms var(--ease-out); }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 400; overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg-alt); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 99px; }
+
+    /* ══ SCROLL REVEAL ══ */
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity 750ms var(--ease-out), transform 750ms var(--ease-out); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 80ms; }
+    .reveal-d2 { transition-delay: 160ms; }
+    .reveal-d3 { transition-delay: 240ms; }
+    .reveal-d4 { transition-delay: 320ms; }
+
+    /* ══ NAVBAR ══ */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      background: rgba(8,7,6,0.88);
+      backdrop-filter: blur(24px) saturate(200%);
+      -webkit-backdrop-filter: blur(24px) saturate(200%);
+      border-bottom: 1px solid rgba(196,144,42,0.12);
+      z-index: 1000;
+      transition: background 300ms var(--ease-out), box-shadow 300ms var(--ease-out), transform 400ms var(--ease-out);
+    }
+    .navbar.scrolled { background: rgba(8,7,6,0.97); box-shadow: 0 2px 40px rgba(0,0,0,0.6); }
+    .nav-container {
+      position: relative; display: flex; align-items: center;
+      justify-content: space-between; height: 100%;
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+    }
+    .nav-left, .nav-right { display: flex; align-items: center; gap: 32px; }
+    .nav-link {
+      color: rgba(245,240,230,0.58); font-size: 11.5px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; position: relative;
+      transition: color 180ms var(--ease-out);
+    }
+    .nav-link::after {
+      content: ""; position: absolute; left: 0; bottom: -4px;
+      width: 0; height: 1px; background: var(--accent);
+      transition: width 220ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .nav-link:hover { color: #F5F0E6; }
+      .nav-link:hover::after { width: 100%; }
+    }
+    .nav-link.active { color: #F5F0E6; }
+    .nav-link.active::after { width: 100%; }
+    .nav-logo { position: absolute; left: 50%; transform: translateX(-50%); display: block; line-height: 0; }
+    .nav-logo img {
+      height: 66px; width: auto;
+      filter: drop-shadow(0 0 12px rgba(196,144,42,0.45));
+      transition: filter 200ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) { .nav-logo:hover img { filter: drop-shadow(0 0 22px rgba(196,144,42,0.7)); } }
+    .nav-cta {
+      display: inline-flex; align-items: center; padding: 8px 20px;
+      background: var(--accent); color: #0A0906; border-radius: 6px;
+      font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) { .nav-cta:hover { background: var(--accent-hover); } }
+    .nav-cta:active { transform: scale(0.97); }
+    .theme-toggle {
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 8px;
+      border: 1px solid rgba(196,144,42,0.18); background: rgba(196,144,42,0.05);
+      color: rgba(245,240,230,0.6); cursor: pointer; font-size: 14px; padding: 0;
+      transition: border-color 160ms var(--ease-out), background 160ms var(--ease-out), color 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .theme-toggle:hover { border-color: rgba(196,144,42,0.4); background: rgba(196,144,42,0.1); color: #F5F0E6; }
+    }
+    [data-theme="light"] .icon-moon { display: none; }
+    [data-theme="dark"]  .icon-sun  { display: none; }
+    .menu-btn {
+      display: none; width: 38px; height: 38px; border-radius: 10px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(196,144,42,0.18);
+      color: rgba(245,240,230,0.8); cursor: pointer;
+      align-items: center; justify-content: center; font-size: 0.9rem;
+    }
+    .mobile-nav {
+      display: none; flex-direction: column;
+      background: rgba(8,7,6,0.97); border-top: 1px solid rgba(196,144,42,0.1);
+      padding: 12px 24px 20px;
+    }
+    .mobile-nav.active { display: flex; }
+    .mobile-nav .nav-link { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+    .mobile-nav .nav-link:last-child { border-bottom: none; }
+    @media (max-width: 768px) {
+      .nav-left, .nav-cta { display: none; }
+      .menu-btn { display: flex; }
+      .nav-container { padding: 0 20px; }
+      .nav-logo img { height: 52px; }
+    }
+
+    /* ══ PAGE BANNER ══ */
+    .page-banner {
+      background: var(--bg-dark); padding: 150px 40px 90px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .page-banner::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(196,144,42,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196,144,42,0.04) 1px, transparent 1px);
+      background-size: 60px 60px; pointer-events: none;
+    }
+    .page-banner::after {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(180deg, var(--accent) 0%, rgba(196,144,42,0.2) 70%, transparent 100%);
+    }
+    .banner-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 20px; position: relative; z-index: 1;
+      opacity: 0; animation: fadeSlideUp 700ms var(--ease-out) 150ms forwards;
+    }
+    .banner-eyebrow::before, .banner-eyebrow::after {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--accent); opacity: 0.55;
+    }
+    .page-banner h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem); color: var(--text-inv);
+      line-height: 0.95; position: relative; z-index: 1; margin-bottom: 22px; font-style: italic;
+      opacity: 0; animation: fadeSlideUp 800ms var(--ease-out) 280ms forwards;
+    }
+    .page-banner p {
+      font-size: 1.05rem; color: var(--text-inv-muted);
+      max-width: 520px; margin: 0 auto; line-height: 1.8;
+      position: relative; z-index: 1;
+      opacity: 0; animation: fadeSlideUp 800ms var(--ease-out) 400ms forwards;
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══ GOLD LINE ══ */
+    .gold-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0.4;
+    }
+
+    /* ══ SECTION LABELS ══ */
+    .section-label {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: block;
+    }
+    .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.2; margin-bottom: 16px; font-style: italic; }
+    .section-subtitle { font-size: 1rem; line-height: 1.75; color: var(--text-muted); max-width: 560px; }
+
+    /* ══ CONTACT CARDS SECTION ══ */
+    .contact-section { background: var(--bg); }
+    .contact-inner { max-width: 1200px; margin: 0 auto; padding: 90px 40px; }
+    .contact-intro { margin-bottom: 60px; }
+
+    .cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .contact-card {
+      background: var(--bg-alt); border: 1px solid var(--border);
+      border-radius: 14px; padding: 36px 26px;
+      display: flex; flex-direction: column; gap: 16px;
+      transition: transform 300ms var(--ease-out), box-shadow 300ms var(--ease-out), border-color 300ms var(--ease-out);
+      position: relative; overflow: hidden;
+    }
+    .contact-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0; transition: opacity 300ms var(--ease-out);
+    }
+    [data-theme="dark"] .contact-card { background: var(--bg-dark-2); border-color: var(--border-dark); }
+    @media (hover: hover) and (pointer: fine) {
+      .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 44px rgba(0,0,0,0.09);
+        border-color: rgba(196,144,42,0.3);
+      }
+      .contact-card:hover::after { opacity: 1; }
+    }
+    .card-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: var(--accent-light); color: var(--accent);
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+      transition: background 200ms, color 200ms, transform 200ms;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .contact-card:hover .card-icon { background: var(--accent); color: #0A0906; transform: scale(1.08); }
+    }
+    [data-theme="dark"] .card-icon { background: var(--accent-light); }
+    .card-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--text-muted);
+    }
+    .card-value {
+      font-family: 'Playfair Display', serif; font-size: 1.2rem;
+      font-weight: 600; color: var(--text); line-height: 1.3; font-style: italic;
+    }
+    .card-sub { font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; }
+    .card-action {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 4px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); transition: gap 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) { .card-action:hover { gap: 13px; } }
+    @media (max-width: 900px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px)  { .cards-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px)  { .contact-inner { padding: 64px 24px; } }
+
+    /* ══ MAP SECTION ══ */
+    .map-section { background: var(--bg-dark); border-top: 1px solid var(--border-dark); }
+    .map-inner {
+      max-width: 1200px; margin: 0 auto; padding: 90px 40px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .map-text .section-label { color: var(--accent); }
+    .map-text h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--text-inv); margin-bottom: 20px; font-style: italic; }
+    .map-details { list-style: none; display: flex; flex-direction: column; gap: 18px; margin-bottom: 36px; }
+    .map-details li {
+      display: flex; align-items: flex-start; gap: 14px;
+      font-size: 0.95rem; color: var(--text-inv-muted); line-height: 1.6;
+    }
+    .map-details li i { color: var(--accent); font-size: 0.9rem; margin-top: 3px; flex-shrink: 0; }
+    .map-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 30px; border-radius: 10px;
+      background: var(--accent); color: #0A0906;
+      font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out), box-shadow 200ms;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .map-btn:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 24px var(--accent-glow); }
+    }
+    .map-btn:active { transform: scale(0.97); }
+    .map-visual {
+      background: var(--bg-dark-2); border: 1px solid var(--border-dark);
+      border-radius: 16px; overflow: hidden;
+      aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+      position: relative;
+      transition: border-color 250ms var(--ease-out), box-shadow 250ms;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .map-visual:hover { border-color: rgba(196,144,42,0.35); box-shadow: 0 16px 48px rgba(0,0,0,0.5); }
+    }
+    .map-visual img {
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.65;
+      transition: opacity 300ms var(--ease-out), transform 500ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .map-visual:hover img { opacity: 0.85; transform: scale(1.03); }
+    }
+    .map-overlay {
+      position: absolute; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 16px;
+      background: rgba(8,7,6,0.5); backdrop-filter: blur(2px);
+    }
+    .map-pin {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--accent); color: #0A0906;
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+      box-shadow: 0 0 0 12px rgba(196,144,42,0.18), 0 0 0 24px rgba(196,144,42,0.07);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 12px rgba(196,144,42,0.18), 0 0 0 24px rgba(196,144,42,0.07); }
+      50%       { box-shadow: 0 0 0 18px rgba(196,144,42,0.14), 0 0 0 34px rgba(196,144,42,0.04); }
+    }
+    .map-overlay-text {
+      font-size: 0.78rem; color: rgba(245,240,230,0.88); font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    @media (max-width: 900px) { .map-inner { grid-template-columns: 1fr; gap: 48px; } }
+    @media (max-width: 768px) { .map-inner { padding: 64px 24px; } }
+
+    /* ══ WHATSAPP CTA ══ */
+    .wa-section {
+      background: #075E54; padding: 80px 40px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .wa-section::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, #25D366, transparent);
+    }
+    .wa-section::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(37,211,102,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .wa-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; margin-bottom: 14px;
+      position: relative; z-index: 1; font-style: italic;
+    }
+    .wa-section p {
+      color: rgba(255,255,255,0.72); font-size: 1rem; margin-bottom: 36px;
+      max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.75;
+      position: relative; z-index: 1;
+    }
+    .wa-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 38px; background: #25D366; color: #fff; border-radius: 10px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      box-shadow: 0 8px 32px rgba(37,211,102,0.35);
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out), box-shadow 200ms;
+      position: relative; z-index: 1;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .wa-btn:hover { background: #1ebe5d; transform: translateY(-3px); box-shadow: 0 14px 40px rgba(37,211,102,0.45); }
+    }
+    .wa-btn:active { transform: scale(0.97); }
+    .wa-btn img { width: 22px; height: 22px; }
+    @media (max-width: 768px) { .wa-section { padding: 56px 24px; } }
+
+    /* ══ WHATSAPP FLOAT ══ */
+    .whatsapp-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg-dark); color: #fff;
+      padding: 10px 18px 10px 10px; border-radius: 60px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.32);
+      border: 1px solid rgba(196,144,42,0.18);
+      font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out), background 200ms;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .whatsapp-float:hover { background: #25D366; transform: translateY(-4px); box-shadow: 0 14px 40px rgba(37,211,102,0.35); border-color: transparent; }
+    }
+    .whatsapp-float img { width: 22px; height: 22px; }
+
+    /* ══ FOOTER ══ */
+    .footer { background: var(--bg-dark); border-top: 1px solid var(--border-dark); }
+    .footer-container {
+      max-width: 1240px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px; padding: 64px 40px 48px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .footer-logo img { height: 52px; width: auto; margin-bottom: 18px; }
+    .footer-description { font-size: 0.9rem; color: var(--text-inv-muted); line-height: 1.7; max-width: 280px; margin-bottom: 26px; }
+    .social-icons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .social-icons a {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border-dark);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-inv-muted); font-size: 0.9rem;
+      transition: border-color 160ms var(--ease-out), color 160ms var(--ease-out), background 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .social-icons a:hover { border-color: var(--accent); color: var(--accent); background: rgba(196,144,42,0.08); }
+    }
+    .footer-column h3 {
+      font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+    }
+    .footer-column a, .footer-column p {
+      display: block; font-size: 0.9rem; color: var(--text-inv-muted);
+      margin-bottom: 11px; line-height: 1.7; transition: color 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) { .footer-column a:hover { color: var(--text-inv); } }
+    .footer-bottom {
+      max-width: 1240px; margin: 0 auto;
+      padding: 24px 40px;
+      display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .footer-bottom p { font-size: 0.82rem; color: var(--text-inv-muted); line-height: 1.6; }
+    .developer-link { color: var(--accent); font-weight: 600; }
+    @media (hover: hover) and (pointer: fine) { .developer-link:hover { color: var(--text-inv); } }
+    @media (max-width: 900px) { .footer-container { grid-template-columns: 1fr 1fr; gap: 40px; } }
+    @media (max-width: 768px) {
+      .footer-container { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px 32px; }
+      .footer-bottom { padding: 20px 24px; justify-content: center; text-align: center; }
+    }
+        @media (max-width: 480px) {
+      .page-banner { padding: 120px 20px 64px; }
+      .contact-inner { padding: 48px 20px; }
+      .contact-card { padding: 24px 18px; }
+      .map-inner { padding: 48px 20px; gap: 32px; }
+      .wa-section { padding: 48px 20px; }
+      .whatsapp-text { display: none; }
+      .whatsapp-float { padding: 12px; border-radius: 50%; right: 16px; bottom: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BicycleStore",
+    "name": "Cycle World Pondicherry",
+    "description": "Pondicherry's premier bicycle showroom. Premium road bikes, mountain bikes, city cycles and kids cycles from top brands. Expert guidance at the best prices.",
+    "telephone": "+919043743880",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "109, Cuddalore Road",
+      "addressLocality": "Mudaliarpet",
+      "addressRegion": "Puducherry",
+      "postalCode": "605004",
+      "addressCountry": "IN"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      }
+    ],
+    "priceRange": "₹₹",
+    "sameAs": [
+      "https://www.instagram.com/cycle_world_pondicherry/",
+      "https://www.facebook.com/cycleworld.in/"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="catalogue.html">Catalogue</a>
+        <a class="nav-link" href="about.html">About</a>
+      </div>
+      <a class="nav-logo" href="index.html">
+        <img src="logo.webp" alt="Cycle World Pondicherry">
+      </a>
+      <div class="nav-right">
+        <a class="nav-cta" href="contact.html">Contact Us</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <span class="icon-sun">&#9728;&#65038;</span>
+          <span class="icon-moon">&#9789;</span>
+        </button>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileMenu">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="catalogue.html">Catalogue</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- BANNER -->
+  <section class="page-banner">
+    <span class="banner-eyebrow">We&rsquo;d Love to Hear From You</span>
+    <h1>Get In Touch</h1>
+    <p>Drop by the showroom, give us a call or chat on WhatsApp &mdash; we&rsquo;re here every day of the week.</p>
+  </section>
+
+  <!-- CONTACT CARDS -->
+  <section class="contact-section">
+    <div class="contact-inner">
+      <div class="contact-intro reveal">
+        <span class="section-label">Reach Us</span>
+        <h2 class="section-title">Find Us Any Way You Like</h2>
+        <p class="section-subtitle">Whether you have a question about a specific cycle or just want to browse &mdash; we&rsquo;re always happy to help.</p>
+      </div>
+      <div class="cards-grid">
+
+        <div class="contact-card reveal reveal-d1">
+          <div class="card-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <div class="card-label">Call Us</div>
+            <div class="card-value">+91 90437 43880</div>
+            <div class="card-sub">Mon &ndash; Sat, 9 AM to 9 PM</div>
+          </div>
+          <a href="tel:+919043743880" class="card-action">
+            Call Now <i class="fa-solid fa-arrow-right" style="font-size:9px;"></i>
+          </a>
+        </div>
+
+        <div class="contact-card reveal reveal-d2">
+          <div class="card-icon" style="background:#dcf8e0; color:#25D366;"><i class="fa-brands fa-whatsapp"></i></div>
+          <div>
+            <div class="card-label">WhatsApp</div>
+            <div class="card-value">Chat Instantly</div>
+            <div class="card-sub">Get quick answers from our team</div>
+          </div>
+          <a href="https://wa.me/9043743880" target="_blank" class="card-action">
+            Open Chat <i class="fa-solid fa-arrow-right" style="font-size:9px;"></i>
+          </a>
+        </div>
+
+        <div class="contact-card reveal reveal-d3">
+          <div class="card-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <div class="card-label">Visit Us</div>
+            <div class="card-value">109, Cuddalore Road</div>
+            <div class="card-sub">Mudaliarpet, Puducherry 605004<br>Next to AFT Mill &amp; Indian Bank</div>
+          </div>
+          <a href="https://maps.app.goo.gl/gWrGrysEMp8YYRu97" target="_blank" class="card-action">
+            Get Directions <i class="fa-solid fa-arrow-right" style="font-size:9px;"></i>
+          </a>
+        </div>
+
+        <div class="contact-card reveal reveal-d4">
+          <div class="card-icon"><i class="fa-solid fa-clock"></i></div>
+          <div>
+            <div class="card-label">Store Hours</div>
+            <div class="card-value">9 AM &ndash; 9 PM</div>
+            <div class="card-sub">Monday through Saturday<br>Closed on Sundays</div>
+          </div>
+          <span id="openStatus" class="card-action">Open Today</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-line"></div>
+
+  <!-- MAP / LOCATION -->
+  <section class="map-section">
+    <div class="map-inner">
+      <div class="map-text reveal">
+        <span class="section-label">Our Location</span>
+        <h2>Come See Us in Pondicherry</h2>
+        <ul class="map-details">
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <span>109, Cuddalore Road, Mudaliarpet, Puducherry 605004<br>(Next to AFT Mill &amp; Indian Bank)</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <span>+91 90437 43880</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-clock"></i>
+            <span>Monday to Saturday, 9:00 AM &ndash; 9:00 PM<br>Closed on Sundays</span>
+          </li>
+          <li>
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp available during store hours for quick queries and product enquiries</span>
+          </li>
+        </ul>
+        <a href="https://maps.app.goo.gl/gWrGrysEMp8YYRu97" target="_blank" class="map-btn">
+          <i class="fa-solid fa-map-location-dot"></i>
+          Open in Google Maps
+        </a>
+      </div>
+      <a href="https://maps.app.goo.gl/gWrGrysEMp8YYRu97" target="_blank" class="map-visual reveal reveal-d2">
+        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1174&auto=format&fit=crop" alt="Map location">
+        <div class="map-overlay">
+          <div class="map-pin"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="map-overlay-text">Cycle World Pondicherry</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- WHATSAPP CTA -->
+  <section class="wa-section">
+    <div class="reveal">
+      <h2>Quick Question? Just WhatsApp.</h2>
+      <p>Message us about availability, pricing or anything else &mdash; we typically reply within a few minutes during store hours.</p>
+      <a href="https://wa.me/9043743880" target="_blank" class="wa-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
+        Start a Conversation
+      </a>
+    </div>
+  </section>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/9043743880" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    Chat With Us
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <div class="footer-logo"><img src="logo.webp" alt="Cycle World Pondicherry"></div>
+        <p class="footer-description">Explore premium bicycles, cycling accessories and expert guidance for every rider at Cycle World Pondicherry.</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/cycle_world_pondicherry/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/cycleworld.in/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/9043743880" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <p>+91 90437 43880</p>
+        <p>Cycle World Pondicherry</p>
+        <p>Pondicherry, India</p>
+        <p>Mon &ndash; Sat : 9 AM &ndash; 9 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Designed &amp; Developed by <a href="https://hank0811.github.io/Portfolio/" target="_blank" class="developer-link">Shashank Sekhar VS</a></p>
+      <p>&copy; 2026 Cycle World Pondicherry. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+    function toggleTheme() {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+
+    let prevScroll = window.pageYOffset;
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      const cur = window.pageYOffset;
+      navbar.classList.toggle('scrolled', cur > 40);
+      navbar.style.transform = (cur > prevScroll && cur > 72) ? 'translateY(-100%)' : 'translateY(0)';
+      prevScroll = cur;
+    });
+
+    /* Scroll reveal */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* Open / Closed status */
+    const day = new Date().getDay();
+    const openEl = document.getElementById('openStatus');
+    if (openEl) {
+      if (day === 0) {
+        openEl.textContent = 'Closed Today';
+        openEl.style.color = '#c03030';
+      } else {
+        openEl.style.color = '#25D366';
+      }
+    }
+  </script>
+</body>
+</html>
