@@ -478,6 +478,14 @@
     ]
   }
   </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1VYLKBQ3W5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1VYLKBQ3W5');
+  </script>
 </head>
 <body>
 
@@ -709,6 +717,16 @@
         openEl.style.color = '#25D366';
       }
     }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    (function(){
+      try {
+        var sb = window.supabase.createClient( + SUPABASE_URL + ,  + SUPABASE_KEY + );
+        sb.from('page_views').insert([{ page:  + pname + , referrer: document.referrer || null }]);
+      } catch(e) {}
+    })();
   </script>
 </body>
 </html>

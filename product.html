@@ -526,6 +526,14 @@
     ]
   }
   </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1VYLKBQ3W5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1VYLKBQ3W5');
+  </script>
 </head>
 <body>
 
@@ -586,6 +594,7 @@
     const SUPABASE_URL = 'https://mepeiiqmqwzitmidyjzw.supabase.co';
     const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lcGVpaXFtcXd6aXRtaWR5anp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MDY4MzEsImV4cCI6MjA5NjA4MjgzMX0.Npzu95OEIP1-iDkm7U3-kxB1UwyXJNJb6tbqIDnbKyo';
     const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    supabaseClient.from('page_views').insert([{ page: 'Product', referrer: document.referrer || null }]);
 
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
