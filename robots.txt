@@ -4,3 +4,6 @@ Allow: /
 Disallow: /admin.html
 Disallow: /admin_login.html
 Disallow: /offers.html
+Disallow: /analytics.html
+
+Sitemap: https://cycleworldpondicherry.in/sitemap.xml
