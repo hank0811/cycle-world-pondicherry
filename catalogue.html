@@ -158,6 +158,7 @@
       .menu-btn { display:flex; }
       .nav-container { padding:0 20px; }
       .nav-logo img { height:52px; }
+      .nav-right { margin-left:auto; }
     }
 
     /* ══ CATALOGUE BANNER ══ */
@@ -638,12 +639,12 @@
       </a>
       <div class="nav-right">
         <a class="nav-cta" href="contact.html">Contact Us</a>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
           <span class="icon-sun">&#9728;&#65038;</span>
           <span class="icon-moon">&#9789;</span>
-        </button>
-        <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
-          <i class="fa-solid fa-bars"></i>
         </button>
       </div>
     </div>
