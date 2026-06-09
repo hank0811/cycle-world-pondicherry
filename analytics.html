@@ -408,9 +408,9 @@
       if (error) { console.error(error); return; }
 
       // ── STATS ──
-      const todayViews  = all.filter(v => v.viewed_at >= today).length;
-      const weekViews   = all.filter(v => v.viewed_at >= week).length;
-      const monthViews  = all.filter(v => v.viewed_at >= month).length;
+      const todayViews  = all.filter(v => new Date(v.viewed_at) >= new Date(today)).length;
+      const weekViews   = all.filter(v => new Date(v.viewed_at) >= new Date(week)).length;
+      const monthViews  = all.filter(v => new Date(v.viewed_at) >= new Date(month)).length;
       document.getElementById('statToday').textContent = fmt(todayViews);
       document.getElementById('statWeek').textContent  = fmt(weekViews);
       document.getElementById('statMonth').textContent = fmt(monthViews);

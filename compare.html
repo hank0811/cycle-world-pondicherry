@@ -130,17 +130,66 @@
     @media (hover: hover) and (pointer: fine) { .nav-cta:hover { background: var(--accent-hover); } }
     .nav-cta:active { transform: scale(0.97); }
     .theme-toggle {
-      display: flex; align-items: center; justify-content: center;
-      width: 34px; height: 34px; border-radius: 8px;
-      border: 1px solid rgba(196,144,42,0.18); background: rgba(196,144,42,0.05);
-      color: rgba(245,240,230,0.6); cursor: pointer; font-size: 14px; padding: 0;
-      transition: border-color 160ms var(--ease-out), background 160ms var(--ease-out), color 160ms var(--ease-out);
+      position: relative; display: flex; align-items: center; justify-content: space-between;
+      width: 56px; height: 28px; border-radius: 14px;
+      border: 1px solid rgba(196,144,42,0.28); background: rgba(196,144,42,0.08);
+      padding: 0 6px; cursor: pointer; flex-shrink: 0; overflow: visible;
+      transition: border-color 200ms var(--ease-out), background 200ms var(--ease-out);
     }
     @media (hover: hover) and (pointer: fine) {
-      .theme-toggle:hover { border-color: rgba(196,144,42,0.4); background: rgba(196,144,42,0.1); color: #F5F0E6; }
+      .theme-toggle:hover { border-color: rgba(196,144,42,0.5); background: rgba(196,144,42,0.14); }
     }
-    [data-theme="light"] .icon-moon { display: none; }
-    [data-theme="dark"]  .icon-sun  { display: none; }
+    .toggle-thumb {
+      position: absolute; width: 20px; height: 20px; border-radius: 50%;
+      background: var(--accent); top: 50%; transform: translateY(-50%);
+      left: 3px; transition: left 220ms var(--ease-out);
+      box-shadow: 0 1px 5px rgba(0,0,0,0.4); pointer-events: none; z-index: 1;
+    }
+    [data-theme="dark"] .toggle-thumb { left: calc(100% - 23px); }
+    .icon-sun, .icon-moon { font-size: 11px; line-height: 1; z-index: 2; pointer-events: none; }
+    .icon-sun { color: rgba(196,144,42,0.5); }
+    .icon-moon { color: rgba(245,240,230,0.3); }
+    [data-theme="light"] .icon-sun { color: rgba(196,144,42,1); }
+    [data-theme="dark"]  .icon-moon { color: rgba(212,168,64,1); }
+    .nav-search-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid rgba(196,144,42,0.18); background: rgba(196,144,42,0.05);
+      color: rgba(245,240,230,0.6); cursor: pointer; font-size: 13px; padding: 0; flex-shrink: 0;
+      transition: border-color 160ms var(--ease-out), background 160ms var(--ease-out), color 160ms var(--ease-out), transform 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .nav-search-btn:hover { border-color: rgba(196,144,42,0.4); background: rgba(196,144,42,0.1); color: #F5F0E6; }
+    }
+    .nav-search-btn:active { transform: scale(0.94); }
+    .search-overlay {
+      position: fixed; top: 72px; left: 0; right: 0; z-index: 997;
+      background: rgba(8,7,6,0.97); border-bottom: 1px solid rgba(196,144,42,0.18);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      padding: 14px 40px; display: flex; align-items: center; gap: 12px;
+      transform: translateY(-110%); opacity: 0;
+      transition: transform 220ms var(--ease-out), opacity 180ms ease;
+      pointer-events: none;
+    }
+    .search-overlay.active { transform: translateY(0); opacity: 1; pointer-events: all; }
+    .search-overlay-input {
+      flex: 1; height: 48px; background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(196,144,42,0.25); border-radius: 10px;
+      padding: 0 20px; color: #F5F0E6; font-size: 0.97rem;
+      font-family: 'DM Sans', sans-serif; outline: none;
+      transition: border-color 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+    }
+    .search-overlay-input::placeholder { color: rgba(245,240,230,0.35); }
+    .search-overlay-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+    .search-overlay-close {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      border: 1px solid rgba(196,144,42,0.2); background: rgba(255,255,255,0.05);
+      color: rgba(245,240,230,0.6); cursor: pointer; font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 160ms var(--ease-out);
+    }
+    .search-overlay-close:hover { border-color: rgba(196,144,42,0.4); color: #F5F0E6; }
+    @media (max-width: 768px) { .search-overlay { padding: 12px 16px; } }
     .menu-btn {
       display: none; width: 38px; height: 38px; border-radius: 10px;
       background: rgba(255,255,255,0.05); border: 1px solid rgba(196,144,42,0.18);
@@ -537,9 +586,9 @@
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "09:00",
-        "closes": "21:00"
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "22:00"
       }
     ],
     "priceRange": "₹₹",
@@ -575,8 +624,12 @@
         <img src="logo.webp" alt="Cycle World Pondicherry">
       </a>
       <div class="nav-right">
+        <button class="nav-search-btn" onclick="openNavSearch()" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
         <a class="nav-cta" href="contact.html">Contact Us</a>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <span class="toggle-thumb"></span>
           <span class="icon-sun">&#9728;&#65038;</span>
           <span class="icon-moon">&#9789;</span>
         </button>
@@ -589,6 +642,14 @@
       <a class="nav-link" href="contact.html">Contact Us</a>
     </nav>
   </header>
+
+  <!-- SEARCH OVERLAY -->
+  <div class="search-overlay" id="searchOverlay">
+    <input type="text" class="search-overlay-input" id="navSearchInput" placeholder="Search cycles, brands, categories…">
+    <button class="search-overlay-close" onclick="closeNavSearch()" aria-label="Close search">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
 
   <!-- PAGE BANNER -->
   <div class="page-banner">
@@ -760,6 +821,20 @@
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
     }
+    function openNavSearch() {
+      document.getElementById('searchOverlay').classList.add('active');
+      setTimeout(() => document.getElementById('navSearchInput').focus(), 220);
+    }
+    function closeNavSearch() {
+      document.getElementById('searchOverlay').classList.remove('active');
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNavSearch(); });
+    document.getElementById('navSearchInput').addEventListener('keypress', e => {
+      if (e.key === 'Enter') {
+        const val = e.target.value.trim();
+        if (val) window.location.href = `catalogue.html?search=${encodeURIComponent(val)}`;
+      }
+    });
 
     let prevScroll = window.pageYOffset;
     const navbar = document.getElementById('navbar');
@@ -814,7 +889,7 @@
         <p>+91 90437 43880</p>
         <p>Cycle World Pondicherry</p>
         <p>Pondicherry, India</p>
-        <p>Mon &ndash; Sat : 9 AM &ndash; 9 PM</p>
+        <p>Mon &ndash; Sun : 10 AM &ndash; 10 PM</p>
       </div>
     </div>
     <div class="footer-bottom">
