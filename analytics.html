@@ -399,29 +399,27 @@
       const week  = new Date(now - 7  * 86400000).toISOString();
       const month = new Date(now - 30 * 86400000).toISOString();
 
-      // Fetch all views once and compute everything client-side
-      const { data: all, error } = await supabase
-        .from('page_views')
-        .select('page, viewed_at, referrer')
-        .order('viewed_at', { ascending: false });
-
-      if (error) {
-        console.error('page_views query error:', error.message);
-        document.getElementById('statToday').textContent = '0';
-        document.getElementById('statWeek').textContent  = '0';
-        document.getElementById('statMonth').textContent = '0';
-        document.getElementById('statTotal').textContent = '0';
-        document.getElementById('pageBars').innerHTML = '<div class="loading-row" style="color:#94A3B8">No data yet — tracking starts as visitors arrive.</div>';
-        document.getElementById('trendBars').innerHTML = '<div class="loading-row" style="color:#94A3B8">No data yet.</div>';
-        document.getElementById('recentBody').innerHTML = '<tr><td colspan="3" class="loading-row">No views yet — share the website!</td></tr>';
+      // Use direct fetch with anon key — no auth session dependency
+      let all = [];
+      try {
+        const res = await fetch(
+          SUPABASE_URL + '/rest/v1/page_views?select=page,viewed_at,referrer&order=viewed_at.desc',
+          { headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY } }
+        );
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        all = await res.json();
+      } catch (e) {
+        console.error('page_views fetch error:', e.message);
+        ['statToday','statWeek','statMonth','statTotal'].forEach(id => document.getElementById(id).textContent = '—');
+        document.getElementById('pageBars').innerHTML = '<div class="loading-row" style="color:#94A3B8">Could not load data.</div>';
+        document.getElementById('trendBars').innerHTML = '<div class="loading-row" style="color:#94A3B8">Could not load data.</div>';
+        document.getElementById('recentBody').innerHTML = '<tr><td colspan="3" class="loading-row">Could not load data.</td></tr>';
         return;
       }
+
       if (all.length === 0) {
-        document.getElementById('statToday').textContent = '0';
-        document.getElementById('statWeek').textContent  = '0';
-        document.getElementById('statMonth').textContent = '0';
-        document.getElementById('statTotal').textContent = '0';
-        document.getElementById('pageBars').innerHTML = '<div class="loading-row" style="color:#94A3B8">No views recorded yet.</div>';
+        ['statToday','statWeek','statMonth','statTotal'].forEach(id => document.getElementById(id).textContent = '0');
+        document.getElementById('pageBars').innerHTML = '<div class="loading-row" style="color:#94A3B8">No views yet — share the website!</div>';
         document.getElementById('trendBars').innerHTML = '<div class="loading-row" style="color:#94A3B8">No data yet.</div>';
         document.getElementById('recentBody').innerHTML = '<tr><td colspan="3" class="loading-row">No views yet — share the website!</td></tr>';
         return;
