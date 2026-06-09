@@ -821,7 +821,11 @@
     const SUPABASE_URL = "https://mepeiiqmqwzitmidyjzw.supabase.co";
     const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lcGVpaXFtcXd6aXRtaWR5anp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MDY4MzEsImV4cCI6MjA5NjA4MjgzMX0.Npzu95OEIP1-iDkm7U3-kxB1UwyXJNJb6tbqIDnbKyo";
     const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-    supabaseClient.from('page_views').insert([{ page: 'Catalogue', referrer: document.referrer || null }]);
+    fetch('https://mepeiiqmqwzitmidyjzw.supabase.co/rest/v1/page_views', {
+      method: 'POST', keepalive: true,
+      headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+      body: JSON.stringify([{ page: 'Catalogue', referrer: document.referrer || null }])
+    });
 
     let allProducts = [];
     let allOffers = [];

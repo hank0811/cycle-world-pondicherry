@@ -405,7 +405,27 @@
         .select('page, viewed_at, referrer')
         .order('viewed_at', { ascending: false });
 
-      if (error) { console.error(error); return; }
+      if (error) {
+        console.error('page_views query error:', error.message);
+        document.getElementById('statToday').textContent = '0';
+        document.getElementById('statWeek').textContent  = '0';
+        document.getElementById('statMonth').textContent = '0';
+        document.getElementById('statTotal').textContent = '0';
+        document.getElementById('pageBars').innerHTML = '<div class="loading-row" style="color:#94A3B8">No data yet — tracking starts as visitors arrive.</div>';
+        document.getElementById('trendBars').innerHTML = '<div class="loading-row" style="color:#94A3B8">No data yet.</div>';
+        document.getElementById('recentBody').innerHTML = '<tr><td colspan="3" class="loading-row">No views yet — share the website!</td></tr>';
+        return;
+      }
+      if (all.length === 0) {
+        document.getElementById('statToday').textContent = '0';
+        document.getElementById('statWeek').textContent  = '0';
+        document.getElementById('statMonth').textContent = '0';
+        document.getElementById('statTotal').textContent = '0';
+        document.getElementById('pageBars').innerHTML = '<div class="loading-row" style="color:#94A3B8">No views recorded yet.</div>';
+        document.getElementById('trendBars').innerHTML = '<div class="loading-row" style="color:#94A3B8">No data yet.</div>';
+        document.getElementById('recentBody').innerHTML = '<tr><td colspan="3" class="loading-row">No views yet — share the website!</td></tr>';
+        return;
+      }
 
       // ── STATS ──
       const todayViews  = all.filter(v => new Date(v.viewed_at) >= new Date(today)).length;
