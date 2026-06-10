@@ -845,26 +845,21 @@
 
     document.addEventListener("mousemove", (e) => {
       const image = document.getElementById("mainProductImage");
-      const lens = document.getElementById("zoomLens");
+      const lens  = document.getElementById("zoomLens");
       if (!image || !lens) return;
       const rect = image.getBoundingClientRect();
       const inside = e.clientX >= rect.left && e.clientX <= rect.right &&
-                     e.clientY >= rect.top && e.clientY <= rect.bottom;
+                     e.clientY >= rect.top  && e.clientY <= rect.bottom;
       if (!inside) { lens.style.display = "none"; return; }
       lens.style.display = "block";
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       lens.style.left = `${x - 90}px`;
       lens.style.top  = `${y - 90}px`;
-      // Use natural image size for zoom to avoid blurring scaled-up images
-      const nw = image.naturalWidth  || rect.width;
-      const nh = image.naturalHeight || rect.height;
-      const scaleX = rect.width  / nw;
-      const scaleY = rect.height / nh;
-      const zoomLevel = Math.max(2, 1 / Math.min(scaleX, scaleY));
+      const z = 2.5;
       lens.style.backgroundImage    = `url(${image.src})`;
-      lens.style.backgroundSize     = `${nw * zoomLevel * scaleX}px ${nh * zoomLevel * scaleY}px`;
-      lens.style.backgroundPosition = `-${x * zoomLevel - 90}px -${y * zoomLevel - 90}px`;
+      lens.style.backgroundSize     = `${rect.width * z}px ${rect.height * z}px`;
+      lens.style.backgroundPosition = `-${x * z - 90}px -${y * z - 90}px`;
     });
 
     function addToCompare(productId) {
