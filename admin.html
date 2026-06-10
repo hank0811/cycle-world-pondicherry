@@ -1271,8 +1271,17 @@
 
       let imageUrls = [];
 
+      function sanitizeFileName(name) {
+        return name
+          .toLowerCase()
+          .replace(/\s+/g, '-')
+          .replace(/[^a-z0-9.\-_]/g, '')
+          .replace(/-{2,}/g, '-')
+          .replace(/^[-_]+|[-_]+$/g, '') || 'image';
+      }
+
       async function uploadImage(file, suffix) {
-        const fileName = `${Date.now()}-${suffix}-${file.name}`;
+        const fileName = `${Date.now()}-${suffix}-${sanitizeFileName(file.name)}`;
         const { error: uploadError } = await supabaseClient.storage.from('products').upload(fileName, file);
         if (uploadError) { console.error(uploadError); alert(`Image ${suffix} upload failed`); return null; }
         const { data } = supabaseClient.storage.from('products').getPublicUrl(fileName);

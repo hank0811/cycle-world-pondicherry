@@ -843,6 +843,9 @@
       document.getElementById('mainProductImage').src = image;
     }
 
+    // Always use this for CSS url() — unquoted urls break on filenames with spaces/parens
+    const cssUrl = src => `url("${src}")`;
+
     document.addEventListener("mousemove", (e) => {
       const image = document.getElementById("mainProductImage");
       const lens  = document.getElementById("zoomLens");
@@ -879,7 +882,7 @@
       lens.style.left = `${x - 90}px`;
       lens.style.top  = `${y - 90}px`;
       const z = 2.5;
-      lens.style.backgroundImage    = `url("${image.src}")`;
+      lens.style.backgroundImage    = cssUrl(image.src);
       lens.style.backgroundSize     = `${renderedW * z}px ${renderedH * z}px`;
       lens.style.backgroundPosition = `-${imgX * z - 90}px -${imgY * z - 90}px`;
     });
