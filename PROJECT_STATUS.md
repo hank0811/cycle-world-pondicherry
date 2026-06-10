@@ -2,7 +2,7 @@
 
 ## Current Phase: Post-Launch Polish
 **Last updated:** 2026-06-10
-**Status:** 🟡 In Progress — zoom bug pending fix
+**Status:** 🟡 In Progress
 
 ---
 
@@ -167,8 +167,8 @@
 - **Supabase security** — RLS enabled on `products`, `categories`, `offers` with correct anon SELECT + authenticated CRUD policies
 - **Old project deleted** — `fysejhlafxxyprxedezr` (Cycle World 1) paused and deleted
 
-#### 🔴 Pending
-- **Product page zoom** — zoom lens circle appears but magnification not working correctly for some products (e.g. Triton E+). `backdrop-filter:blur` removed, `scale(1.04)` conflict removed, but background-image zoom positioning still inconsistent across different image sizes.
+#### ✅ Done (continued)
+- **Product page zoom** — fixed: now computes actual `object-fit:contain` rendered dimensions from `naturalWidth`/`naturalHeight`, accounting for `padding:20px` letterbox offset. Background size and position now align precisely with cursor for all image aspect ratios.
 
 ---
 
@@ -184,7 +184,7 @@
 
 | # | Task | Priority |
 |---|---|---|
-| 1 | **Product zoom fix** — zoom lens shows circle but no magnification on some products | 🔴 High |
+| 1 | **Product zoom** — ✅ Fixed (object-fit:contain letterbox accounted for) | ✅ Done |
 | 2 | **Google Business Profile** — client (vsatreya) must verify at business.google.com | 🔴 High — biggest local SEO signal |
 | 3 | **Justdial listing** — update with new website URL `cycleworldpondicherry.in` | 🟡 Medium |
 | 4 | **Sulekha & IndiaMart** — create free business listings | 🟡 Medium |

@@ -851,15 +851,37 @@
       const inside = e.clientX >= rect.left && e.clientX <= rect.right &&
                      e.clientY >= rect.top  && e.clientY <= rect.bottom;
       if (!inside) { lens.style.display = "none"; return; }
-      lens.style.display = "block";
+
+      // object-fit:contain + padding:20px means the actual image pixels are
+      // letterboxed inside the element. Calculate the true rendered rect.
+      const pad = 20;
+      const usableW = rect.width  - pad * 2;
+      const usableH = rect.height - pad * 2;
+      const nw = image.naturalWidth  || rect.width;
+      const nh = image.naturalHeight || rect.height;
+      const scale    = Math.min(usableW / nw, usableH / nh);
+      const renderedW = nw * scale;
+      const renderedH = nh * scale;
+      const imgOffsetX = pad + (usableW - renderedW) / 2;
+      const imgOffsetY = pad + (usableH - renderedH) / 2;
+
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
+      const imgX = x - imgOffsetX;
+      const imgY = y - imgOffsetY;
+
+      // Hide lens when hovering over the letterbox (padding) area
+      if (imgX < 0 || imgX > renderedW || imgY < 0 || imgY > renderedH) {
+        lens.style.display = "none"; return;
+      }
+
+      lens.style.display = "block";
       lens.style.left = `${x - 90}px`;
       lens.style.top  = `${y - 90}px`;
       const z = 2.5;
       lens.style.backgroundImage    = `url(${image.src})`;
-      lens.style.backgroundSize     = `${rect.width * z}px ${rect.height * z}px`;
-      lens.style.backgroundPosition = `-${x * z - 90}px -${y * z - 90}px`;
+      lens.style.backgroundSize     = `${renderedW * z}px ${renderedH * z}px`;
+      lens.style.backgroundPosition = `-${imgX * z - 90}px -${imgY * z - 90}px`;
     });
 
     function addToCompare(productId) {
