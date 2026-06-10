@@ -481,7 +481,7 @@
     @keyframes skeletonLoading { 100% { left:150%; } }
 
     /* ══ BRANDS ══ */
-    .brands-section { padding:90px 0; background:var(--bg); overflow:hidden; position:relative; }
+    .brands-section { padding:90px 0; background:var(--bg-alt); overflow:hidden; position:relative; }
     .brands-section::before {
       content:''; position:absolute; top:0; left:0; right:0; height:1px;
       background:linear-gradient(90deg,transparent,var(--accent),transparent);
@@ -497,8 +497,8 @@
     .brands-slider::before,.brands-slider::after {
       content:""; position:absolute; top:0; height:100%; width:120px; z-index:5; pointer-events:none;
     }
-    .brands-slider::before { left:0; background:linear-gradient(to right,var(--bg),transparent); }
-    .brands-slider::after  { right:0; background:linear-gradient(to left,var(--bg),transparent); }
+    .brands-slider::before { left:0; background:linear-gradient(to right,var(--bg-alt),transparent); }
+    .brands-slider::after  { right:0; background:linear-gradient(to left,var(--bg-alt),transparent); }
     .brands-track {
       display:flex; align-items:center; gap:16px;
       width:fit-content; animation:scrollBrands 22s linear infinite; will-change:transform;
