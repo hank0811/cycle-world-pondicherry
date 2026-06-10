@@ -287,15 +287,24 @@
     .catalogue-page {
       display:grid; grid-template-columns:260px 1fr;
       gap:0; max-width:1600px; margin:0 auto;
-      padding:0 24px 60px; background:transparent; overflow:visible;
+      padding:0 0 60px; background:transparent; overflow:visible;
+      align-items:start;
     }
 
     /* ══ SIDEBAR ══ */
     .sidebar {
-      width:100%; height:fit-content; position:sticky; top:100px;
+      width:100%;
+      /* Stick to viewport top (below navbar) */
+      position:sticky; top:80px;
+      /* Own scroll — fills viewport height so all filters are reachable */
+      height:calc(100vh - 100px);
+      overflow-y:auto; overflow-x:hidden;
       background:var(--bg-alt); padding:26px; border-radius:14px;
       border:1px solid var(--border); margin-top:28px;
     }
+    .sidebar::-webkit-scrollbar { width:3px; }
+    .sidebar::-webkit-scrollbar-track { background:transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background:var(--accent); border-radius:99px; }
     [data-theme="dark"] .sidebar { background:var(--bg-dark-2); border-color:var(--border-dark); }
     .sidebar-header {
       display:flex; align-items:center; justify-content:space-between;
@@ -367,7 +376,7 @@
     }
 
     /* ══ CATALOGUE CONTENT ══ */
-    .catalogue-content { width:100%; min-width:0; padding:24px 0 20px 24px; }
+    .catalogue-content { width:100%; min-width:0; padding:24px 24px 20px 24px; }
 
     /* ══ TOP BAR ══ */
     .top-bar { display:flex; flex-direction:column; gap:16px; margin-bottom:28px; }

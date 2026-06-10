@@ -242,15 +242,15 @@
       width:100%; height:100%; object-fit:contain; padding:20px;
       transition:transform 400ms var(--ease-out);
     }
-    @media (hover:hover) and (pointer:fine) {
-      .main-image:hover img { transform:scale(1.04); }
-    }
+    /* zoom lens handles the magnification — no conflicting scale on hover */
     .zoom-lens {
       position:absolute; width:180px; height:180px; border-radius:50%;
       border:3px solid rgba(196,144,42,0.6);
       box-shadow:0 8px 28px rgba(0,0,0,0.4);
       pointer-events:none; display:none; z-index:20;
-      background-repeat:no-repeat; backdrop-filter:blur(2px);
+      background-repeat:no-repeat;
+      image-rendering:-webkit-optimize-contrast;
+      image-rendering:crisp-edges;
     }
     .offer-tag {
       position:absolute; top:16px; left:16px;
@@ -855,10 +855,15 @@
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       lens.style.left = `${x - 90}px`;
-      lens.style.top = `${y - 90}px`;
-      const zoomLevel = 2;
-      lens.style.backgroundImage = `url(${image.src})`;
-      lens.style.backgroundSize = `${rect.width * zoomLevel}px ${rect.height * zoomLevel}px`;
+      lens.style.top  = `${y - 90}px`;
+      // Use natural image size for zoom to avoid blurring scaled-up images
+      const nw = image.naturalWidth  || rect.width;
+      const nh = image.naturalHeight || rect.height;
+      const scaleX = rect.width  / nw;
+      const scaleY = rect.height / nh;
+      const zoomLevel = Math.max(2, 1 / Math.min(scaleX, scaleY));
+      lens.style.backgroundImage    = `url(${image.src})`;
+      lens.style.backgroundSize     = `${nw * zoomLevel * scaleX}px ${nh * zoomLevel * scaleY}px`;
       lens.style.backgroundPosition = `-${x * zoomLevel - 90}px -${y * zoomLevel - 90}px`;
     });
 
