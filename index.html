@@ -602,17 +602,26 @@
     /* ══ CTA ══ */
     .cta {
       margin:80px 8%;
-      background: var(--bg-dark) url('puducherry_dark.png') center/cover no-repeat;
+      background: var(--bg-dark);
       border-radius:18px; padding:90px 60px; text-align:center;
       position:relative; overflow:hidden;
       border:1px solid rgba(196,144,42,0.14);
     }
     [data-theme="light"] .cta {
-      background: var(--bg) url('puducherry_light.png') center/cover no-repeat;
+      background: var(--bg);
       border-color: rgba(0,0,0,0.1);
     }
+    /* Map image at low opacity so it's a subtle bg texture */
+    .cta::after {
+      content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
+      background: url('puducherry_dark.png') center/cover no-repeat;
+      opacity: 0.12;
+    }
+    [data-theme="light"] .cta::after {
+      background-image: url('puducherry_light.png');
+    }
     .cta::before {
-      content:''; position:absolute; top:0; left:0; right:0; height:2px;
+      content:''; position:absolute; top:0; left:0; right:0; height:2px; z-index:1;
       background:linear-gradient(90deg,transparent,var(--accent),transparent);
     }
     .cta h2 {
