@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -336,15 +336,15 @@
       <span class="sidebar-brand-text">Cycle World</span>
     </div>
     <nav class="sidebar-nav">
-      <a href="admin.html" class="sidebar-link">
+      <a href="admin" class="sidebar-link">
         <i class="fa-solid fa-box"></i>
         <span>Products</span>
       </a>
-      <a href="offers.html" class="sidebar-link active">
+      <a href="offers" class="sidebar-link active">
         <i class="fa-solid fa-tags"></i>
         <span>Offers</span>
       </a>
-      <a href="analytics.html" class="sidebar-link">
+      <a href="analytics" class="sidebar-link">
         <i class="fa-solid fa-chart-line"></i>
         <span>Analytics</span>
       </a>
@@ -432,7 +432,7 @@
 
     async function protectAdminPage() {
       const { data: { session } } = await supabaseClient.auth.getSession();
-      if (!session) { window.location.href = 'admin_login.html'; return; }
+      if (!session) { window.location.href = '/admin_login'; return; }
     }
     protectAdminPage();
 
@@ -521,7 +521,7 @@
 
     async function logout() {
       await supabaseClient.auth.signOut();
-      window.location.href = 'admin_login.html';
+      window.location.href = '/admin_login';
     }
 
     loadOffers();

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="canonical" href="https://cycleworldpondicherry.in/compare.html" />
+  <link rel="canonical" href="https://cycleworldpondicherry.in/compare" />
   <title>Compare Cycles | Cycle World Pondicherry</title>
   <meta name="description" content="Compare cycles side by side — specs, prices and features. Find the perfect bicycle at Cycle World Pondicherry.">
   <meta property="og:type" content="website">
@@ -613,21 +613,21 @@
   <header class="navbar" id="navbar">
     <div class="nav-container">
       <div class="nav-left">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link active" href="catalogue.html">Catalogue</a>
-        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link active" href="catalogue">Catalogue</a>
+        <a class="nav-link" href="about">About</a>
       </div>
       <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
         <i class="fa-solid fa-bars"></i>
       </button>
-      <a class="nav-logo" href="index.html">
+      <a class="nav-logo" href="/">
         <img src="logo.webp" alt="Cycle World Pondicherry">
       </a>
       <div class="nav-right">
         <button class="nav-search-btn" onclick="openNavSearch()" aria-label="Search">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <a class="nav-cta" href="contact.html">Contact Us</a>
+        <a class="nav-cta" href="contact">Contact Us</a>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
           <span class="toggle-thumb"></span>
           <span class="icon-sun">&#9728;&#65038;</span>
@@ -636,10 +636,10 @@
       </div>
     </div>
     <nav class="mobile-nav" id="mobileMenu">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link active" href="catalogue.html">Catalogue</a>
-      <a class="nav-link" href="about.html">About</a>
-      <a class="nav-link" href="contact.html">Contact Us</a>
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link active" href="catalogue">Catalogue</a>
+      <a class="nav-link" href="about">About</a>
+      <a class="nav-link" href="contact">Contact Us</a>
     </nav>
   </header>
 
@@ -700,7 +700,7 @@
             <div class="empty-icon"><i class="fa-solid fa-scale-balanced"></i></div>
             <h2>Nothing to Compare Yet</h2>
             <p>Browse our catalogue and add up to three cycles to compare them side by side.</p>
-            <a href="catalogue.html" class="browse-btn">
+            <a href="catalogue" class="browse-btn">
               <i class="fa-solid fa-bicycle"></i>
               Browse Cycles
             </a>
@@ -799,7 +799,7 @@
       const remainingSlots = 3 - products.length;
       for (let i = 0; i < remainingSlots; i++) {
         compareGrid.innerHTML += `
-          <div class="add-compare-card" onclick="window.location.href='catalogue.html'">
+          <div class="add-compare-card" onclick="window.location.href = '/catalogue'">
             <div class="add-icon">+</div>
             <div class="add-text">Add a Cycle</div>
             <div class="add-sub">Browse catalogue to add more cycles for comparison</div>
@@ -836,7 +836,7 @@
     document.getElementById('navSearchInput').addEventListener('keypress', e => {
       if (e.key === 'Enter') {
         const val = e.target.value.trim();
-        if (val) window.location.href = `catalogue.html?search=${encodeURIComponent(val)}`;
+        if (val) window.location.href = `catalogue?search=${encodeURIComponent(val)}`;
       }
     });
 
@@ -883,10 +883,10 @@
       </div>
       <div class="footer-column">
         <h3>Quick Links</h3>
-        <a href="index.html">Home</a>
-        <a href="catalogue.html">Catalogue</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
+        <a href="/">Home</a>
+        <a href="catalogue">Catalogue</a>
+        <a href="about">About Us</a>
+        <a href="contact">Contact</a>
       </div>
       <div class="footer-column">
         <h3>Contact Info</h3>

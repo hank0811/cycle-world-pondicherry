@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -243,13 +243,13 @@
       <span class="sidebar-brand-text">Cycle World</span>
     </div>
     <nav class="sidebar-nav">
-      <a href="admin.html" class="sidebar-link">
+      <a href="admin" class="sidebar-link">
         <i class="fa-solid fa-box"></i><span>Products</span>
       </a>
-      <a href="offers.html" class="sidebar-link">
+      <a href="offers" class="sidebar-link">
         <i class="fa-solid fa-tags"></i><span>Offers</span>
       </a>
-      <a href="analytics.html" class="sidebar-link active">
+      <a href="analytics" class="sidebar-link active">
         <i class="fa-solid fa-chart-line"></i><span>Analytics</span>
       </a>
     </nav>
@@ -371,7 +371,7 @@
     function getSession() {
       try { return JSON.parse(localStorage.getItem(SESSION_KEY)); } catch(e) { return null; }
     }
-    if (!getSession()) { window.location.href = 'admin_login.html'; }
+    if (!getSession()) { window.location.href = '/admin_login'; }
 
     async function logout() {
       const s = getSession();
@@ -382,7 +382,7 @@
         }).catch(() => {});
       }
       localStorage.removeItem(SESSION_KEY);
-      window.location.href = 'admin_login.html';
+      window.location.href = '/admin_login';
     }
 
     function fmt(n) { return Number(n).toLocaleString('en-IN'); }

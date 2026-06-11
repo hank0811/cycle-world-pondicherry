@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -187,7 +187,7 @@
     <div class="divider"></div>
 
     <div class="back-link">
-      <a href="index.html"><i class="fa-solid fa-arrow-left"></i>&nbsp; Back to Cycle World</a>
+      <a href="/"><i class="fa-solid fa-arrow-left"></i>&nbsp; Back to Cycle World</a>
     </div>
 
     <div class="secure-note">
@@ -211,7 +211,7 @@
 
     async function checkSession() {
       const { data: { session } } = await supabaseClient.auth.getSession();
-      if (session) { window.location.href = 'admin.html'; }
+      if (session) { window.location.href = '/admin'; }
     }
 
     checkSession();
@@ -238,7 +238,7 @@
         return;
       }
 
-      window.location.href = 'admin.html';
+      window.location.href = '/admin';
     });
   </script>
 

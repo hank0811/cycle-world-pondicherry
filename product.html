@@ -4,7 +4,7 @@
   <link rel="icon" type="image/png" href="logo.webp" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="canonical" href="https://cycleworldpondicherry.in/product.html" />
+  <link rel="canonical" href="https://cycleworldpondicherry.in/product" />
   <title>Product Details | Cycle World Pondicherry</title>
   <meta name="description" content="View detailed specifications, pricing and images for premium cycles at Cycle World Pondicherry.">
   <meta property="og:type" content="product">
@@ -591,21 +591,21 @@
   <header class="navbar" id="navbar">
     <div class="nav-container">
       <div class="nav-left">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link active" href="catalogue.html">Catalogue</a>
-        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link active" href="catalogue">Catalogue</a>
+        <a class="nav-link" href="about">About</a>
       </div>
       <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
         <i class="fa-solid fa-bars"></i>
       </button>
-      <a class="nav-logo" href="index.html">
+      <a class="nav-logo" href="/">
         <img src="logo.webp" alt="Cycle World Pondicherry">
       </a>
       <div class="nav-right">
         <button class="nav-search-btn" onclick="openNavSearch()" aria-label="Search">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <a class="nav-cta" href="contact.html">Contact Us</a>
+        <a class="nav-cta" href="contact">Contact Us</a>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
           <span class="toggle-thumb"></span>
           <span class="icon-sun">&#9728;&#65038;</span>
@@ -614,10 +614,10 @@
       </div>
     </div>
     <nav class="mobile-nav" id="mobileMenu">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link active" href="catalogue.html">Catalogue</a>
-      <a class="nav-link" href="about.html">About</a>
-      <a class="nav-link" href="contact.html">Contact Us</a>
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link active" href="catalogue">Catalogue</a>
+      <a class="nav-link" href="about">About</a>
+      <a class="nav-link" href="contact">Contact Us</a>
     </nav>
   </header>
 
@@ -632,9 +632,9 @@
   <!-- PAGE -->
   <section class="page-container">
     <div class="breadcrumb">
-      <a href="index.html">Home</a>
+      <a href="/">Home</a>
       <i class="fa-solid fa-chevron-right"></i>
-      <a href="catalogue.html">Catalogue</a>
+      <a href="catalogue">Catalogue</a>
       <i class="fa-solid fa-chevron-right"></i>
       <span id="breadcrumbProductName">Product</span>
     </div>
@@ -831,7 +831,7 @@
               <div class="related-brand">${product.brand}</div>
               <h3>${product.name}</h3>
               <div class="related-price">&#8377;${product.price}</div>
-              <a class="view-btn" href="product.html?id=${product.id}">View Product</a>
+              <a class="view-btn" href="product?id=${product.id}">View Product</a>
             </div>
           </div>`;
       });
@@ -913,7 +913,7 @@
     document.getElementById('navSearchInput').addEventListener('keypress', e => {
       if (e.key === 'Enter') {
         const val = e.target.value.trim();
-        if (val) window.location.href = `catalogue.html?search=${encodeURIComponent(val)}`;
+        if (val) window.location.href = `catalogue?search=${encodeURIComponent(val)}`;
       }
     });
 
@@ -953,10 +953,10 @@
       </div>
       <div class="footer-column">
         <h3>Quick Links</h3>
-        <a href="index.html">Home</a>
-        <a href="catalogue.html">Catalogue</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
+        <a href="/">Home</a>
+        <a href="catalogue">Catalogue</a>
+        <a href="about">About Us</a>
+        <a href="contact">Contact</a>
       </div>
       <div class="footer-column">
         <h3>Contact Info</h3>

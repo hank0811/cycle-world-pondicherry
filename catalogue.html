@@ -4,7 +4,7 @@
   <link rel="icon" type="image/png" href="logo.webp" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="canonical" href="https://cycleworldpondicherry.in/catalogue.html" />
+  <link rel="canonical" href="https://cycleworldpondicherry.in/catalogue" />
   <title>Buy Cycles in Pondicherry | Road Bikes, Mountain Bikes, Kids Cycles | Cycle World</title>
   <meta name="description" content="Shop 500+ bicycles in Pondicherry. Cycle World stocks road bikes, mountain bikes, hybrid cycles & kids cycles from Hero, Hercules, Atlas, Avon, GSports & Schnell. Best cycle prices in Puducherry. Visit Mudaliarpet.">
   <meta property="og:type" content="website">
@@ -687,21 +687,21 @@
   <header class="navbar" id="navbar">
     <div class="nav-container">
       <div class="nav-left">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link active" href="catalogue.html">Catalogue</a>
-        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link active" href="catalogue">Catalogue</a>
+        <a class="nav-link" href="about">About</a>
       </div>
       <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
         <i class="fa-solid fa-bars"></i>
       </button>
-      <a class="nav-logo" href="index.html">
+      <a class="nav-logo" href="/">
         <img src="logo.webp" alt="Cycle World Pondicherry">
       </a>
       <div class="nav-right">
         <button class="nav-search-btn" onclick="openNavSearch()" aria-label="Search">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <a class="nav-cta" href="contact.html">Contact Us</a>
+        <a class="nav-cta" href="contact">Contact Us</a>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
           <span class="toggle-thumb"></span>
           <span class="icon-sun">&#9728;&#65038;</span>
@@ -710,10 +710,10 @@
       </div>
     </div>
     <nav class="mobile-nav" id="mobileMenu">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link active" href="catalogue.html">Catalogue</a>
-      <a class="nav-link" href="about.html">About</a>
-      <a class="nav-link" href="contact.html">Contact Us</a>
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link active" href="catalogue">Catalogue</a>
+      <a class="nav-link" href="about">About</a>
+      <a class="nav-link" href="contact">Contact Us</a>
     </nav>
   </header>
 
@@ -805,7 +805,7 @@
         </div>
         <div class="results-top-bar">
           <div class="results-text" id="resultsText"></div>
-          <button class="compare-top-btn" onclick="window.location.href='compare.html'">
+          <button class="compare-top-btn" onclick="window.location.href = '/compare'">
             Compare Products
             <span class="compare-count" id="compareCount">0</span>
           </button>
@@ -885,7 +885,7 @@
 
         productGrid.innerHTML += `
           <div class="product-card">
-            <a href="product.html?id=${product.id}" class="product-link">
+            <a href="product?id=${product.id}" class="product-link">
               <div class="product-image">
                 ${offer ? `<div class="offer-tag">${discount}% OFF</div>` : ''}
                 <img src="${product.image}" />
@@ -898,7 +898,7 @@
                   ${product.stock ? 'In Stock' : 'Out of Stock'}
                 </div>
               </div>
-              <a href="product.html?id=${product.id}" class="product-link">
+              <a href="product?id=${product.id}" class="product-link">
                 <h3>${product.name}</h3>
               </a>
               <div class="product-price-wrap">
@@ -1059,7 +1059,7 @@
     document.getElementById('navSearchInput').addEventListener('keypress', e => {
       if (e.key === 'Enter') {
         const val = e.target.value.trim();
-        if (val) window.location.href = `catalogue.html?search=${encodeURIComponent(val)}`;
+        if (val) window.location.href = `catalogue?search=${encodeURIComponent(val)}`;
       }
     });
 
@@ -1110,10 +1110,10 @@
       </div>
       <div class="footer-column">
         <h3>Quick Links</h3>
-        <a href="index.html">Home</a>
-        <a href="catalogue.html">Catalogue</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
+        <a href="/">Home</a>
+        <a href="catalogue">Catalogue</a>
+        <a href="about">About Us</a>
+        <a href="contact">Contact</a>
       </div>
       <div class="footer-column">
         <h3>Contact Info</h3>

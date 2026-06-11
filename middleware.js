@@ -1,5 +1,6 @@
 export const config = {
-  matcher: ['/', '/admin.html', '/admin_login.html', '/offers.html', '/analytics.html'],
+  matcher: ['/', '/admin', '/admin_login', '/offers', '/analytics',
+            '/admin.html', '/admin_login.html', '/offers.html', '/analytics.html'],
 };
 
 export default function middleware(request) {
@@ -14,15 +15,18 @@ export default function middleware(request) {
   const isAdminDomain = hostname === 'admin.cycleworldpondicherry.in';
 
   // Block admin pages on main domain — redirect to admin subdomain
-  const adminPaths = ['/admin.html', '/admin_login.html', '/offers.html', '/analytics.html'];
+  const adminPaths = ['/admin', '/admin_login', '/offers', '/analytics',
+                      '/admin.html', '/admin_login.html', '/offers.html', '/analytics.html'];
   if (isMainDomain && adminPaths.includes(pathname)) {
     url.hostname = 'admin.cycleworldpondicherry.in';
+    // Normalise to clean path on admin subdomain
+    url.pathname = url.pathname.replace(/\.html$/, '');
     return Response.redirect(url.toString(), 301);
   }
 
   // On admin subdomain root → go to login page
   if (isAdminDomain && pathname === '/') {
-    url.pathname = '/admin_login.html';
+    url.pathname = '/admin_login';
     return Response.redirect(url.toString(), 302);
   }
 }
