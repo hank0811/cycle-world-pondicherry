@@ -1134,7 +1134,7 @@
       navbar.classList.toggle('scrolled', cur > 40);
       if (cur > prevScroll && cur > 72) {
         navbar.style.transform = 'translateY(-100%)';
-        if (ticker) ticker.style.transform = 'translateY(-100%)';
+        if (ticker) ticker.style.transform = 'translateY(calc(-100% - 72px))';
       } else {
         navbar.style.transform = 'translateY(0)';
         if (ticker) ticker.style.transform = 'translateY(0)';
