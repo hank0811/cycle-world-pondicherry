@@ -872,6 +872,7 @@
       products.forEach(product => {
         const offer = getProductOffer(product);
         let finalPrice = product.price;
+        let finalMaxPrice = product.price_max ? Number(product.price_max) : null;
         let originalPrice = null;
         let discount = null;
 
@@ -879,7 +880,14 @@
           originalPrice = product.price;
           discount = offer.discount;
           finalPrice = Math.round(Number(product.price) - (Number(product.price) * discount / 100));
+          if (finalMaxPrice) {
+            finalMaxPrice = Math.round(finalMaxPrice - (finalMaxPrice * discount / 100));
+          }
         }
+
+        const priceLabel = finalMaxPrice && finalMaxPrice > finalPrice
+          ? `&#8377;${finalPrice.toLocaleString('en-IN')} &ndash; &#8377;${finalMaxPrice.toLocaleString('en-IN')}`
+          : `&#8377;${finalPrice.toLocaleString('en-IN')}`;
 
         const colorsArray = product.colors ? product.colors.split(",") : [];
 
@@ -902,8 +910,8 @@
                 <h3>${product.name}</h3>
               </a>
               <div class="product-price-wrap">
-                <div class="product-price">&#8377;${finalPrice}</div>
-                ${originalPrice ? `<div class="old-price">&#8377;${originalPrice}</div>` : ''}
+                <div class="product-price">${priceLabel}</div>
+                ${originalPrice ? `<div class="old-price">&#8377;${originalPrice.toLocaleString('en-IN')}</div>` : ''}
               </div>
               <div class="product-colors">
                 ${colorsArray.map(color => `<span class="color-dot" style="background:${color.trim()}"></span>`).join("")}

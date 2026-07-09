@@ -1255,11 +1255,18 @@
       products.forEach(product => {
         const offer = getProductOffer(product);
         let finalPrice = Number(product.price);
+        let finalMaxPrice = product.price_max ? Number(product.price_max) : null;
         let originalPrice = null;
         if (offer) {
           originalPrice = Number(product.price);
           finalPrice = Math.round(Number(product.price) - (Number(product.price) * offer.discount / 100));
+          if (finalMaxPrice) {
+            finalMaxPrice = Math.round(finalMaxPrice - (finalMaxPrice * offer.discount / 100));
+          }
         }
+        const priceLabel = finalMaxPrice && finalMaxPrice > finalPrice
+          ? `&#8377;${finalPrice.toLocaleString('en-IN')} &ndash; &#8377;${finalMaxPrice.toLocaleString('en-IN')}`
+          : `&#8377;${finalPrice.toLocaleString('en-IN')}`;
         const whatsappMessage = encodeURIComponent(
           `Hello, I'm interested in ${product.brand} ${product.name}.\n\nCan I get more details about it...`
         );
@@ -1272,8 +1279,8 @@
     <p>${product.brand}</p>
     <div class="product-footer">
       <div class="price-wrap">
-        <div class="price">&#8377;${finalPrice}</div>
-        ${originalPrice ? `<div class="old-price">&#8377;${originalPrice}</div>` : ''}
+        <div class="price">${priceLabel}</div>
+        ${originalPrice ? `<div class="old-price">&#8377;${originalPrice.toLocaleString('en-IN')}</div>` : ''}
       </div>
       <a class="whatsapp-btn" onclick="event.stopPropagation()"
         href="https://wa.me/919043743880?text=${whatsappMessage}" target="_blank">Enquire</a>

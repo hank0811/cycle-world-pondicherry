@@ -710,13 +710,20 @@
     function renderProduct(product) {
       const offer = getProductOffer(product);
       let finalPrice = Number(product.price);
+      let finalMaxPrice = product.price_max ? Number(product.price_max) : null;
       let originalPrice = null;
       let discount = null;
       if (offer) {
         originalPrice = Number(product.price);
         discount = offer.discount;
         finalPrice = Math.round(Number(product.price) - (Number(product.price) * discount / 100));
+        if (finalMaxPrice) {
+          finalMaxPrice = Math.round(finalMaxPrice - (finalMaxPrice * discount / 100));
+        }
       }
+      const priceLabel = finalMaxPrice && finalMaxPrice > finalPrice
+        ? `&#8377;${finalPrice.toLocaleString('en-IN')} &ndash; &#8377;${finalMaxPrice.toLocaleString('en-IN')}`
+        : `&#8377;${finalPrice.toLocaleString('en-IN')}`;
 
       document.getElementById('breadcrumbProductName').innerText = product.name;
       document.title = `${product.name} | Cycle World Pondicherry`;
@@ -758,9 +765,9 @@
             </div>
 
             <div class="price-wrap">
-              <div class="price">&#8377;${finalPrice}</div>
+              <div class="price">${priceLabel}</div>
               ${originalPrice ? `
-                <div class="old-price">&#8377;${originalPrice}</div>
+                <div class="old-price">&#8377;${originalPrice.toLocaleString('en-IN')}</div>
                 <div class="discount-badge">${discount}% OFF</div>` : ''}
             </div>
 
@@ -830,7 +837,7 @@
             <div class="related-content">
               <div class="related-brand">${product.brand}</div>
               <h3>${product.name}</h3>
-              <div class="related-price">&#8377;${product.price}</div>
+              <div class="related-price">&#8377;${Number(product.price).toLocaleString('en-IN')}${(product.price_max && Number(product.price_max) > Number(product.price)) ? ' &ndash; &#8377;' + Number(product.price_max).toLocaleString('en-IN') : ''}</div>
               <a class="view-btn" href="product?id=${product.id}">View Product</a>
             </div>
           </div>`;

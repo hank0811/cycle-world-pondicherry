@@ -738,7 +738,7 @@
             <div class="compare-content">
               <div class="brand">${product.brand}</div>
               <h2 class="product-name">${product.name}</h2>
-              <div class="price">&#8377;${product.price}</div>
+              <div class="price">&#8377;${Number(product.price).toLocaleString('en-IN')}${(product.price_max && Number(product.price_max) > Number(product.price)) ? ' &ndash; &#8377;' + Number(product.price_max).toLocaleString('en-IN') : ''}</div>
 
               <div class="compare-rows">
                 <div class="compare-row">
